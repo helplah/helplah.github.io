@@ -1,0 +1,8 @@
+.navbar > li {
+  list-style-type: none; }
+
+.parent-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr; }
+
+/*# sourceMappingURL=style.css.map */
