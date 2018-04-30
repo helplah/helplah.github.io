@@ -3,6 +3,5 @@
 # hashtag to comment
 
 /.sass-cache
-index.css.map
-/assets
+style.css.map
 CNAME

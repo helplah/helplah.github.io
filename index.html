@@ -7,22 +7,54 @@
     <meta name='author' content='Jenssen Lee'>
     <meta name="description" content="Portfolio page">
     <title>Jenssen Lee</title>
-    <!-- Bootstrap CSS
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    -->
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
-    <nav class="navbar">
-      <li><a href="#">Testing</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Projects</a></li>
-    </nav>
-    <div class="parent-grid">
+    <header class="header">
+      <div class="header-logo"><a href="#">Logo</a></div>
+      <div class="header-links">
+        <ul>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="parent">
+      <section class="hero"></section>
+
+      <section class="projects">
+        <div class="container">
+          <div class="project">
+            <h2 class="project__heading">My Projects</h2>
+            <p class="project__intro">Below are some projects I've worked on:</p>
+            <div class="project__single grid">
+
+              <div class="project__img__wrapper">
+                <!--
+                <img class="project__img" src="./assets/flashcard-app.png" alt="Flashcard App img" >
+                -->
+                <a href="https://shrouded-taiga-52624.herokuapp.com/"><div class="project__img"></div></a>
+              </div>
+
+              <div class="project__description">
+                <h3>Flashcard App</h3>
+                <span class="stack">Front End:</span>
+                <p>HTML, SASS, React, Redux, Material UI, CSS Grid, Flexbox</p>
+                <span class="stack">Back End:</span>
+                <p>Node.js, Express, MongoDB, Mongoose, Passport.js, Auth0, Mocha</p>
+                <br>
+                <p>I used HTML, SASS, CSS Grid, React, Node.js and Express.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="about"></section>
-      <section class="projects"></section>
-    </div>
+    </main>
 
 	</body>
 </html>
