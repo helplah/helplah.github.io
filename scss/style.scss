@@ -1,0 +1,127 @@
+$hero-bg-color: #a7cfdd;
+$projects-bg-color: #e3e8eb;
+$first-project-bg: #ffacba;
+  $first-project-color: #e3677c;
+$second-project-bg: #f8ce6a;
+$second-project-color: #f69f09;
+$third-project-bg: #88cf8f;
+$third-project-color: #31aa53;
+$fourth-project-bg: #ca99d7;
+$fourth-project-color: #a857bd;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  padding: 4rem;
+  width: 100%;
+  justify-content: space-between;
+
+  &-logo {
+
+  }
+
+  &-links {
+    position: relative;
+
+  }
+}
+
+ul {
+
+
+  > li {
+    display: inline-block;
+    list-style-type: none;
+
+    &:not(:last-child) {
+      margin-right: 5rem;
+    }
+  }
+}
+
+.parent {
+
+}
+
+.hero {
+  height: 100vh;
+  background-color: $hero-bg-color;
+}
+
+.projects {
+  background-color: $projects-bg-color;
+  height: 100%;
+  padding-top: 10rem;
+}
+
+.project {
+
+  &__heading {
+
+  }
+
+  &__intro {
+    padding-bottom: 8rem;
+  }
+
+  &__single {
+    border-radius: 0.5rem;
+    background-color: $first-project-bg;
+    padding-bottom: 5.5rem;
+    margin-bottom: 8rem;
+  }
+
+  &__description {
+    background-color: #fff;
+    margin-top: -3.2rem;
+    margin-right: calc(8.3% + .8% / 2);
+    border-radius: 0.5rem;
+    padding: 4rem;
+
+    > p {
+      color: #000;
+    }
+
+    > h3 {
+      color: $first-project-color;
+      padding: 1rem 0;
+    }
+
+    > .stack {
+      font-weight: 700;
+    }
+  }
+
+  &__img {
+    //display: block;
+    //max-width: 100%;
+    background-image: url(./assets/flashcard-app.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 100%;
+
+    &__wrapper {
+      padding: 0 3rem;
+      //max-height: 100%;
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about {
+
+}
