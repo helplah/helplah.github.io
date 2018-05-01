@@ -13,53 +13,76 @@ body {
   .header-links {
     position: relative; }
 
-ul > li {
-  display: inline-block;
-  list-style-type: none; }
-  ul > li:not(:last-child) {
-    margin-right: 5rem; }
-
 .hero {
   height: 100vh;
   background-color: #a7cfdd; }
 
+li {
+  display: inline-block;
+  list-style: none; }
+
+.header-links ul > li:not(:last-child) {
+  margin-right: 5rem; }
+
 .projects {
   background-color: #e3e8eb;
   height: 100%;
-  padding-top: 10rem; }
+  padding-top: 8rem;
+  padding-bottom: 7rem; }
+  .projects__heading {
+    font-size: 3rem;
+    padding: 0 8rem;
+    margin-bottom: 3rem; }
+  .projects__flex {
+    display: flex;
+    padding-left: 0; }
+  .projects__li {
+    height: 78vh;
+    filter: grayscale(100%);
+    transition: all .5s ease-in-out .25s; }
+    .projects__li:hover {
+      filter: grayscale(0%); }
+  .projects__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    outline: #e3e8eb solid 4px; }
 
-.project__intro {
-  padding-bottom: 8rem; }
-.project__single {
-  border-radius: 0.5rem;
-  background-color: #ffacba;
-  padding-bottom: 5.5rem;
-  margin-bottom: 8rem; }
-.project__description {
-  background-color: #fff;
-  margin-top: -3.2rem;
-  margin-right: calc(8.3% + .8% / 2);
-  border-radius: 0.5rem;
-  padding: 4rem; }
-  .project__description > p {
-    color: #000; }
-  .project__description > h3 {
-    color: #e3677c;
-    padding: 1rem 0; }
-  .project__description > .stack {
-    font-weight: 700; }
-.project__img {
-  background-image: url(./assets/flashcard-app.png);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  max-width: 100%;
-  height: 100%; }
-  .project__img__wrapper {
-    padding: 0 3rem; }
+#projects-li0 {
+  flex: 11; }
+  #projects-li0:hover {
+    flex: 75; }
+#projects-li1 {
+  flex: 8; }
+  #projects-li1:hover {
+    flex: 75; }
+#projects-li2 {
+  flex: 6; }
+  #projects-li2:hover {
+    flex: 75; }
+#projects-li3 {
+  flex: 4; }
+  #projects-li3:hover {
+    flex: 75; }
+#projects-li4 {
+  flex: 2; }
+  #projects-li4:hover {
+    flex: 75; }
+#projects-img0 {
+  background-image: url(./assets/flashcard-app.png); }
+#projects-img1 {
+  background-image: url(./assets/tribute-page.png); }
+#projects-img2 {
+  background-image: url(./assets/twitch-tv.png); }
+#projects-img3 {
+  background-image: url(./assets/react-wikipedia.png); }
+#projects-img4 {
+  background-image: url(./assets/react-quote-machine.png); }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; }
+.about__heading {
+  font-size: 3rem;
+  margin: 3rem 0; }
 
 /*# sourceMappingURL=style.css.map */
