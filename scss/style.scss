@@ -1,19 +1,17 @@
 $hero-bg-color: #a7cfdd;
 $projects-bg-color: #e3e8eb;
-$first-project-bg: #ffacba;
-  $first-project-color: #e3677c;
-$second-project-bg: #f8ce6a;
-$second-project-color: #f69f09;
-$third-project-bg: #88cf8f;
-$third-project-color: #31aa53;
-$fourth-project-bg: #ca99d7;
-$fourth-project-color: #a857bd;
+$flex-grow-no: 75;
+$about-bg-color: #ecce4f;
+$ribbon-bg-color: #3498db;
+$ribbon-wrap-bg: #2980b9;
 
 html {
   font-size: 62.5%;
 }
 
 body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
   font-size: 1.6rem;
 }
 
@@ -25,7 +23,7 @@ body {
   justify-content: space-between;
 
   &-logo {
-
+    // might need
   }
 
   &-links {
@@ -34,12 +32,160 @@ body {
   }
 }
 
-ul {
+.hero {
+  height: 100vh;
+  background-color: $hero-bg-color;
+}
 
+li {
+  display: inline-block;
+  list-style: none;
+}
 
-  > li {
-    display: inline-block;
-    list-style-type: none;
+.header-links ul > li:not(:last-child) {
+  margin-right: 5rem;
+}
+
+.projects {
+  background-color: $projects-bg-color;
+  height: 100%;
+  padding-top: 7rem;
+  padding-bottom: 9rem;
+
+  &__heading {
+    font-size: 3rem;
+    padding: 0 4rem;
+    margin-bottom: 3rem;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 68px;
+      height: 8px;
+      background-color: $about-bg-color;
+      margin-top: 7px;
+      margin-left: -33px;
+    }
+  }
+
+  &__wrapper {
+
+  }
+
+  &__flex {
+    display: flex;
+    //flex-wrap: wrap;
+    padding-left: 0;
+  }
+
+  &__li {
+    height: 78vh;
+    filter: grayscale(100%);
+    transition: all .5s ease-in-out .25s;
+
+    &:hover {
+      filter: grayscale(0%);
+    }
+  }
+
+  &__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    outline: $projects-bg-color solid 4px;
+  }
+}
+
+#projects {
+  &-li {
+    &0 {
+      flex: 11;
+      &:hover {
+        flex: $flex-grow-no;
+      }
+    }
+
+    &1 {
+      flex: 8;
+      &:hover {
+        flex: $flex-grow-no;
+      }
+    }
+
+    &2 {
+      flex: 6;
+      &:hover {
+        flex: $flex-grow-no;
+      }
+    }
+
+    &3 {
+      flex: 4;
+      &:hover {
+        flex: $flex-grow-no;
+      }
+    }
+
+    &4 {
+      flex: 2;
+      &:hover {
+        flex: $flex-grow-no;
+      }
+    }
+  }
+
+  &-img0 {
+    background-image: url(./assets/flashcard-app.png);
+  }
+
+  &-img1 {
+    background-image: url(./assets/tribute-page.png);
+  }
+
+  &-img2 {
+    background-image: url(./assets/twitch-tv.png);
+  }
+
+  &-img3 {
+    background-image: url(./assets/react-wikipedia.png);
+  }
+
+  &-img4 {
+    background-image: url(./assets/react-quote-machine.png);
+  }
+}
+
+.about {
+  background-color: $about-bg-color;
+  padding: 12rem;
+
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  &__container {
+    // margin-top: 4rem;
+    position: relative;
+    padding: 9rem;
+    background-color: white;
+    width: 70%;
+  }
+}
+
+.footer__hr {
+  margin-top: 0;
+}
+
+.social-media__ul {
+  text-align: center;
+  padding-left: 0;
+
+  & > li {
+    width: 38px;
+    height: 38px;
 
     &:not(:last-child) {
       margin-right: 5rem;
@@ -47,81 +193,159 @@ ul {
   }
 }
 
-.parent {
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
 
+  /* ::before and ::after border color transparent doesn't work */
+
+  &--top--left {
+    top: -10px;
+    left: -10px;
+
+    div {
+      left: -50px;
+      top: 30px;
+      transform: rotate(-45deg);
+    }
+    &::before, &::after {
+      border-top-color: transparent;
+      border-left-color: transparent;
+    }
+    &::before {
+      top: 0;
+      right: 0;
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &--top--right {
+    top: -10px;
+    right: -10px;
+
+    div {
+      right: -50px;
+      top: 30px;
+      transform: rotate(45deg);
+    }
+    &::before, &::after {
+      border-top-color: transparent;
+      border-right-color: transparent;
+    }
+    &::before {
+      top: 0;
+      left: 0;
+    }
+    &::after {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  &--btm--left {
+    bottom: -10px;
+    left: -10px;
+
+    div {
+      left: -56px;
+      top: 65px; //65-67
+      transform: rotate(225deg);
+    }
+    &::before, &::after {
+      border-bottom-color: transparent;
+      border-left-color: transparent;
+    }
+    &::before {
+      bottom: 0;
+      right: 0;
+    }
+    &::after {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &--btm--right {
+    bottom: -10px;
+    right: -10px;
+
+    div {
+      right: -56px;
+      top: 65px; //65-67
+      transform: rotate(135deg);
+    }
+    &::before, &::after {
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+    }
+    &::before {
+      top: 0;
+      right: 0;
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  > div {
+    position: absolute;
+    width: 225px;
+    height: 32%;
+    background-color: $ribbon-bg-color;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    // below styling for text
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 11px 0;
+  }
+
+  &::before, &::after {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    //display: block;
+    border: 5px solid $ribbon-wrap-bg;
+  }
 }
 
-.hero {
-  height: 100vh;
-  background-color: $hero-bg-color;
-}
-
-.projects {
-  background-color: $projects-bg-color;
-  height: 100%;
-  padding-top: 10rem;
-}
-
-.project {
+.skills {
+  padding: 5rem;
 
   &__heading {
-
+    font-size: 3rem;
+    margin-bottom: 3rem;
   }
 
-  &__intro {
-    padding-bottom: 8rem;
-  }
+  &__ul {
+    //padding-left: 0;
 
-  &__single {
-    border-radius: 0.5rem;
-    background-color: $first-project-bg;
-    padding-bottom: 5.5rem;
-    margin-bottom: 8rem;
-  }
+    & li {
+      text-align: center;
 
-  &__description {
-    background-color: #fff;
-    margin-top: -3.2rem;
-    margin-right: calc(8.3% + .8% / 2);
-    border-radius: 0.5rem;
-    padding: 4rem;
+      &:last-child > img {
+        width: 100px;
+      }
 
-    > p {
-      color: #000;
-    }
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
 
-    > h3 {
-      color: $first-project-color;
-      padding: 1rem 0;
-    }
+      &:not(:last-child) > img {
+        width: 100px;
+        height: 100px;
+      }
 
-    > .stack {
-      font-weight: 700;
+      & > div {
+        margin-bottom: 3rem;
+      }
     }
   }
-
-  &__img {
-    //display: block;
-    //max-width: 100%;
-    background-image: url(./assets/flashcard-app.png);
-    background-position: center center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    max-width: 100%;
-    height: 100%;
-
-    &__wrapper {
-      padding: 0 3rem;
-      //max-height: 100%;
-    }
-  }
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.about {
-
 }

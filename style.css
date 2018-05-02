@@ -2,6 +2,8 @@ html {
   font-size: 62.5%; }
 
 body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.5;
   font-size: 1.6rem; }
 
 .header {
@@ -13,53 +15,208 @@ body {
   .header-links {
     position: relative; }
 
-ul > li {
-  display: inline-block;
-  list-style-type: none; }
-  ul > li:not(:last-child) {
-    margin-right: 5rem; }
-
 .hero {
   height: 100vh;
   background-color: #a7cfdd; }
 
+li {
+  display: inline-block;
+  list-style: none; }
+
+.header-links ul > li:not(:last-child) {
+  margin-right: 5rem; }
+
 .projects {
   background-color: #e3e8eb;
   height: 100%;
-  padding-top: 10rem; }
+  padding-top: 7rem;
+  padding-bottom: 9rem; }
+  .projects__heading {
+    font-size: 3rem;
+    padding: 0 4rem;
+    margin-bottom: 3rem; }
+    .projects__heading::after {
+      display: block;
+      content: "";
+      width: 68px;
+      height: 8px;
+      background-color: #ecce4f;
+      margin-top: 7px;
+      margin-left: -33px; }
+  .projects__flex {
+    display: flex;
+    padding-left: 0; }
+  .projects__li {
+    height: 78vh;
+    filter: grayscale(100%);
+    transition: all .5s ease-in-out .25s; }
+    .projects__li:hover {
+      filter: grayscale(0%); }
+  .projects__img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    outline: #e3e8eb solid 4px; }
 
-.project__intro {
-  padding-bottom: 8rem; }
-.project__single {
-  border-radius: 0.5rem;
-  background-color: #ffacba;
-  padding-bottom: 5.5rem;
-  margin-bottom: 8rem; }
-.project__description {
-  background-color: #fff;
-  margin-top: -3.2rem;
-  margin-right: calc(8.3% + .8% / 2);
-  border-radius: 0.5rem;
-  padding: 4rem; }
-  .project__description > p {
-    color: #000; }
-  .project__description > h3 {
-    color: #e3677c;
-    padding: 1rem 0; }
-  .project__description > .stack {
-    font-weight: 700; }
-.project__img {
-  background-image: url(./assets/flashcard-app.png);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  max-width: 100%;
-  height: 100%; }
-  .project__img__wrapper {
-    padding: 0 3rem; }
+#projects-li0 {
+  flex: 11; }
+  #projects-li0:hover {
+    flex: 75; }
+#projects-li1 {
+  flex: 8; }
+  #projects-li1:hover {
+    flex: 75; }
+#projects-li2 {
+  flex: 6; }
+  #projects-li2:hover {
+    flex: 75; }
+#projects-li3 {
+  flex: 4; }
+  #projects-li3:hover {
+    flex: 75; }
+#projects-li4 {
+  flex: 2; }
+  #projects-li4:hover {
+    flex: 75; }
+#projects-img0 {
+  background-image: url(./assets/flashcard-app.png); }
+#projects-img1 {
+  background-image: url(./assets/tribute-page.png); }
+#projects-img2 {
+  background-image: url(./assets/twitch-tv.png); }
+#projects-img3 {
+  background-image: url(./assets/react-wikipedia.png); }
+#projects-img4 {
+  background-image: url(./assets/react-quote-machine.png); }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr; }
+.about {
+  background-color: #ecce4f;
+  padding: 12rem; }
+  .about__heading {
+    font-size: 3rem;
+    margin-bottom: 2rem; }
+  .about__container {
+    position: relative;
+    padding: 9rem;
+    background-color: white;
+    width: 70%; }
+
+.footer__hr {
+  margin-top: 0; }
+
+.social-media__ul {
+  text-align: center;
+  padding-left: 0; }
+  .social-media__ul > li {
+    width: 38px;
+    height: 38px; }
+    .social-media__ul > li:not(:last-child) {
+      margin-right: 5rem; }
+
+.ribbon {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  position: absolute;
+  /* ::before and ::after border color transparent doesn't work */ }
+  .ribbon--top--left {
+    top: -10px;
+    left: -10px; }
+    .ribbon--top--left div {
+      left: -50px;
+      top: 30px;
+      transform: rotate(-45deg); }
+    .ribbon--top--left::before, .ribbon--top--left::after {
+      border-top-color: transparent;
+      border-left-color: transparent; }
+    .ribbon--top--left::before {
+      top: 0;
+      right: 0; }
+    .ribbon--top--left::after {
+      bottom: 0;
+      left: 0; }
+  .ribbon--top--right {
+    top: -10px;
+    right: -10px; }
+    .ribbon--top--right div {
+      right: -50px;
+      top: 30px;
+      transform: rotate(45deg); }
+    .ribbon--top--right::before, .ribbon--top--right::after {
+      border-top-color: transparent;
+      border-right-color: transparent; }
+    .ribbon--top--right::before {
+      top: 0;
+      left: 0; }
+    .ribbon--top--right::after {
+      bottom: 0;
+      right: 0; }
+  .ribbon--btm--left {
+    bottom: -10px;
+    left: -10px; }
+    .ribbon--btm--left div {
+      left: -56px;
+      top: 65px;
+      transform: rotate(225deg); }
+    .ribbon--btm--left::before, .ribbon--btm--left::after {
+      border-bottom-color: transparent;
+      border-left-color: transparent; }
+    .ribbon--btm--left::before {
+      bottom: 0;
+      right: 0; }
+    .ribbon--btm--left::after {
+      top: 0;
+      left: 0; }
+  .ribbon--btm--right {
+    bottom: -10px;
+    right: -10px; }
+    .ribbon--btm--right div {
+      right: -56px;
+      top: 65px;
+      transform: rotate(135deg); }
+    .ribbon--btm--right::before, .ribbon--btm--right::after {
+      border-bottom-color: transparent;
+      border-right-color: transparent; }
+    .ribbon--btm--right::before {
+      top: 0;
+      right: 0; }
+    .ribbon--btm--right::after {
+      bottom: 0;
+      left: 0; }
+  .ribbon > div {
+    position: absolute;
+    width: 225px;
+    height: 32%;
+    background-color: #3498db;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    color: white;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    padding: 11px 0; }
+  .ribbon::before, .ribbon::after {
+    position: absolute;
+    z-index: 0;
+    content: "";
+    border: 5px solid #2980b9; }
+
+.skills {
+  padding: 5rem; }
+  .skills__heading {
+    font-size: 3rem;
+    margin-bottom: 3rem; }
+  .skills__ul li {
+    text-align: center; }
+    .skills__ul li:last-child > img {
+      width: 100px; }
+    .skills__ul li:not(:last-child) {
+      margin-right: 3rem; }
+    .skills__ul li:not(:last-child) > img {
+      width: 100px;
+      height: 100px; }
+    .skills__ul li > div {
+      margin-bottom: 3rem; }
 
 /*# sourceMappingURL=style.css.map */
