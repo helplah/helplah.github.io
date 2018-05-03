@@ -1,4 +1,4 @@
-$hero-bg-color: #a7cfdd;
+$hero-bg-color: #607D8B;
 $projects-bg-color: #e3e8eb;
 $flex-grow-no: 75;
 $about-bg-color: #ecce4f;
@@ -13,6 +13,7 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
+  //background-color: $hero-bg-color;
 }
 
 .header {
@@ -22,17 +23,29 @@ body {
   width: 100%;
   justify-content: space-between;
 
-  &-logo {
-    // might need
+  &__logo {
+    width: 40px;
+    height: 40px;
   }
 
-  &-links {
+  &__links {
     position: relative;
 
+    ul > li {
+      font-size: 2rem;
+
+      a {
+        color: #fff;
+      }
+    }
+
+    ul > li:not(:last-child) {
+      margin-right: 5rem;
+    }
   }
 }
 
-.hero {
+#hero {
   height: 100vh;
   background-color: $hero-bg-color;
 }
@@ -42,16 +55,14 @@ li {
   list-style: none;
 }
 
-.header-links ul > li:not(:last-child) {
-  margin-right: 5rem;
-}
-
-.projects {
+#projects {
   background-color: $projects-bg-color;
   height: 100%;
   padding-top: 7rem;
   padding-bottom: 9rem;
+}
 
+.projects {
   &__heading {
     font-size: 3rem;
     padding: 0 4rem;
@@ -157,9 +168,12 @@ li {
   }
 }
 
-.about {
+#about {
   background-color: $about-bg-color;
   padding: 12rem;
+}
+
+.about {
 
   &__heading {
     font-size: 3rem;
@@ -183,7 +197,7 @@ li {
   text-align: center;
   padding-left: 0;
 
-  & > li {
+  > li {
     width: 38px;
     height: 38px;
 
@@ -206,7 +220,7 @@ li {
     left: -10px;
 
     div {
-      left: -50px;
+      right: -25px;
       top: 30px;
       transform: rotate(-45deg);
     }
@@ -229,7 +243,7 @@ li {
     right: -10px;
 
     div {
-      right: -50px;
+      left: -25px;
       top: 30px;
       transform: rotate(45deg);
     }
@@ -252,9 +266,9 @@ li {
     left: -10px;
 
     div {
-      left: -56px;
-      top: 65px; //65-67
-      transform: rotate(225deg);
+      right: -25px;
+      bottom: 30px;
+      transform: rotate(45deg);
     }
     &::before, &::after {
       border-bottom-color: transparent;
@@ -275,9 +289,9 @@ li {
     right: -10px;
 
     div {
-      right: -56px;
-      top: 65px; //65-67
-      transform: rotate(135deg);
+      left: -25px;
+      bottom: 30px;
+      transform: rotate(-45deg);
     }
     &::before, &::after {
       border-bottom-color: transparent;
@@ -303,8 +317,13 @@ li {
     // below styling for text
     color: white;
     text-align: center;
+    // does this works?
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
     padding: 11px 0;
+
+    &:nth-last-child(-n+2) {
+      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+    }
   }
 
   &::before, &::after {
@@ -316,8 +335,12 @@ li {
   }
 }
 
-.skills {
+#skills {
   padding: 5rem;
+
+}
+
+.skills {
 
   &__heading {
     font-size: 3rem;
@@ -327,8 +350,9 @@ li {
   &__ul {
     //padding-left: 0;
 
-    & li {
+    > li {
       text-align: center;
+      margin-bottom: 3rem;
 
       &:last-child > img {
         width: 100px;
@@ -341,10 +365,6 @@ li {
       &:not(:last-child) > img {
         width: 100px;
         height: 100px;
-      }
-
-      & > div {
-        margin-bottom: 3rem;
       }
     }
   }
