@@ -4,7 +4,9 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+  background-color: #0D488A;
+  color: #151515; }
 
 .header {
   position: absolute;
@@ -20,23 +22,71 @@ body {
     .header__links ul > li {
       font-size: 2rem; }
       .header__links ul > li a {
-        color: #fff; }
+        color: #eaeaea; }
     .header__links ul > li:not(:last-child) {
       margin-right: 5rem; }
 
 #hero {
-  height: 100vh;
-  background-color: #607D8B; }
+  height: 100vh; }
 
 li {
   display: inline-block;
   list-style: none; }
 
+#skills {
+  background-color: #eaeaea;
+  color: #151515;
+  padding: 5rem; }
+
+.skills__heading {
+  font-size: 3rem;
+  margin-bottom: 3rem; }
+.skills__ul > li {
+  text-align: center;
+  margin-bottom: 3rem; }
+  .skills__ul > li:last-child > img {
+    width: 100px; }
+  .skills__ul > li:not(:last-child) {
+    margin-right: 3rem; }
+  .skills__ul > li:not(:last-child) > img {
+    width: 100px;
+    height: 100px; }
+
 #projects {
-  background-color: #e3e8eb;
+  color: #eaeaea;
   height: 100%;
   padding-top: 7rem;
   padding-bottom: 9rem; }
+  #projects-li0 {
+    flex: 11; }
+    #projects-li0:hover {
+      flex: 75; }
+  #projects-li1 {
+    flex: 8; }
+    #projects-li1:hover {
+      flex: 75; }
+  #projects-li2 {
+    flex: 6; }
+    #projects-li2:hover {
+      flex: 75; }
+  #projects-li3 {
+    flex: 4; }
+    #projects-li3:hover {
+      flex: 75; }
+  #projects-li4 {
+    flex: 2; }
+    #projects-li4:hover {
+      flex: 75; }
+  #projects-img0 {
+    background-image: url(./assets/flashcard-app.png); }
+  #projects-img1 {
+    background-image: url(./assets/tribute-page.png); }
+  #projects-img2 {
+    background-image: url(./assets/twitch-tv.png); }
+  #projects-img3 {
+    background-image: url(./assets/react-wikipedia.png); }
+  #projects-img4 {
+    background-image: url(./assets/react-quote-machine.png); }
 
 .projects__heading {
   font-size: 3rem;
@@ -47,7 +97,7 @@ li {
     content: "";
     width: 68px;
     height: 8px;
-    background-color: #ecce4f;
+    background-color: #FB9902;
     margin-top: 7px;
     margin-left: -33px; }
 .projects__flex {
@@ -65,41 +115,10 @@ li {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  outline: #e3e8eb solid 4px; }
-
-#projects-li0 {
-  flex: 11; }
-  #projects-li0:hover {
-    flex: 75; }
-#projects-li1 {
-  flex: 8; }
-  #projects-li1:hover {
-    flex: 75; }
-#projects-li2 {
-  flex: 6; }
-  #projects-li2:hover {
-    flex: 75; }
-#projects-li3 {
-  flex: 4; }
-  #projects-li3:hover {
-    flex: 75; }
-#projects-li4 {
-  flex: 2; }
-  #projects-li4:hover {
-    flex: 75; }
-#projects-img0 {
-  background-image: url(./assets/flashcard-app.png); }
-#projects-img1 {
-  background-image: url(./assets/tribute-page.png); }
-#projects-img2 {
-  background-image: url(./assets/twitch-tv.png); }
-#projects-img3 {
-  background-image: url(./assets/react-wikipedia.png); }
-#projects-img4 {
-  background-image: url(./assets/react-quote-machine.png); }
+  outline: #0D488A solid 4px; }
 
 #about {
-  background-color: #ecce4f;
+  color: #151515;
   padding: 12rem; }
 
 .about__heading {
@@ -110,9 +129,23 @@ li {
   padding: 9rem;
   background-color: white;
   width: 70%; }
+.about__content {
+  padding: 0;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between; }
+.about__img {
+  height: 210.5px;
+  border-radius: 10px; }
 
 .footer__hr {
-  margin-top: 0; }
+  width: 90%;
+  order: 1; }
+.footer__flex {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  order: 2; }
 
 .social-media__ul {
   text-align: center;
@@ -211,22 +244,5 @@ li {
     z-index: 0;
     content: "";
     border: 5px solid #2980b9; }
-
-#skills {
-  padding: 5rem; }
-
-.skills__heading {
-  font-size: 3rem;
-  margin-bottom: 3rem; }
-.skills__ul > li {
-  text-align: center;
-  margin-bottom: 3rem; }
-  .skills__ul > li:last-child > img {
-    width: 100px; }
-  .skills__ul > li:not(:last-child) {
-    margin-right: 3rem; }
-  .skills__ul > li:not(:last-child) > img {
-    width: 100px;
-    height: 100px; }
 
 /*# sourceMappingURL=style.css.map */
