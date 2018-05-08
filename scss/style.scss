@@ -61,47 +61,48 @@ body {
 #hero {
   height: 100vh;
   //background-color: $hero-bg-color;
+  background-image: url("./assets/triple-Os.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero {
+  &__container {
+    padding-top: 15rem;
+  }
+
+  &__introduction {
+
+  }
+}
+
+.typewriter > p {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange; }
 }
 
 li {
   display: inline-block;
   list-style: none;
-}
-
-// skills sections
-#skills {
-  background-color: $skills-bg-color;
-  color: $body-color;
-  padding: 5rem;
-}
-
-.skills {
-  &__heading {
-    font-size: 3rem;
-    margin-bottom: 3rem;
-  }
-
-  &__ul {
-    //padding-left: 0;
-
-    > li {
-      text-align: center;
-      margin-bottom: 3rem;
-
-      &:last-child > img {
-        width: 100px;
-      }
-
-      &:not(:last-child) {
-        margin-right: 3rem;
-      }
-
-      &:not(:last-child) > img {
-        width: 100px;
-        height: 100px;
-      }
-    }
-  }
 }
 
 // projects section
@@ -217,6 +218,42 @@ li {
   }
 }
 
+// skills sections
+#skills {
+  background-color: $skills-bg-color;
+  color: $body-color;
+  padding: 5rem;
+}
+
+.skills {
+  &__heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  &__ul {
+    //padding-left: 0;
+
+    > li {
+      text-align: center;
+      margin-bottom: 3rem;
+
+      &:last-child > img {
+        width: 100px;
+      }
+
+      &:not(:last-child) {
+        margin-right: 3rem;
+      }
+
+      &:not(:last-child) > img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
+
 // about section
 #about {
   //background-color: $about-bg-color;
@@ -225,26 +262,6 @@ li {
 }
 
 .about {
-  &__heading {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-
-  &__container {
-    // margin-top: 4rem;
-    position: relative;
-    padding: 9rem;
-    background-color: white;
-    width: 70%;
-  }
-
-  &__content {
-    padding: 0;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-
   &__img {
     //max-width: 100%;
     //width: 250px;
@@ -280,134 +297,5 @@ li {
     &:not(:last-child) {
       margin-right: 5rem;
     }
-  }
-}
-
-// about section - ribbon corner
-.ribbon {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  position: absolute;
-
-  /* ::before and ::after border color transparent doesn't work */
-
-  &--top--left {
-    top: -10px;
-    left: -10px;
-
-    div {
-      right: -25px;
-      top: 30px;
-      transform: rotate(-45deg);
-    }
-    &::before, &::after {
-      border-top-color: transparent;
-      border-left-color: transparent;
-    }
-    &::before {
-      top: 0;
-      right: 0;
-    }
-    &::after {
-      bottom: 0;
-      left: 0;
-    }
-  }
-
-  &--top--right {
-    top: -10px;
-    right: -10px;
-
-    div {
-      left: -25px;
-      top: 30px;
-      transform: rotate(45deg);
-    }
-    &::before, &::after {
-      border-top-color: transparent;
-      border-right-color: transparent;
-    }
-    &::before {
-      top: 0;
-      left: 0;
-    }
-    &::after {
-      bottom: 0;
-      right: 0;
-    }
-  }
-
-  &--btm--left {
-    bottom: -10px;
-    left: -10px;
-
-    div {
-      right: -25px;
-      bottom: 30px;
-      transform: rotate(45deg);
-    }
-    &::before, &::after {
-      border-bottom-color: transparent;
-      border-left-color: transparent;
-    }
-    &::before {
-      bottom: 0;
-      right: 0;
-    }
-    &::after {
-      top: 0;
-      left: 0;
-    }
-  }
-
-  &--btm--right {
-    bottom: -10px;
-    right: -10px;
-
-    div {
-      left: -25px;
-      bottom: 30px;
-      transform: rotate(-45deg);
-    }
-    &::before, &::after {
-      border-bottom-color: transparent;
-      border-right-color: transparent;
-    }
-    &::before {
-      top: 0;
-      right: 0;
-    }
-    &::after {
-      bottom: 0;
-      left: 0;
-    }
-  }
-
-  > div {
-    position: absolute;
-    width: 225px;
-    height: 32%;
-    background-color: $ribbon-bg-color;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    // below styling for text
-    color: white;
-    text-align: center;
-    // does this works?
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    padding: 11px 0;
-
-    &:nth-last-child(-n+2) {
-      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
-    }
-  }
-
-  &::before, &::after {
-    position: absolute;
-    z-index: 0;
-    content: "";
-    //display: block;
-    border: 5px solid $ribbon-wrap-bg;
   }
 }

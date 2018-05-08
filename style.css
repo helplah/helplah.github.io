@@ -27,30 +27,43 @@ body {
       margin-right: 5rem; }
 
 #hero {
-  height: 100vh; }
+  height: 100vh;
+  background-image: url("./assets/triple-Os.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain; }
 
+.hero__container {
+  padding-top: 15rem; }
+
+.typewriter > p {
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid orange;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em;
+  /* Adjust as needed */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent; }
+  50% {
+    border-color: orange; } }
 li {
   display: inline-block;
   list-style: none; }
-
-#skills {
-  background-color: #eaeaea;
-  color: #151515;
-  padding: 5rem; }
-
-.skills__heading {
-  font-size: 3rem;
-  margin-bottom: 3rem; }
-.skills__ul > li {
-  text-align: center;
-  margin-bottom: 3rem; }
-  .skills__ul > li:last-child > img {
-    width: 100px; }
-  .skills__ul > li:not(:last-child) {
-    margin-right: 3rem; }
-  .skills__ul > li:not(:last-child) > img {
-    width: 100px;
-    height: 100px; }
 
 #projects {
   color: #eaeaea;
@@ -117,23 +130,29 @@ li {
   height: 100%;
   outline: #0D488A solid 4px; }
 
+#skills {
+  background-color: #eaeaea;
+  color: #151515;
+  padding: 5rem; }
+
+.skills__heading {
+  font-size: 3rem;
+  margin-bottom: 3rem; }
+.skills__ul > li {
+  text-align: center;
+  margin-bottom: 3rem; }
+  .skills__ul > li:last-child > img {
+    width: 100px; }
+  .skills__ul > li:not(:last-child) {
+    margin-right: 3rem; }
+  .skills__ul > li:not(:last-child) > img {
+    width: 100px;
+    height: 100px; }
+
 #about {
   color: #151515;
   padding: 12rem; }
 
-.about__heading {
-  font-size: 3rem;
-  margin-bottom: 2rem; }
-.about__container {
-  position: relative;
-  padding: 9rem;
-  background-color: white;
-  width: 70%; }
-.about__content {
-  padding: 0;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between; }
 .about__img {
   height: 210.5px;
   border-radius: 10px; }
@@ -155,94 +174,5 @@ li {
     height: 38px; }
     .social-media__ul > li:not(:last-child) {
       margin-right: 5rem; }
-
-.ribbon {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-  position: absolute;
-  /* ::before and ::after border color transparent doesn't work */ }
-  .ribbon--top--left {
-    top: -10px;
-    left: -10px; }
-    .ribbon--top--left div {
-      right: -25px;
-      top: 30px;
-      transform: rotate(-45deg); }
-    .ribbon--top--left::before, .ribbon--top--left::after {
-      border-top-color: transparent;
-      border-left-color: transparent; }
-    .ribbon--top--left::before {
-      top: 0;
-      right: 0; }
-    .ribbon--top--left::after {
-      bottom: 0;
-      left: 0; }
-  .ribbon--top--right {
-    top: -10px;
-    right: -10px; }
-    .ribbon--top--right div {
-      left: -25px;
-      top: 30px;
-      transform: rotate(45deg); }
-    .ribbon--top--right::before, .ribbon--top--right::after {
-      border-top-color: transparent;
-      border-right-color: transparent; }
-    .ribbon--top--right::before {
-      top: 0;
-      left: 0; }
-    .ribbon--top--right::after {
-      bottom: 0;
-      right: 0; }
-  .ribbon--btm--left {
-    bottom: -10px;
-    left: -10px; }
-    .ribbon--btm--left div {
-      right: -25px;
-      bottom: 30px;
-      transform: rotate(45deg); }
-    .ribbon--btm--left::before, .ribbon--btm--left::after {
-      border-bottom-color: transparent;
-      border-left-color: transparent; }
-    .ribbon--btm--left::before {
-      bottom: 0;
-      right: 0; }
-    .ribbon--btm--left::after {
-      top: 0;
-      left: 0; }
-  .ribbon--btm--right {
-    bottom: -10px;
-    right: -10px; }
-    .ribbon--btm--right div {
-      left: -25px;
-      bottom: 30px;
-      transform: rotate(-45deg); }
-    .ribbon--btm--right::before, .ribbon--btm--right::after {
-      border-bottom-color: transparent;
-      border-right-color: transparent; }
-    .ribbon--btm--right::before {
-      top: 0;
-      right: 0; }
-    .ribbon--btm--right::after {
-      bottom: 0;
-      left: 0; }
-  .ribbon > div {
-    position: absolute;
-    width: 225px;
-    height: 32%;
-    background-color: #3498db;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-    color: white;
-    text-align: center;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    padding: 11px 0; }
-    .ribbon > div:nth-last-child(-n+2) {
-      box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1); }
-  .ribbon::before, .ribbon::after {
-    position: absolute;
-    z-index: 0;
-    content: "";
-    border: 5px solid #2980b9; }
 
 /*# sourceMappingURL=style.css.map */
