@@ -1,19 +1,14 @@
-// we're using blue-green #0392CE, blue-violet #3D01A4, orange #FB9902
-$body-bg-color: #0D488A;
+// body
 $body-color: #151515; // #151515, rgb(21, 21, 21) black
 // hero section
-$hero-bg-color: #607D8B;
+$hero-bg-color: #607D8B; //blue
+$hero-color: #fff;
+// projects section
+$flex-grow-no: 35; //75
+$projects-heading-bg: #008073;
+$projects-bg-color: #d4d4d4;
 // skills section
 $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
-// projects section
-$flex-grow-no: 75;
-$projects-bg-color: #3D01A4;
-// about section
-$about-bg-color: #FB9902;
-$about-color: #000;
-// about section - ribbon color
-$ribbon-bg-color: #3498db;
-$ribbon-wrap-bg: #2980b9;
 
 html {
   font-size: 62.5%;
@@ -23,7 +18,6 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
-  background-color: $body-bg-color;
   color: $body-color;
 }
 
@@ -34,6 +28,7 @@ body {
   padding: 4rem;
   width: 100%;
   justify-content: space-between;
+  z-index: 2;
 
   &__logo {
     width: 40px;
@@ -47,7 +42,7 @@ body {
       font-size: 2rem;
 
       a {
-        color: $skills-bg-color;
+        color: $hero-color;
       }
     }
 
@@ -64,16 +59,27 @@ body {
   background-image: url("./assets/triple-Os.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
 }
 
 .hero {
   &__container {
-    padding-top: 15rem;
+    padding-top: 12rem;
   }
 
   &__introduction {
 
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    //height: 100vh;
+    background-color: rgba(0,0,0,.15);
+    z-index: 1;
   }
 }
 
@@ -107,10 +113,9 @@ li {
 
 // projects section
 #projects {
-  //background-color: $projects-bg-color;
-  color: $skills-bg-color;
+  background-color: $projects-bg-color;
+  color: #fff;
   height: 100%;
-  padding-top: 7rem;
   padding-bottom: 9rem;
 
   &-li {
@@ -174,18 +179,9 @@ li {
 .projects {
   &__heading {
     font-size: 3rem;
-    padding: 0 4rem;
-    margin-bottom: 3rem;
-
-    &::after {
-      display: block;
-      content: "";
-      width: 68px;
-      height: 8px;
-      background-color: $about-bg-color;
-      margin-top: 7px;
-      margin-left: -33px;
-    }
+    padding: 1.5rem 4rem;
+    margin-bottom: 0;
+    background-color: $projects-heading-bg;
   }
 
   &__wrapper {
@@ -194,7 +190,6 @@ li {
 
   &__flex {
     display: flex;
-    //flex-wrap: wrap;
     padding-left: 0;
   }
 
@@ -214,7 +209,7 @@ li {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
-    outline: $body-bg-color solid 4px;
+    outline: $projects-bg-color solid 4px;
   }
 }
 
@@ -256,7 +251,7 @@ li {
 
 // about section
 #about {
-  //background-color: $about-bg-color;
+  //background-color:;
   color: $body-color;
   padding: 12rem;
 }

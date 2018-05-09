@@ -5,7 +5,6 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
-  background-color: #0D488A;
   color: #151515; }
 
 .header {
@@ -13,7 +12,8 @@ body {
   display: flex;
   padding: 4rem;
   width: 100%;
-  justify-content: space-between; }
+  justify-content: space-between;
+  z-index: 2; }
   .header__logo {
     width: 40px;
     height: 40px; }
@@ -22,7 +22,7 @@ body {
     .header__links ul > li {
       font-size: 2rem; }
       .header__links ul > li a {
-        color: #eaeaea; }
+        color: #fff; }
     .header__links ul > li:not(:last-child) {
       margin-right: 5rem; }
 
@@ -31,10 +31,18 @@ body {
   background-image: url("./assets/triple-Os.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain; }
+  background-size: cover; }
 
 .hero__container {
-  padding-top: 15rem; }
+  padding-top: 12rem; }
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 1; }
 
 .typewriter > p {
   overflow: hidden;
@@ -66,30 +74,30 @@ li {
   list-style: none; }
 
 #projects {
-  color: #eaeaea;
+  background-color: #d4d4d4;
+  color: #fff;
   height: 100%;
-  padding-top: 7rem;
   padding-bottom: 9rem; }
   #projects-li0 {
     flex: 11; }
     #projects-li0:hover {
-      flex: 75; }
+      flex: 35; }
   #projects-li1 {
     flex: 8; }
     #projects-li1:hover {
-      flex: 75; }
+      flex: 35; }
   #projects-li2 {
     flex: 6; }
     #projects-li2:hover {
-      flex: 75; }
+      flex: 35; }
   #projects-li3 {
     flex: 4; }
     #projects-li3:hover {
-      flex: 75; }
+      flex: 35; }
   #projects-li4 {
     flex: 2; }
     #projects-li4:hover {
-      flex: 75; }
+      flex: 35; }
   #projects-img0 {
     background-image: url(./assets/flashcard-app.png); }
   #projects-img1 {
@@ -103,16 +111,9 @@ li {
 
 .projects__heading {
   font-size: 3rem;
-  padding: 0 4rem;
-  margin-bottom: 3rem; }
-  .projects__heading::after {
-    display: block;
-    content: "";
-    width: 68px;
-    height: 8px;
-    background-color: #FB9902;
-    margin-top: 7px;
-    margin-left: -33px; }
+  padding: 1.5rem 4rem;
+  margin-bottom: 0;
+  background-color: #008073; }
 .projects__flex {
   display: flex;
   padding-left: 0; }
@@ -128,7 +129,7 @@ li {
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  outline: #0D488A solid 4px; }
+  outline: #d4d4d4 solid 4px; }
 
 #skills {
   background-color: #eaeaea;
