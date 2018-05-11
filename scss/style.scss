@@ -1,10 +1,10 @@
 // body
 $body-color: #151515; // #151515, rgb(21, 21, 21) black
 // hero section
-$hero-bg-color: #607D8B; //blue
-$hero-color: #fff;
+// $hero-bg-color: ;
+$hero-color: #fff; // white
 // projects section
-$flex-grow-no: 35; //75
+$flex-grow-no: 35;
 $projects-heading-bg: #008073;
 $projects-bg-color: #d4d4d4;
 // skills section
@@ -136,10 +136,10 @@ li {
 
 .projects {
   background-color: $projects-bg-color;
-  color: #fff;
-  padding-bottom: 1rem;
+  height: fit-content;
 
   &__heading {
+    color: #fff;
     font-size: 3rem;
     padding: 1.5rem 4rem;
     margin-bottom: 0;
@@ -149,11 +149,13 @@ li {
   &__flexbox {
     display: flex;
     padding-left: 0;
+    margin-bottom: 0;
   }
 
   &__li {
-    height: 78vh;
+    height: 70vh; //33vh when width < 720/768px??
     transition: all .5s ease-in-out .25s;
+    cursor: pointer;
 
     &0 {
       flex: 11;
@@ -195,6 +197,22 @@ li {
     background-repeat: no-repeat;
     width: 100%;
     height: 100%;
+  }
+
+  &__description {
+    background-color: #fff;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 4rem 6rem;
+    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
+
+    h3 {
+      font-weight: 700;
+    }
+
+    &.container {
+      width: 50%;
+    }
   }
 }
 
