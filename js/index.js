@@ -26,7 +26,7 @@ const projectsParent = document.getElementById("projects__parent");
 function clickOnProject(e) {
   // remove event listener from all projects
   // after first click u can only click left, right arrow or exit
-  projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
+  // projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
   console.log(e);
 
   // select all the other projects (or all non-clicked projects)
@@ -53,13 +53,25 @@ function clickOnProject(e) {
   const clickedNum = clickedClass[clickedClass.length - 1];
 
   const leftArrow = document.createElement("div");
-  leftArrow.className = "projects__leftArrow"
-  leftArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" stroke-width="4"/></svg>`;
+  //leftArrow.className = "projects__leftArrow"
+  leftArrow.innerHTML = `<a href="#" class="projects__leftArrow"></a>`
 
-  const rightArrow = document.createElement("div");
+/*
+  leftArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" stroke-width="0.1"/></svg>`;
+*/
+
+  const rightArrow = document.createElement("a");
   rightArrow.className = "projects__rightArrow";
-  rightArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" stroke-width="4"/></svg>`;
+  //rightArrow.innerHTML = ``
+
+/*
+  rightArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" stroke-width="0.1"/></svg>`;
   console.log();
+*/
+
+  const closeBtn = document.createElement("div");
+  closeBtn.className = "projects__closeBtn"
+  closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>`
 
   let li = "";
   for (let x = 0; x < whatILearnt[clickedNum].length; x++) {
@@ -72,7 +84,10 @@ function clickOnProject(e) {
   projectsParent.appendChild(section);
   e.path[1].appendChild(leftArrow);
   e.path[1].appendChild(rightArrow);
+  e.path[1].appendChild(closeBtn);
 }
 
-// exit project
 // show previous and next project
+
+
+// exit project
