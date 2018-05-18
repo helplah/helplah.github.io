@@ -1,5 +1,6 @@
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
+console.log(projects);
 // add event listener to all projects
 projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
 
@@ -19,6 +20,20 @@ const whatILearnt = [
   ["Created with React and Babel", "Used Wikipedia OpenSearch"],
   ["Created with React and Babel", "Used Quotes on Design API", "Used jQuery"]
 ];
+const projectsLink = [
+  "https://shrouded-taiga-52624.herokuapp.com/",
+  "/tribute-page",
+  "/twitch-tv",
+  "/react-wikipedia",
+  "/react-quote-machine"
+];
+const projectsSource = [
+  "https://github.com/chingu-voyage4/Bears-Team-9",
+  "https://github.com/helplah/tribute-page",
+  "https://github.com/helplah/twitch-tv",
+  "https://github.com/helplah/react-wikipedia",
+  "https://github.com/helplah/react-quote-machine"
+];
 
 // ul parent node
 const projectsParent = document.getElementById("projects__parent");
@@ -28,6 +43,7 @@ function clickOnProject(e) {
   // after first click u can only click left, right arrow or exit
   // projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
   console.log(e);
+  console.log(e.path);
 
   // select all the other projects (or all non-clicked projects)
   let otherProjects = projects.filter(project => project !== e.path[1]);
@@ -44,50 +60,94 @@ function clickOnProject(e) {
 
   // remove projects__flex class from clicked project, change cursor back to default
   e.path[1].classList.remove("projects__flex");
-  e.path[1].style = "cursor: default;"; // how can I style all li elements
+  // style li elements
+  e.path[1].style = "cursor: default;";
+  // add classes to ul
+  e.path[2].classList.add("carousel", "slide");
 
-  const section = document.createElement("section");
-  section.className = "container projects__description";
-
+  // get class names of projects__li
   const clickedClass = e.path[1].className;
+  // get the last number of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1];
-
-  const leftArrow = document.createElement("div");
-  //leftArrow.className = "projects__leftArrow"
-  leftArrow.innerHTML = `<a href="#" class="projects__leftArrow"></a>`
-
-/*
-  leftArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z" stroke-width="0.1"/></svg>`;
-*/
-
-  const rightArrow = document.createElement("a");
-  rightArrow.className = "projects__rightArrow";
-  //rightArrow.innerHTML = ``
-
-/*
-  rightArrow.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z" stroke-width="0.1"/></svg>`;
-  console.log();
-*/
-
-  const closeBtn = document.createElement("div");
-  closeBtn.className = "projects__closeBtn"
-  closeBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>`
-
+  // multidimensional array that contains a list of accomplishments
   let li = "";
   for (let x = 0; x < whatILearnt[clickedNum].length; x++) {
     li += `<li>${whatILearnt[clickedNum][x]}</li>`;
   }
 
-  // how to create multiple li element depending on how many in array
-  section.innerHTML = `<div><h3>${header[clickedNum]}</h3><p>${intro[clickedNum]}</p><hr class="projects__hr"><h3>Accomplishments</h3>${li}</div>`;
+
+  // add section that acts as projects__description
+  const section = document.createElement("section");
+  section.className = "container projects__description";
+  section.innerHTML = `<div>
+    <h3>${header[clickedNum]}</h3>
+    <p>${intro[clickedNum]}</p>
+    <hr class="projects__hr">
+    <h3>Accomplishments</h3>
+    ${li}
+    <br>
+    <div class="projects__links">
+      <a href="${projectsLink[clickedNum]}" class="projects__link">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      <a href="${projectsSource[clickedNum]}" class="projects__link">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>`;
+
+
+  const leftArrow = document.createElement("div");
+  //leftArrow.className = "projects__leftArrow"
+  leftArrow.innerHTML = `<a class="projects__leftArrow" href="#" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>`;
+  leftArrow.addEventListener("click", prevClick.bind(e));
+
+
+  const rightArrow = document.createElement("div");
+  //rightArrow.className = "projects__rightArrow";
+  rightArrow.innerHTML = `<a class="projects__rightArrow" href="#" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>`;
+  rightArrow.addEventListener("click", nextClick);
+
+
+  const closeBtn = document.createElement("div");
+  //closeBtn.className = "";
+  closeBtn.innerHTML = `<button type="button" class="close projects__closeBtn" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>`;
+
 
   projectsParent.appendChild(section);
-  e.path[1].appendChild(leftArrow);
-  e.path[1].appendChild(rightArrow);
-  e.path[1].appendChild(closeBtn);
+  e.path[2].appendChild(leftArrow);
+  e.path[2].appendChild(rightArrow);
+  e.path[2].appendChild(closeBtn);
 }
 
 // show previous and next project
+function prevClick(e) {
+  console.log(this);
+  console.log(e);
+  let thisProject = this.path[1];
+  let projectsListNo = thisProject.classList[1];
+  // disable flex value for this project
+  thisProject.classList.remove(projectsListNo);
+  // enable flex value for previous project
 
+
+  thisProject.classList.add("projects__li0");
+}
+
+function nextClick(e) {
+  console.log(e);
+
+}
 
 // exit project
+function close(){
+
+}
