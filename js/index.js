@@ -54,6 +54,7 @@ function clickOnProject(e) {
     let projectsFlex = otherProjects[x].classList[2];
     let projectsListNo = otherProjects[x].classList[1];
     otherProjects.forEach(project => {
+      project.style = "cursor: default;";
       project.classList.remove(projectsFlex, projectsListNo);
     });
   }
@@ -74,7 +75,7 @@ function clickOnProject(e) {
   for (let x = 0; x < whatILearnt[clickedNum].length; x++) {
     li += `<li>${whatILearnt[clickedNum][x]}</li>`;
   }
-
+  console.log(clickedNum);
 
   // add section that acts as projects__description
   const section = document.createElement("section");
@@ -87,10 +88,10 @@ function clickOnProject(e) {
     ${li}
     <br>
     <div class="projects__links">
-      <a href="${projectsLink[clickedNum]}" class="projects__link">
+      <a href="${projectsLink[clickedNum]}" class="projects__link" target="_blank">
         <i class="fas fa-external-link-alt"></i>
       </a>
-      <a href="${projectsSource[clickedNum]}" class="projects__link">
+      <a href="${projectsSource[clickedNum]}" class="projects__link" target="_blank">
         <i class="fab fa-github"></i>
       </a>
     </div>
@@ -99,20 +100,24 @@ function clickOnProject(e) {
 
   const leftArrow = document.createElement("div");
   //leftArrow.className = "projects__leftArrow"
-  leftArrow.innerHTML = `<a class="projects__leftArrow" href="#" role="button" data-slide="prev">
+  leftArrow.innerHTML = `<div class="projects__leftArrow" role="button">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
-  </a>`;
-  leftArrow.addEventListener("click", prevClick.bind(e));
+  </div>`;
+  leftArrow.addEventListener("click", function() {
+    prevClick(clickedNum);
+  });
 
 
   const rightArrow = document.createElement("div");
   //rightArrow.className = "projects__rightArrow";
-  rightArrow.innerHTML = `<a class="projects__rightArrow" href="#" role="button" data-slide="next">
+  rightArrow.innerHTML = `<div class="projects__rightArrow" role="button">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a>`;
-  rightArrow.addEventListener("click", nextClick);
+  </div>`;
+  rightArrow.addEventListener("click", function() {
+    nextClick(clickedNum)
+  });
 
 
   const closeBtn = document.createElement("div");
@@ -128,23 +133,39 @@ function clickOnProject(e) {
   e.path[2].appendChild(closeBtn);
 }
 
-// show previous and next project
-function prevClick(e) {
-  console.log(this);
-  console.log(e);
-  let thisProject = this.path[1];
-  let projectsListNo = thisProject.classList[1];
+/* index doesn't change that's why it only works when user clicks on bg img again */
+// show previous project
+function prevClick(index) {
+  console.log(index);
+  let curProject = projects[index];
   // disable flex value for this project
-  thisProject.classList.remove(projectsListNo);
+  curProject.classList.remove(`projects__li${index}`);
+
   // enable flex value for previous project
-
-
-  thisProject.classList.add("projects__li0");
+  if (index > 0) {
+    let prevProject = projects[index-1];
+    prevProject.classList.add(`projects__li${index-1}`);
+  } else {
+    let prevProject = projects[4];
+    prevProject.classList.add("projects__li4");
+  }
 }
 
-function nextClick(e) {
-  console.log(e);
+// show next project
+function nextClick(index) {
+  console.log(index);
+  let curProject = projects[index];
+  // disable flex value for this project
+  curProject.classList.remove(`projects__li${index}`);
 
+  // enable flex value for previous project
+  if (index < 4) {
+    let nextProject = projects[index+1];
+    nextProject.classList.add(`projects__li${index+1}`);
+  } else {
+    let nextProject = projects[0];
+    nextProject.classList.add("projects__li0");
+  }
 }
 
 // exit project
