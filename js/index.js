@@ -37,11 +37,13 @@ const projectsSource = [
 
 // ul parent node
 const projectsParent = document.getElementById("projects__parent");
+// section contains description of project
+const section = document.createElement("section");
 
 function clickOnProject(e) {
   // remove event listener from all projects
   // after first click u can only click left, right arrow or exit
-  // projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
+  projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
   console.log(e);
   console.log(e.path);
 
@@ -64,39 +66,16 @@ function clickOnProject(e) {
   // style li elements
   e.path[1].style = "cursor: default;";
   // add classes to ul
-  e.path[2].classList.add("carousel", "slide");
+  e.path[2].classList.add("carousel");
+
+  // add section that acts as projects__description
+  section.className = "container projects__description";
 
   // get class names of projects__li
   const clickedClass = e.path[1].className;
   // get the last number of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1];
-  // multidimensional array that contains a list of accomplishments
-  let li = "";
-  for (let x = 0; x < whatILearnt[clickedNum].length; x++) {
-    li += `<li>${whatILearnt[clickedNum][x]}</li>`;
-  }
-  console.log(clickedNum);
-
-  // add section that acts as projects__description
-  const section = document.createElement("section");
-  section.className = "container projects__description";
-  section.innerHTML = `<div>
-    <h3>${header[clickedNum]}</h3>
-    <p>${intro[clickedNum]}</p>
-    <hr class="projects__hr">
-    <h3>Accomplishments</h3>
-    ${li}
-    <br>
-    <div class="projects__links">
-      <a href="${projectsLink[clickedNum]}" class="projects__link" target="_blank">
-        <i class="fas fa-external-link-alt"></i>
-      </a>
-      <a href="${projectsSource[clickedNum]}" class="projects__link" target="_blank">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-  </div>`;
-
+  changeSection(clickedNum, section);
 
   const leftArrow = document.createElement("div");
   //leftArrow.className = "projects__leftArrow"
@@ -116,7 +95,7 @@ function clickOnProject(e) {
     <span class="sr-only">Next</span>
   </div>`;
   rightArrow.addEventListener("click", function() {
-    nextClick(clickedNum)
+    nextClick();
   });
 
 
@@ -125,7 +104,9 @@ function clickOnProject(e) {
   closeBtn.innerHTML = `<button type="button" class="close projects__closeBtn" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>`;
-
+  closeBtn.addEventListener("click", function() {
+    close(otherProjects);
+  }, { once: true });
 
   projectsParent.appendChild(section);
   e.path[2].appendChild(leftArrow);
@@ -133,42 +114,91 @@ function clickOnProject(e) {
   e.path[2].appendChild(closeBtn);
 }
 
+let index = 0;
+function getIndex(clickedNum, sign) {
+
+  console.log(index);
+}
+
+function changeSection(index, section) {
+  // multidimensional array that contains a list of accomplishments
+  let li = "";
+  for (let x = 0; x < whatILearnt[index].length; x++) {
+    li += `<li>${whatILearnt[index][x]}</li>`;
+  }
+
+  section.innerHTML = `<div>
+    <h3>${header[index]}</h3>
+    <p>${intro[index]}</p>
+    <hr class="projects__hr">
+    <h3>Accomplishments</h3>
+    ${li}
+    <br>
+    <div class="projects__links">
+      <a href="${projectsLink[index]}" class="projects__link" target="_blank">
+        <i class="fas fa-external-link-alt"></i>
+      </a>
+      <a href="${projectsSource[index]}" class="projects__link" target="_blank">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+  </div>`;
+}
+
 /* index doesn't change that's why it only works when user clicks on bg img again */
 // show previous project
 function prevClick(index) {
-  console.log(index);
+  //let index = getIndex(clickedNum, sign);
   let curProject = projects[index];
+
   // disable flex value for this project
   curProject.classList.remove(`projects__li${index}`);
-
   // enable flex value for previous project
   if (index > 0) {
     let prevProject = projects[index-1];
     prevProject.classList.add(`projects__li${index-1}`);
   } else {
-    let prevProject = projects[4];
+    index = 4;
+    let prevProject = projects[index];
     prevProject.classList.add("projects__li4");
   }
+  changeSection(index, section);
 }
 
 // show next project
 function nextClick(index) {
-  console.log(index);
+  //let index = getIndex();
   let curProject = projects[index];
+
   // disable flex value for this project
   curProject.classList.remove(`projects__li${index}`);
-
-  // enable flex value for previous project
+  // enable flex value for next project
   if (index < 4) {
     let nextProject = projects[index+1];
     nextProject.classList.add(`projects__li${index+1}`);
   } else {
-    let nextProject = projects[0];
+    index = 0;
+    let nextProject = projects[index];
     nextProject.classList.add("projects__li0");
   }
+  changeSection(index, section);
 }
 
 // exit project
-function close(){
+function close(e, otherProjects) {
+  // add projects__li*, * being 0-4, and projects__flex to allow all projects to occupy space
+  for (let x = 0; x < otherProjects.length; x++) {
+    let projectsFlex = otherProjects[x].classList[2];
+    let projectsListNo = otherProjects[x].classList[1];
+    otherProjects.forEach(project => {
+      project.classList.add(projectsFlex, projectsListNo);
+    });
+  }
 
+  // remove projects__flex class from clicked project, change cursor back to default
+  e.path[1].classList.add("projects__flex");
+  // add classes to ul
+  e.path[2].classList.remove("carousel");
+
+  document.getElementsByClassName("projects__description")[0].remove();
 }
