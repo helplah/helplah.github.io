@@ -1,6 +1,6 @@
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
-console.log(projects);
+console.log("All projects", projects);
 // add event listener to all projects
 projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
 
@@ -34,18 +34,20 @@ const projectsSource = [
   "https://github.com/helplah/react-wikipedia",
   "https://github.com/helplah/react-quote-machine"
 ];
+const projectsList = [];
+for (let x = 0; x < 5; x++){
+  projectsList.push([`${"projects__li" + x}`]);
+}
 
-// ul parent node
-const projectsParent = document.getElementById("projects__parent");
-// section contains description of project
-const section = document.createElement("section");
+const projectsParent = document.getElementById("projects__parent"); // ul parent node
+const section = document.createElement("section"); // section contains description of project
 
 function clickOnProject(e) {
   // remove event listener from all projects
   // after first click u can only click left, right arrow or exit
   projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
-  console.log(e);
-  console.log(e.path);
+  console.log("Clicked project event", e);
+  console.log("Clicked projects path array", e.path);
 
   // select all the other projects (or all non-clicked projects)
   let otherProjects = projects.filter(project => project !== e.path[1]);
@@ -61,15 +63,13 @@ function clickOnProject(e) {
     });
   }
 
-  // remove projects__flex class from clicked project, change cursor back to default
+ // remove projects__flex class from clicked project
   e.path[1].classList.remove("projects__flex");
-  // style li elements
-  e.path[1].style = "cursor: default;";
-  // add classes to ul
-  e.path[2].classList.add("carousel");
+  e.path[1].style = "cursor: default;"; // change cursor back to default
 
   // add section that acts as projects__description
-  section.className = "container projects__description";
+  section.className = "container";
+  section.id = "projects__description";
 
   // get class names of projects__li
   const clickedClass = e.path[1].className;
@@ -77,9 +77,10 @@ function clickOnProject(e) {
   const clickedNum = clickedClass[clickedClass.length - 1];
   changeSection(clickedNum, section);
 
+  // Add leftArrow on clicked
   const leftArrow = document.createElement("div");
-  //leftArrow.className = "projects__leftArrow"
-  leftArrow.innerHTML = `<div class="projects__leftArrow" role="button">
+  leftArrow.id = "projects__leftArrow"
+  leftArrow.innerHTML = `<div role="button">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </div>`;
@@ -87,37 +88,29 @@ function clickOnProject(e) {
     prevClick(clickedNum);
   });
 
-
+  // Add rightArrow on clicked
   const rightArrow = document.createElement("div");
-  //rightArrow.className = "projects__rightArrow";
-  rightArrow.innerHTML = `<div class="projects__rightArrow" role="button">
+  rightArrow.id = "projects__rightArrow";
+  rightArrow.innerHTML = `<div role="button">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </div>`;
   rightArrow.addEventListener("click", function() {
-    nextClick();
+    nextClick(clickedNum);
   });
 
-
+  // Add closeBtn on clicked
   const closeBtn = document.createElement("div");
-  //closeBtn.className = "";
-  closeBtn.innerHTML = `<button type="button" class="close projects__closeBtn" aria-label="Close">
+  closeBtn.id = "projects__closeBtn";
+  closeBtn.innerHTML = `<button type="button" class="close" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>`;
-  closeBtn.addEventListener("click", function() {
-    close(otherProjects);
-  }, { once: true });
+  closeBtn.addEventListener("click", close, { once: true });
 
   projectsParent.appendChild(section);
   e.path[2].appendChild(leftArrow);
   e.path[2].appendChild(rightArrow);
   e.path[2].appendChild(closeBtn);
-}
-
-let index = 0;
-function getIndex(clickedNum, sign) {
-
-  console.log(index);
 }
 
 function changeSection(index, section) {
@@ -145,60 +138,64 @@ function changeSection(index, section) {
   </div>`;
 }
 
-/* index doesn't change that's why it only works when user clicks on bg img again */
+let index = -1;
 // show previous project
-function prevClick(index) {
-  //let index = getIndex(clickedNum, sign);
-  let curProject = projects[index];
+function prevClick(clickedNum) {
+  if (index === -1) {
+    index = clickedNum;
+  }
 
+  let curProject = projects[index];
   // disable flex value for this project
   curProject.classList.remove(`projects__li${index}`);
+
   // enable flex value for previous project
   if (index > 0) {
-    let prevProject = projects[index-1];
-    prevProject.classList.add(`projects__li${index-1}`);
+    index--;
   } else {
     index = 4;
-    let prevProject = projects[index];
-    prevProject.classList.add("projects__li4");
   }
+  let prevProject = projects[index];
+  prevProject.classList.add(`projects__li${index}`);
   changeSection(index, section);
 }
 
 // show next project
-function nextClick(index) {
-  //let index = getIndex();
-  let curProject = projects[index];
+function nextClick(clickedNum) {
+  if (index === -1) {
+    index = clickedNum;
+  }
 
+  let curProject = projects[index];
   // disable flex value for this project
   curProject.classList.remove(`projects__li${index}`);
+
   // enable flex value for next project
   if (index < 4) {
-    let nextProject = projects[index+1];
-    nextProject.classList.add(`projects__li${index+1}`);
+    index++;
   } else {
     index = 0;
-    let nextProject = projects[index];
-    nextProject.classList.add("projects__li0");
   }
+  let nextProject = projects[index];
+  nextProject.classList.add(`projects__li${index}`);
   changeSection(index, section);
 }
 
-// exit project
-function close(e, otherProjects) {
+// exit carousel
+function close() {
   // add projects__li*, * being 0-4, and projects__flex to allow all projects to occupy space
-  for (let x = 0; x < otherProjects.length; x++) {
-    let projectsFlex = otherProjects[x].classList[2];
-    let projectsListNo = otherProjects[x].classList[1];
-    otherProjects.forEach(project => {
-      project.classList.add(projectsFlex, projectsListNo);
-    });
+  for (let x = 0; x < projects.length; x++) {
+    if (projects[x].classList.length === 1) {
+      projects[x].classList.add(projectsList[x], "projects__flex");
+    } else {
+      projects[x].classList.add("projects__flex");
+    }
+    projects[x].style = "";
   }
 
-  // remove projects__flex class from clicked project, change cursor back to default
-  e.path[1].classList.add("projects__flex");
-  // add classes to ul
-  e.path[2].classList.remove("carousel");
-
-  document.getElementsByClassName("projects__description")[0].remove();
+  document.getElementById("projects__description").remove();
+  document.getElementById("projects__leftArrow").remove();
+  document.getElementById("projects__rightArrow").remove();
+  document.getElementById("projects__closeBtn").remove();
+  projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
 }

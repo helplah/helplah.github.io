@@ -147,6 +147,7 @@ body {
     display: flex;
     padding-left: 0;
     margin-bottom: 0;
+    position: relative;
   }
 
   &__li {
@@ -199,28 +200,11 @@ body {
     height: 100%;
   }
 
-  &__description {
-    background-color: #fff;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-    padding: 4rem 6rem;
-    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
-
-    h3 {
-      font-weight: 700;
-    }
-
-    &.container {
-      width: 50%;
-    }
-  }
-
   &__hr {
     margin-bottom: 2rem;
   }
 
   &__link {
-
 
     &s {
       text-align: center;
@@ -237,7 +221,25 @@ body {
     :hover {
       text-decoration: none;
     }
+  }
+}
 
+#projects {
+
+  &__description {
+    background-color: #fff;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 4rem 6rem;
+    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
+
+    h3 {
+      font-weight: 700;
+    }
+
+    &.container {
+      width: 50%;
+    }
   }
 
   &__leftArrow, &__rightArrow {
@@ -269,10 +271,10 @@ body {
     right: 0;
     margin-top: 1.5rem;
     margin-right: 2rem;
-    cursor: pointer;
 
-    > span {
+    button > span {
       font-size: 3.2rem;
+      cursor: pointer;
     }
   }
 }
