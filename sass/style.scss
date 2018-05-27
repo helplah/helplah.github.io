@@ -12,6 +12,7 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -43,6 +44,10 @@ body {
       display: inline-block;
       list-style: none;
 
+      a:hover {
+        text-decoration: none;
+      }
+
       a {
         color: $hero-color;
       }
@@ -66,7 +71,8 @@ body {
 
 .hero {
   &__container {
-    padding-top: 12rem;
+    padding-top: 40vh;
+    margin: 0 7vw;
   }
 
   &__introduction {
@@ -85,27 +91,135 @@ body {
   }
 }
 
-.typewriter > p {
-  overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid orange; /* The typwriter cursor */
-  white-space: nowrap; /* Keeps the content on a single line */
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation:
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+.typewriter {
+  p {
+    border-right: .15em solid orange;
+    font-family: "Courier";
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  p:nth-child(1) {
+    //width: 7.3em;
+    -webkit-animation: type 2s steps(40, end);
+    animation: type 2s steps(40, end);
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  p:nth-child(2) {
+    //width: 11.5em;
+    opacity: 0;
+    -webkit-animation: type2 2s steps(40, end);
+    animation: type2 2s steps(40, end);
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
+
+  p:nth-child(3) {
+    //width: 7.3em;
+    opacity: 0;
+    -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+  }
 }
 
-/* The typing effect */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+@keyframes type {
+  0% {
+    width: 0;
+  }
+  99% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
 }
 
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; }
+@-webkit-keyframes type {
+  0% {
+    width: 0;
+  }
+  99% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    border: none;
+  }
+}
+
+@keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@-webkit-keyframes type2 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  99% {
+    border-right: .15em solid orange;
+  }
+  100% {
+    opacity: 1;
+    border: none;
+  }
+}
+
+@keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes type3 {
+  0% {
+    width: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent;
+  }
 }
 
 // projects section
@@ -132,9 +246,6 @@ body {
 }
 
 .projects {
-  background-color: $projects-bg-color;
-  height: fit-content;
-
   &__heading {
     color: #fff;
     font-size: 3rem;
@@ -225,6 +336,8 @@ body {
 }
 
 #projects {
+  background-color: $projects-bg-color;
+  height: fit-content;
 
   &__description {
     background-color: #fff;

@@ -1,5 +1,6 @@
 html {
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  scroll-behavior: smooth; }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -23,6 +24,8 @@ body {
       font-size: 2rem;
       display: inline-block;
       list-style: none; }
+      .header__links ul > li a:hover {
+        text-decoration: none; }
       .header__links ul > li a {
         color: #fff; }
     .header__links ul > li:not(:last-child) {
@@ -36,7 +39,8 @@ body {
   background-size: cover; }
 
 .hero__container {
-  padding-top: 12rem; }
+  padding-top: 40vh;
+  margin: 0 7vw; }
 .hero__overlay {
   position: absolute;
   top: 0;
@@ -46,31 +50,88 @@ body {
   background-color: rgba(0, 0, 0, 0.15);
   z-index: 1; }
 
-.typewriter > p {
-  overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
+.typewriter p {
   border-right: .15em solid orange;
-  /* The typwriter cursor */
+  font-family: "Courier";
+  font-size: 14px;
   white-space: nowrap;
-  /* Keeps the content on a single line */
-  margin: 0 auto;
-  /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em;
-  /* Adjust as needed */
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+  overflow: hidden; }
+.typewriter p:nth-child(1) {
+  -webkit-animation: type 2s steps(40, end);
+  animation: type 2s steps(40, end);
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+.typewriter p:nth-child(2) {
+  opacity: 0;
+  -webkit-animation: type2 2s steps(40, end);
+  animation: type2 2s steps(40, end);
+  -webkit-animation-delay: 2s;
+  animation-delay: 2s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+.typewriter p:nth-child(3) {
+  opacity: 0;
+  -webkit-animation: type3 5s steps(20, end), blink 0.5s step-end infinite alternate;
+  animation: type3 5s steps(20, end), blink 0.5s step-end infinite alternate;
+  -webkit-animation-delay: 4s;
+  animation-delay: 4s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
 
-/* The typing effect */
-@keyframes typing {
-  from {
+@keyframes type {
+  0% {
     width: 0; }
-  to {
-    width: 100%; } }
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent; }
+  99% {
+    border-right: .15em solid orange; }
+  100% {
+    border: none; } }
+@-webkit-keyframes type {
+  0% {
+    width: 0; }
+  99% {
+    border-right: .15em solid orange; }
+  100% {
+    border: none; } }
+@keyframes type2 {
+  0% {
+    width: 0; }
+  1% {
+    opacity: 1; }
+  99% {
+    border-right: .15em solid orange; }
+  100% {
+    opacity: 1;
+    border: none; } }
+@-webkit-keyframes type2 {
+  0% {
+    width: 0; }
+  1% {
+    opacity: 1; }
+  99% {
+    border-right: .15em solid orange; }
+  100% {
+    opacity: 1;
+    border: none; } }
+@keyframes type3 {
+  0% {
+    width: 0; }
+  1% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes type3 {
+  0% {
+    width: 0; }
+  1% {
+    opacity: 1; }
+  100% {
+    opacity: 1; } }
+@keyframes blink {
   50% {
-    border-color: orange; } }
+    border-color: transparent; } }
+@-webkit-keyframes blink {
+  50% {
+    border-color: tranparent; } }
 #projects-img0 {
   background-image: url(./assets/flashcard-app.png); }
 #projects-img1 {
@@ -82,92 +143,92 @@ body {
 #projects-img4 {
   background-image: url(./assets/react-quote-machine.png); }
 
-.projects {
+.projects__heading {
+  color: #fff;
+  font-size: 3rem;
+  padding: 1.5rem 4rem;
+  margin: 0;
+  background-color: #008073; }
+.projects__flexbox {
+  display: flex;
+  padding-left: 0;
+  margin-bottom: 0;
+  position: relative; }
+.projects__li {
+  position: relative;
+  display: inline-block;
+  list-style: none;
+  height: 70vh;
+  transition: all .5s ease-in-out .25s;
+  cursor: pointer; }
+  .projects__li0 {
+    flex: 11; }
+  .projects__li1 {
+    flex: 8; }
+  .projects__li2 {
+    flex: 6; }
+  .projects__li3 {
+    flex: 4; }
+  .projects__li4 {
+    flex: 2; }
+.projects__flex {
+  filter: grayscale(100%); }
+  .projects__flex:hover {
+    flex: 35;
+    filter: grayscale(0%); }
+  .projects__flex:not(last-of-type) {
+    border-right: #d4d4d4 solid 4px; }
+.projects__img {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%; }
+.projects__hr {
+  margin-bottom: 2rem; }
+.projects__links {
+  text-align: center; }
+.projects__link :first-of-type {
+  margin-right: 1rem; }
+.projects__link > i {
+  font-size: 2.3rem; }
+.projects__link :hover {
+  text-decoration: none; }
+
+#projects {
   background-color: #d4d4d4;
   height: fit-content; }
-  .projects__heading {
-    color: #fff;
-    font-size: 3rem;
-    padding: 1.5rem 4rem;
-    margin: 0;
-    background-color: #008073; }
-  .projects__flexbox {
-    display: flex;
-    padding-left: 0;
-    margin-bottom: 0;
-    position: relative; }
-  .projects__li {
-    position: relative;
-    display: inline-block;
-    list-style: none;
-    height: 70vh;
-    transition: all .5s ease-in-out .25s;
-    cursor: pointer; }
-    .projects__li0 {
-      flex: 11; }
-    .projects__li1 {
-      flex: 8; }
-    .projects__li2 {
-      flex: 6; }
-    .projects__li3 {
-      flex: 4; }
-    .projects__li4 {
-      flex: 2; }
-  .projects__flex {
-    filter: grayscale(100%); }
-    .projects__flex:hover {
-      flex: 35;
-      filter: grayscale(0%); }
-    .projects__flex:not(last-of-type) {
-      border-right: #d4d4d4 solid 4px; }
-  .projects__img {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%; }
-  .projects__hr {
-    margin-bottom: 2rem; }
-  .projects__links {
-    text-align: center; }
-  .projects__link :first-of-type {
+  #projects__description {
+    background-color: #fff;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 4rem 6rem;
+    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3); }
+    #projects__description h3 {
+      font-weight: 700; }
+    #projects__description.container {
+      width: 50%; }
+  #projects__leftArrow, #projects__rightArrow {
+    position: absolute;
+    cursor: pointer;
+    top: 50%;
+    width: 40px; }
+  #projects__leftArrow {
+    left: 0;
+    margin-left: 1rem;
+    text-align: right; }
+  #projects__rightArrow {
+    right: 0;
     margin-right: 1rem; }
-  .projects__link > i {
-    font-size: 2.3rem; }
-  .projects__link :hover {
-    text-decoration: none; }
-
-#projects__description {
-  background-color: #fff;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-  padding: 4rem 6rem;
-  box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3); }
-  #projects__description h3 {
-    font-weight: 700; }
-  #projects__description.container {
-    width: 50%; }
-#projects__leftArrow, #projects__rightArrow {
-  position: absolute;
-  cursor: pointer;
-  top: 50%;
-  width: 40px; }
-#projects__leftArrow {
-  left: 0;
-  margin-left: 1rem;
-  text-align: right; }
-#projects__rightArrow {
-  right: 0;
-  margin-right: 1rem; }
-#projects__closeBtn {
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin-top: 1.5rem;
-  margin-right: 2rem; }
-  #projects__closeBtn button > span {
-    font-size: 3.2rem;
-    cursor: pointer; }
+  #projects__closeBtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1.5rem;
+    margin-right: 2rem; }
+    #projects__closeBtn button > span {
+      font-size: 3.2rem;
+      cursor: pointer; }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
   color: #202020; }
