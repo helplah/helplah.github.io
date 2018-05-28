@@ -199,3 +199,15 @@ function close() {
   document.getElementById("projects__closeBtn").remove();
   projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
 }
+
+const menu = document.getElementById("header__menu");
+menu.addEventListener("click", clickOnMenu);
+
+function clickOnMenu() {
+  menu.classList.toggle("active");
+  for (let x = 0; x < menu.children.length; x++){
+    menu.children[x].classList.toggle("no-animation");
+  }
+
+
+}

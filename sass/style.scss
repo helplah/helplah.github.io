@@ -9,6 +9,22 @@ $projects-heading-bg: #008073;
 $projects-bg-color: #d4d4d4;
 // skills section
 $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
+// height of menu
+$menu-line-height: 4px;
+$menu-line-width: 35px;
+$menu-line-space: 5px;
+$menu-line-offsetY: $menu-line-height + $menu-line-space;
+$menu-height: (3 * $menu-line-height) + (2 * $menu-line-space);
+$menu-width: fit-content;
+
+$cubic-bezier-in: cubic-bezier(0.30,1,0.70,1);
+$cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
+
+@mixin tablet {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
 
 html {
   font-size: 62.5%;
@@ -37,25 +53,151 @@ body {
   }
 
   &__links {
-    position: relative;
-
-    ul > li {
+    > a {
       font-size: 2rem;
       display: inline-block;
       list-style: none;
+      color: $hero-color;
 
-      a:hover {
+      &:hover {
         text-decoration: none;
       }
 
-      a {
-        color: $hero-color;
+      &:not(:last-child) {
+        margin-right: 5rem;
+      }
+
+      @include tablet {
+        display: none;
+        height: 4rem;
+        text-align: center;
+        line-height: 4rem;
+        border-bottom: 1px solid #ddd;
       }
     }
 
-    ul > li:not(:last-child) {
-      margin-right: 5rem;
+    @include tablet {
+
     }
+  }
+}
+
+#header__menu {
+  position: relative;
+  height: $menu-height;
+  width: $menu-width;
+  cursor: pointer;
+  display: none;
+
+  .line-one, .line-two, .line-three {
+    height: $menu-line-height;
+    width: $menu-line-width;
+    background: #fff;
+    box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+  }
+
+  .line-one {
+    animation: animate-line-1-rev .7s $cubic-bezier-in forwards;
+  }
+
+  .line-two {
+    margin: $menu-line-space 0;
+    animation: animate-line-2-rev .7s $cubic-bezier-in forwards;
+  }
+
+  .line-three {
+    animation: animate-line-3-rev .7s $cubic-bezier-in forwards;
+  }
+
+  .no-animation {
+    animation: none !important;
+  }
+
+  & .active {
+    .line-one {
+      animation: animate-line-1 .7s $cubic-bezier-in forwards;
+    }
+    .line-two {
+      animation: animate-line-2 .7s $cubic-bezier-in forwards;
+    }
+    .line-three {
+      animation: animate-line-3 .7s $cubic-bezier-in forwards;
+    }
+  }
+
+  @keyframes animate-line-1 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0);
+    }
+    50% {
+      transform: translate3d(0, $menu-line-offsetY, 0) rotate(0);
+    }
+    100% {
+      transform: translate3d(0, $menu-line-offsetY, 0) rotate(45deg);
+    }
+  }
+
+  @keyframes animate-line-2 {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes animate-line-3 {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    50% {
+      transform: translate3d(0, -$menu-line-offsetY, 0) rotate(0);
+    }
+    100% {
+      transform: translate3d(0, -$menu-line-offsetY, 0) rotate(135deg);
+    }
+  }
+
+  @keyframes animate-line-1-rev {
+    0% {
+      transform: translate3d(0, $menu-line-offsetY, 0) rotate(45deg);
+    }
+    50% {
+      transform: translate3d(0, $menu-line-offsetY, 0) rotate(0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0);
+    }
+  }
+
+  @keyframes animate-line-2-rev {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes animate-line-3-rev {
+    0% {
+      transform: translate3d(0, -$menu-line-offsetY, 0) rotate(135deg);
+    }
+    50% {
+      transform: translate3d(0, -$menu-line-offsetY, 0) rotate(0);
+    }
+    100% {
+      transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+  }
+
+  @include tablet {
+    display: block;
   }
 }
 
@@ -256,6 +398,7 @@ body {
 
   &__flexbox {
     display: flex;
+    align-items: center;
     padding-left: 0;
     margin-bottom: 0;
     position: relative;
@@ -357,25 +500,27 @@ body {
 
   &__leftArrow, &__rightArrow {
     position: absolute;
-    //border: solid grey;
-    //border-width: 0 8px 8px 0;
-    //border-radius: 4px;
-    //display: inline-block;
-    //padding: 8px;
     cursor: pointer;
-    top: 50%;
+    display: flex;
+    align-items: center;
+    //top: 50%;
     width: 40px;
+    height: 60%;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.4);
+    }
   }
 
   &__leftArrow {
     left: 0;
-    margin-left: 1rem;
-    text-align: right;
+    //margin-left: 1rem;
+    justify-content: flex-end;
   }
 
   &__rightArrow {
     right: 0;
-    margin-right: 1rem;
+    //margin-right: 1rem;
   }
 
   &__closeBtn {
