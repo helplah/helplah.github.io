@@ -200,14 +200,26 @@ function close() {
   projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
 }
 
-const menu = document.getElementById("header__menu");
-menu.addEventListener("click", clickOnMenu);
+const icon = document.getElementById("header__icon");
+icon.addEventListener("click", clickHamburger);
+const overlay = document.getElementsByClassName('header__overlay')[0];
+const menu = document.getElementsByClassName('header__menu')[0];
+const html = document.getElementsByTagName("html")[0];
 
-function clickOnMenu() {
-  menu.classList.toggle("active");
-  for (let x = 0; x < menu.children.length; x++){
-    menu.children[x].classList.toggle("no-animation");
+function clickHamburger() {
+  icon.classList.toggle("active");
+  for (let x = 0; x < icon.children.length; x++){
+    icon.children[x].classList.remove("no-animation");
   }
+  overlay.classList.toggle("active");
+  menu.classList.toggle("active");
+  html.classList.toggle("active");
+  overlay.addEventListener("click", clickOutsideMenu, { once: true });
+}
 
-
+function clickOutsideMenu() {
+  icon.classList.toggle("active");
+  overlay.classList.toggle("active");
+  menu.classList.toggle("active");
+  html.classList.toggle("active");
 }

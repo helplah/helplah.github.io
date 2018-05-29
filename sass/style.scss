@@ -20,8 +20,14 @@ $menu-width: fit-content;
 $cubic-bezier-in: cubic-bezier(0.30,1,0.70,1);
 $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
 
-@mixin tablet {
+@mixin belowTablet {
   @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin aboveTablet {
+  @media (min-width: 768px) {
     @content;
   }
 }
@@ -29,6 +35,11 @@ $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
+  overflow: auto;
+
+  &.active {
+    overflow: hidden;
+  }
 }
 
 body {
@@ -38,6 +49,12 @@ body {
   color: $body-color;
 }
 
+/* z-index: 10 -> menu overlay (black)
+   z-index: 11 -> .header__menu (white), .header__nav
+   z-index: 12 -> #header__icon
+
+*/
+
 // header with navbar
 .header {
   position: absolute;
@@ -45,11 +62,30 @@ body {
   padding: 4rem;
   width: 100%;
   justify-content: space-between;
-  z-index: 2;
 
   &__logo {
     width: 40px;
     height: 40px;
+  }
+
+  &__nav {
+    z-index: 11;
+  }
+
+  &__overlay {
+    z-index: -10;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    opacity: 0;
+
+    &.active {
+      opacity: 0.8;
+      z-index: 10;
+    }
   }
 
   &__links {
@@ -66,55 +102,85 @@ body {
       &:not(:last-child) {
         margin-right: 5rem;
       }
-
-      @include tablet {
-        display: none;
-        height: 4rem;
-        text-align: center;
-        line-height: 4rem;
-        border-bottom: 1px solid #ddd;
-      }
     }
 
-    @include tablet {
+    @include belowTablet {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: none;
+    z-index: 11;
+    //transition:
+
+    &.active {
+      background: #b6b6b6;
+      position: fixed;
+      height: 100%;
+      width: 55%;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      padding-top: 8rem;
+      display: block;
+
+      > a {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        color: #fff; //$projects-heading-bg
+        font-size: 2.1rem;
+        padding: 1.1rem 0;
+        border-bottom: 1px solid #fff;
+      }
+
+      &:before, &:after {
+        content: " ";
+
+        @include aboveTablet {
+
+        }
+      }
 
     }
   }
 }
 
-#header__menu {
+#header__icon {
   position: relative;
   height: $menu-height;
   width: $menu-width;
   cursor: pointer;
   display: none;
+  z-index: 12;
 
   .line-one, .line-two, .line-three {
     height: $menu-line-height;
     width: $menu-line-width;
     background: #fff;
-    box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, 0.4);
     border-radius: 5px;
+    box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, 0.4);
   }
 
   .line-one {
-    animation: animate-line-1-rev .7s $cubic-bezier-in forwards;
+    animation: animate-line-1-rev .7s forwards;
   }
 
   .line-two {
     margin: $menu-line-space 0;
-    animation: animate-line-2-rev .7s $cubic-bezier-in forwards;
+    animation: animate-line-2-rev .7s forwards;
   }
 
   .line-three {
-    animation: animate-line-3-rev .7s $cubic-bezier-in forwards;
+    animation: animate-line-3-rev .7s forwards;
   }
 
   .no-animation {
     animation: none !important;
   }
 
-  & .active {
+  &.active {
     .line-one {
       animation: animate-line-1 .7s $cubic-bezier-in forwards;
     }
@@ -196,7 +262,7 @@ body {
     }
   }
 
-  @include tablet {
+  @include belowTablet {
     display: block;
   }
 }
@@ -546,6 +612,8 @@ body {
 // skills sections
 #skills {
   background-color: $skills-bg-color;
+  display: flex;
+  flex-flow: row wrap;
 }
 
 .skills {
@@ -556,10 +624,13 @@ body {
     padding: 1.5rem 4rem;
     color: #fff;
     background-color: $projects-heading-bg;
+    flex: 1 100%;
   }
 
   &__ul {
-    //padding-left: 0;
+    padding: 0 4rem;
+    flex: 1;
+    order: 1;
 
     > li {
       display: inline-block;
@@ -567,29 +638,23 @@ body {
       text-align: center;
       margin-bottom: 3rem;
 
-      &:last-child > img {
-        width: 100px;
-      }
-
       &:not(:last-child) {
         margin-right: 3rem;
       }
 
-      &:not(:last-child) > img {
+      > img {
         width: 100px;
-        height: 100px;
+      }
+
+      &:nth-last-child(1) > img {
+        width: 210.5px;
+        height: auto;
       }
     }
   }
 }
 
 // about section
-#about {
-  //background-color:;
-  color: $body-color;
-  padding: 12rem;
-}
-
 .about {
   &__img {
     //max-width: 100%;
@@ -598,25 +663,35 @@ body {
     //max-height: auto;
     height: 210.5px;
     border-radius: 10px;
+    //order: 3;
+  }
+
+  &__bio {
+    //order: 4;
   }
 }
 
 .footer {
   &__hr {
     width: 90%;
-    order: 1;
+    //order: 1;
   }
 
   &__flex {
-    display: flex;
-    justify-content: center;
-    width: 100%;
     order: 2;
+    flex: 0 8%;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid black;
+    padding: 0 1.5rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+    //width: 100%;
   }
 }
 
 .social-media__ul {
-  text-align: center;
+  //text-align: center;
   padding-left: 0;
 
   > li {
@@ -624,9 +699,10 @@ body {
     list-style: none;
     width: 38px;
     height: 38px;
+    margin-bottom: 8rem;
 
     &:not(:last-child) {
-      margin-right: 5rem;
+      //margin-right: 5rem;
     }
   }
 }

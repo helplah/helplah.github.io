@@ -17,17 +17,23 @@
       <a href="https//www.jenlky.com">
         <img src="./assets/favicon-medium.png" class="header__logo" alt="Portfolio site logo">
       </a>
-      <nav class="header__links">
-        <div id="header__menu">
+      <nav class="header__nav">
+        <div id="header__icon">
           <div class="line-one no-animation"></div>
           <div class="line-two no-animation"></div>
           <div class="line-three no-animation"></div>
         </div>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
+        <div class="header__links">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+        </div>
+        <div class="header__menu">
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+        </div>
       </nav>
     </header>
-
+    <div class="header__overlay"></div>
     <main>
       <!-- hero animation -->
       <div class="hero__overlay"></div>
@@ -78,7 +84,7 @@
       <!-- skills section w white bg -->
       <section id="skills">
         <h2 class="skills__heading">Skills</h2>
-        <ul class="skills__ul container">
+        <ul class="skills__ul">
           <li><img alt="" src="./assets/html5.png"><div>HTML5</div></li>
           <li><img alt="" src="./assets/css3.png"><div>CSS3</div></li>
           <li><img alt="" src="./assets/sass.png"><div>SASS</div></li>
@@ -88,12 +94,16 @@
           <li><img alt="" src="./assets/react.png"><div>React</div></li>
           <li><img alt="" src="./assets/nodejs.png"><div>Node.js</div></li>
           <li><img alt="" src="./assets/git.png"><div>git</div></li>
+          <br>
+          <li>
+            <p class="about__bio">Looking to hire? Send me a message! <sup>I don't bite</sup></p>
+          </li>
+          <li><img class="about__img" src="./assets/display-photo.jpg" alt="Profile picture"></li>
         </ul>
         <!-- profile pic, Looking to Hire n below-->
-        <img class="about__img" src="./assets/display-photo.jpg" alt="Profile picture">
-        <p>Looking to hire? Send me a message! <sup>I don't bite</sup></p>
-        <hr class="footer__hr">
 
+
+        <!--<hr class="footer__hr">-->
         <footer class="footer__flex">
           <ul class="social-media__ul">
             <li>
