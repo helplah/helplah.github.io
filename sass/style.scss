@@ -1,12 +1,11 @@
 // body
 $body-color: #151515; // #151515, rgb(21, 21, 21) black
 // hero section
-// $hero-bg-color: ;
 $hero-color: #fff; // white
 // projects section
 $flex-grow-no: 35;
-$projects-heading-bg: #008073;
-$projects-bg-color: #d4d4d4;
+$projects-heading-bg: #008073; // dark green
+$projects-bg-color: #d4d4d4; // grey outline
 // skills section
 $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
 // height of menu
@@ -85,12 +84,16 @@ body {
     &.active {
       opacity: 0.8;
       z-index: 10;
+
+      @include aboveTablet {
+        display: none;
+      }
     }
   }
 
   &__links {
     > a {
-      font-size: 2rem;
+      font-size: 2.1rem;
       display: inline-block;
       list-style: none;
       color: $hero-color;
@@ -125,12 +128,16 @@ body {
       padding-top: 8rem;
       display: block;
 
+      @include aboveTablet {
+        display: none;
+      }
+
       > a {
         display: block;
         text-decoration: none;
         text-align: center;
         color: #fff; //$projects-heading-bg
-        font-size: 2.1rem;
+        font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff;
       }
@@ -679,7 +686,7 @@ body {
 
   &__flex {
     order: 2;
-    flex: 0 8%;
+    flex: 0 6%;
     display: flex;
     flex-direction: column;
     border-left: 1px solid black;
@@ -690,6 +697,12 @@ body {
   }
 }
 
+/* below 768px - change horizontal projects to vertical placement.
+*/
+
+// max-width: 830px -> shift links bar to the rightArrow
+// greater than 830px width, links bar is bottom and container is there to restrict everything to the middle
+// margin-bottom: 8rem;
 .social-media__ul {
   //text-align: center;
   padding-left: 0;
@@ -697,12 +710,23 @@ body {
   > li {
     display: inline-block;
     list-style: none;
-    width: 38px;
-    height: 38px;
-    margin-bottom: 8rem;
+    width: 34px;
+    height: 34px;
 
     &:not(:last-child) {
-      //margin-right: 5rem;
+      margin-bottom: 6rem;
+    }
+
+    > a {
+      //display: block;
+
+      > svg:hover {
+        fill: #795548; //brown
+        transition: all 0.2s ease-in-out;
+        transform: scale(1.2);
+        transform-origin: 50% 50%;
+      }
     }
   }
+
 }

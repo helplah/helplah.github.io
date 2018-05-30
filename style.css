@@ -39,8 +39,11 @@ body {
     .header__overlay.active {
       opacity: 0.8;
       z-index: 10; }
+      @media (min-width: 768px) {
+        .header__overlay.active {
+          display: none; } }
   .header__links > a {
-    font-size: 2rem;
+    font-size: 2.1rem;
     display: inline-block;
     list-style: none;
     color: #fff; }
@@ -64,12 +67,15 @@ body {
       overflow-x: hidden;
       padding-top: 8rem;
       display: block; }
+      @media (min-width: 768px) {
+        .header__menu.active {
+          display: none; } }
       .header__menu.active > a {
         display: block;
         text-decoration: none;
         text-align: center;
         color: #fff;
-        font-size: 2.1rem;
+        font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff; }
       .header__menu.active:before, .header__menu.active:after {
@@ -392,7 +398,7 @@ body {
   width: 90%; }
 .footer__flex {
   order: 2;
-  flex: 0 8%;
+  flex: 0 6%;
   display: flex;
   flex-direction: column;
   border-left: 1px solid black;
@@ -400,13 +406,21 @@ body {
   margin-bottom: 3rem;
   justify-content: center; }
 
+/* below 768px - change horizontal projects to vertical placement.
+*/
 .social-media__ul {
   padding-left: 0; }
   .social-media__ul > li {
     display: inline-block;
     list-style: none;
-    width: 38px;
-    height: 38px;
-    margin-bottom: 8rem; }
+    width: 34px;
+    height: 34px; }
+    .social-media__ul > li:not(:last-child) {
+      margin-bottom: 6rem; }
+    .social-media__ul > li > a > svg:hover {
+      fill: #795548;
+      transition: all 0.2s ease-in-out;
+      transform: scale(1.2);
+      transform-origin: 50% 50%; }
 
 /*# sourceMappingURL=style.css.map */

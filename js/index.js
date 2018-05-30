@@ -79,7 +79,7 @@ function clickOnProject(e) {
 
   // Add leftArrow on clicked
   const leftArrow = document.createElement("div");
-  leftArrow.id = "projects__leftArrow"
+  leftArrow.id = "projects__leftArrow";
   leftArrow.innerHTML = `<div role="button">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
@@ -214,10 +214,10 @@ function clickHamburger() {
   overlay.classList.toggle("active");
   menu.classList.toggle("active");
   html.classList.toggle("active");
-  overlay.addEventListener("click", clickOutsideMenu, { once: true });
+  overlay.addEventListener("click", clickMenuLinks, { once: true });
 }
 
-function clickOutsideMenu() {
+function clickMenuLinks() {
   icon.classList.toggle("active");
   overlay.classList.toggle("active");
   menu.classList.toggle("active");
