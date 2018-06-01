@@ -8,8 +8,7 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  font-size: 1.6rem;
-  color: #151515; }
+  font-size: 1.6rem; }
 
 /* z-index: 10 -> menu overlay (black)
    z-index: 11 -> .header__menu (white), .header__nav
@@ -46,9 +45,19 @@ body {
     font-size: 2.1rem;
     display: inline-block;
     list-style: none;
-    color: #fff; }
+    color: #595959; }
     .header__links > a:hover {
-      text-decoration: none; }
+      text-decoration: none;
+      color: black; }
+      .header__links > a:hover::after {
+        width: 100%; }
+    .header__links > a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #000;
+      transition: width .3s; }
     .header__links > a:not(:last-child) {
       margin-right: 5rem; }
   @media (max-width: 768px) {
@@ -156,36 +165,30 @@ body {
       display: block; } }
 
 #hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   background-image: url("./assets/triple-Os.png");
+  background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
 
-.hero__container {
-  padding-top: 40vh;
-  margin: 0 7vw; }
-.hero__overlay {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.15);
-  z-index: 1; }
-
-.typewriter p {
+.hero__typewriter p {
   border-right: .15em solid orange;
-  font-family: "Courier";
-  font-size: 14px;
   white-space: nowrap;
   overflow: hidden; }
-.typewriter p:nth-child(1) {
+.hero__typewriter p:nth-child(1) {
+  width: 780px;
+  /* manually set width */
   -webkit-animation: type 2s steps(40, end);
   animation: type 2s steps(40, end);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
-.typewriter p:nth-child(2) {
+.hero__typewriter p:nth-child(2) {
+  width: 780px;
+  /* manually set width */
   opacity: 0;
   -webkit-animation: type2 2s steps(40, end);
   animation: type2 2s steps(40, end);
@@ -193,26 +196,27 @@ body {
   animation-delay: 2s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
-.typewriter p:nth-child(3) {
+.hero__typewriter p:nth-child(3) {
+  width: 520px;
+  /* manually set width */
   opacity: 0;
   -webkit-animation: type3 5s steps(20, end), blink 0.5s step-end infinite alternate;
-  animation: type3 5s steps(20, end), blink 0.5s step-end infinite alternate;
+  animation: type3 2s steps(20, end), blink 0.5s step-end infinite alternate;
   -webkit-animation-delay: 4s;
   animation-delay: 4s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards; }
-
 @keyframes type {
   0% {
     width: 0; }
-  99% {
+  99.9% {
     border-right: .15em solid orange; }
   100% {
     border: none; } }
 @-webkit-keyframes type {
   0% {
     width: 0; }
-  99% {
+  99.9% {
     border-right: .15em solid orange; }
   100% {
     border: none; } }
@@ -221,7 +225,7 @@ body {
     width: 0; }
   1% {
     opacity: 1; }
-  99% {
+  99.9% {
     border-right: .15em solid orange; }
   100% {
     opacity: 1;
@@ -231,7 +235,7 @@ body {
     width: 0; }
   1% {
     opacity: 1; }
-  99% {
+  99.9% {
     border-right: .15em solid orange; }
   100% {
     opacity: 1;
@@ -256,6 +260,15 @@ body {
 @-webkit-keyframes blink {
   50% {
     border-color: tranparent; } }
+.hero__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+  z-index: 1; }
+
 #projects-img0 {
   background-image: url(./assets/flashcard-app.png); }
 #projects-img1 {
@@ -270,9 +283,9 @@ body {
 .projects__heading {
   color: #fff;
   font-size: 3rem;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 6rem;
   margin: 0;
-  background-color: #008073; }
+  background-color: #4FBCE8; }
 .projects__flexbox {
   display: flex;
   align-items: center;
@@ -364,26 +377,38 @@ body {
   background-color: #eaeaea;
   display: flex;
   flex-flow: row wrap; }
+  @media (min-width: 768px) {
+    #skills {
+      display: block; } }
 
 .skills__heading {
   font-size: 3rem;
   margin-top: 0;
   margin-bottom: 3rem;
-  padding: 1.5rem 4rem;
+  padding: 1.5rem 6rem;
   color: #fff;
-  background-color: #008073;
+  background-color: #E6807B;
   flex: 1 100%; }
 .skills__ul {
   padding: 0 4rem;
   flex: 1;
-  order: 1; }
+  order: 1;
+  /*
+  display: flex;
+  flex-flow: row wrap;
+  //justify-content: space-around;
+  align-items: flex-end;
+  */ }
   .skills__ul > li {
     display: inline-block;
     list-style: none;
     text-align: center;
     margin-bottom: 3rem; }
     .skills__ul > li:not(:last-child) {
-      margin-right: 3rem; }
+      margin-right: 10rem; }
+    .skills__ul > li:last-child {
+      width: inherit;
+      height: inherit; }
     .skills__ul > li > img {
       width: 100px; }
     .skills__ul > li:nth-last-child(1) > img {
@@ -393,9 +418,15 @@ body {
 .about__img {
   height: 210.5px;
   border-radius: 10px; }
+.about__bio {
+  display: inline-block;
+  margin-right: 1rem; }
 
 .footer__hr {
   width: 90%; }
+  @media (max-width: 768px) {
+    .footer__hr {
+      display: none; } }
 .footer__flex {
   order: 2;
   flex: 0 6%;
@@ -405,6 +436,20 @@ body {
   padding: 0 1.5rem;
   margin-bottom: 3rem;
   justify-content: center; }
+  @media (min-width: 768px) {
+    .footer__flex {
+      border: none;
+      margin-bottom: 0;
+      align-items: center; } }
+.footer__license {
+  font-size: 1.4rem;
+  order: 6;
+  margin-bottom: 0;
+  text-align: center;
+  width: -webkit-fill-available; }
+  @media (max-width: 768px) {
+    .footer__license {
+      font-size: 1.2rem; } }
 
 /* below 768px - change horizontal projects to vertical placement.
 */
@@ -417,8 +462,12 @@ body {
     height: 34px; }
     .social-media__ul > li:not(:last-child) {
       margin-bottom: 6rem; }
+      @media (min-width: 768px) {
+        .social-media__ul > li:not(:last-child) {
+          margin-bottom: 2rem;
+          margin-right: 6rem; } }
     .social-media__ul > li > a > svg:hover {
-      fill: #795548;
+      fill: #F0BB6C;
       transition: all 0.2s ease-in-out;
       transform: scale(1.2);
       transform-origin: 50% 50%; }

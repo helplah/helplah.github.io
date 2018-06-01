@@ -15,7 +15,7 @@
   <body>
     <header class="header">
       <a href="https//www.jenlky.com">
-        <img src="./assets/favicon-medium.png" class="header__logo" alt="Portfolio site logo">
+        <img src="./assets/favicon-1024.png" class="header__logo" alt="Portfolio site logo">
       </a>
       <nav class="header__nav">
         <div id="header__icon">
@@ -24,7 +24,7 @@
           <div class="line-three no-animation"></div>
         </div>
         <div class="header__links">
-          <a href="#projects" >Projects</a>
+          <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
         </div>
         <div class="header__menu">
@@ -36,11 +36,13 @@
     <div class="header__overlay"></div>
     <main>
       <!-- hero animation -->
+      <!--
       <div class="hero__overlay"></div>
+      -->
       <section id="hero">
         <div class="hero__container">
-          <div class="hero__introduction typewriter">
-            <p>Hi I'm Jenssen Lee! Looking to start my career as a Developer in Singapore.</p>
+          <div class="hero__typewriter">
+            <p>Hi I'm Jenssen Lee! Looking to start my career as a Front-End Developer in Singapore.</p>
             <p>I have experience with HTML, SASS, Bootstrap, JavaScript, jQuery, React, Node.js, Express.</p>
             <p>This site was designed and built by me - the code is available on Github.</p>
           </div>
@@ -52,27 +54,22 @@
         <h2 class="projects__heading container-fluid">Projects</h2>
         <div id="projects__parent">
           <ul class="projects__flexbox">
-            <!-- https://shrouded-taiga-52624.herokuapp.com/ -->
             <li class="projects__li projects__li0 projects__flex">
               <div class="projects__img" id="projects-img0"></div>
             </li>
 
-            <!-- https://www.jenlky.com/tribute-page -->
             <li class="projects__li projects__li1 projects__flex">
               <div class="projects__img" id="projects-img1"></div>
             </li>
 
-            <!-- https://www.jenlky.com/twitch-tv -->
             <li class="projects__li projects__li2 projects__flex">
               <div class="projects__img" id="projects-img2"></div>
             </li>
 
-            <!-- https://www.jenlky.com/react-wikipedia -->
             <li class="projects__li projects__li3 projects__flex">
               <div class="projects__img" id="projects-img3"></div>
             </li>
 
-            <!-- https://www.jenlky.com/react-quote-machine -->
             <li class="projects__li projects__li4 projects__flex">
               <div class="projects__img" id="projects-img4"></div>
             </li>
@@ -84,7 +81,7 @@
       <!-- skills section w white bg -->
       <section id="skills">
         <h2 class="skills__heading">Skills</h2>
-        <ul class="skills__ul">
+        <ul class="skills__ul container">
           <li><img alt="" src="./assets/html5.png"><div>HTML5</div></li>
           <li><img alt="" src="./assets/css3.png"><div>CSS3</div></li>
           <li><img alt="" src="./assets/sass.png"><div>SASS</div></li>
@@ -97,13 +94,19 @@
           <br>
           <li>
             <p class="about__bio">Looking to hire? Send me a message! <sup>I don't bite</sup></p>
+            <img class="about__img" src="./assets/display-photo.jpg" alt="Profile picture">
           </li>
-          <li><img class="about__img" src="./assets/display-photo.jpg" alt="Profile picture"></li>
         </ul>
-        <!-- profile pic, Looking to Hire n below-->
-
-
-        <!--<hr class="footer__hr">-->
+        <p class="footer__license">Background image, icons and logos provided by
+          <a href="http://simpledesktops.com/browse/desktops/2015/may/27/000/" target="_blank">
+            Ann Chan
+          </a>
+          and
+          <a href="https://fontawesome.com/license" target="_blank">
+            Font Awesome
+          </a>
+        </p>
+        <hr class="footer__hr">
         <footer class="footer__flex">
           <ul class="social-media__ul">
             <li>
