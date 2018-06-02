@@ -20,22 +20,51 @@ $menu-width: fit-content;
 $cubic-bezier-in: cubic-bezier(0.30,1,0.70,1);
 $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
 
-@mixin belowTablet {
-  @media (max-width: 768px) {
+@mixin belowMobileM { // below 375px
+  @media screen and (max-width: 380px) {
     @content;
   }
 }
 
-@mixin aboveTablet {
-  @media (min-width: 768px) {
+@mixin belowMobileL { // below 425px
+  @media screen and (max-width: 460px) {
     @content;
   }
+}
+
+@mixin mobileL-Tablet { // between 425px - 768px
+  @media screen and (max-width: 540px) {
+    @content;
+  }
+}
+
+@mixin belowTablet { // below 769px
+  @media screen and (max-width: 769px) {
+    @content;
+  }
+}
+
+@mixin aboveTablet { // above 769px
+  @media screen and (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin belowLaptop { // below 1024px
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    @content;
+  }
+}
+
+*  {
+  box-sizing: border-box;
 }
 
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  overflow: auto;
+  width: available;
+  //overflow: auto;
 
   &.active {
     overflow: hidden;
@@ -46,6 +75,7 @@ body {
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
+  width: available;
   //color: $body-color;
   //background-color: #151515;
 }
@@ -60,13 +90,31 @@ body {
 .header {
   position: absolute;
   display: flex;
-  padding: 4rem;
+  padding: 4rem 7rem;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
+
+  @include belowTablet {
+    padding: 3rem 5rem;
+  }
+
+  @include belowMobileL {
+    padding: 2rem 4rem;
+  }
+
+  @include belowMobileM {
+    padding: 2rem 3rem;
+  }
 
   &__logo {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
+
+    @include belowMobileL {
+      width: 50px;
+      height: 50px;
+    }
   }
 
   &__nav {
@@ -156,14 +204,6 @@ body {
         font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff;
-      }
-
-      &:before, &:after {
-        content: " ";
-
-        @include aboveTablet {
-
-        }
       }
 
     }
@@ -317,10 +357,15 @@ body {
       border-right: .15em solid orange;
       white-space: nowrap;
       overflow: hidden;
+      width: 100%;
+
+      @include belowTablet {
+        white-space: pre-line;
+      }
     }
 
     p:nth-child(1) {
-      width: 780px; /* manually set width */
+      /*width: 780px;  manually set width */
       -webkit-animation: type 2s steps(40, end);
       animation: type 2s steps(40, end);
       -webkit-animation-fill-mode: forwards;
@@ -328,7 +373,7 @@ body {
     }
 
     p:nth-child(2) {
-      width: 780px; /* manually set width */
+      /*width: 780px;  manually set width */
       opacity: 0;
       -webkit-animation: type2 2s steps(40, end);
       animation: type2 2s steps(40, end);
@@ -339,7 +384,7 @@ body {
     }
 
     p:nth-child(3) {
-      width: 520px; /* manually set width */
+      /*width: 520px;  manually set width */
       opacity: 0;
       -webkit-animation: type3 5s steps(20, end), blink .5s step-end infinite alternate;
       animation: type3 2s steps(20, end), blink .5s step-end infinite alternate;
@@ -481,7 +526,7 @@ body {
 .projects {
   &__heading {
     color: #fff;
-    font-size: 3rem;
+    font: 3rem 'Sahitya', serif;
     padding: 1.5rem 6rem;
     margin: 0;
     background-color: $blue-circle;
@@ -587,6 +632,22 @@ body {
 
     &.container {
       width: 50%;
+
+      @include belowLaptop {
+        width: 60%;
+      }
+
+      @include belowTablet {
+        width: 70%;
+      }
+
+      @include mobileL-Tablet {
+        width: 85%;
+      }
+
+      @include belowMobileL {
+        width: 95%;
+      }
     }
   }
 
@@ -640,11 +701,7 @@ body {
   background-color: $skills-bg-color;
   display: flex;
   flex-flow: row wrap;
-  //margin: 0 10rem;
-
-  @include aboveTablet {
-    display: block;
-  }
+  justify-content: center;
 }
 
 .skills {
@@ -659,15 +716,10 @@ body {
   }
 
   &__ul {
-    padding: 0 4rem;
+    padding: 1rem;
     flex: 1;
     order: 1;
-    /*
-    display: flex;
-    flex-flow: row wrap;
-    //justify-content: space-around;
-    align-items: flex-end;
-    */
+    text-align: center;
 
     > li {
       display: inline-block;
@@ -677,6 +729,14 @@ body {
 
       &:not(:last-child) {
         margin-right: 10rem;
+
+        @include belowTablet {
+          margin-right: 5rem;
+        }
+
+        @include mobileL-Tablet {
+          margin-right: 3rem;
+        }
       }
 
       &:last-child {
@@ -691,6 +751,14 @@ body {
       &:nth-last-child(1) > img {
         width: 210.5px;
         height: auto;
+
+        @include belowTablet {
+          width: 187px;
+        }
+
+        @include belowMobileM {
+          width: 176px;
+        }
       }
     }
   }
@@ -699,11 +767,6 @@ body {
 // about section
 .about {
   &__img {
-    //max-width: 100%;
-    //width: 250px;
-    //width 300px height 252.6px
-    //max-height: auto;
-    height: 210.5px;
     border-radius: 10px;
   }
 
@@ -715,41 +778,35 @@ body {
 
 .footer {
   &__hr {
+    order: 3;
     width: 90%;
 
+    /*
     @include belowTablet {
       display: none;
     }
+    */
   }
 
   &__flex {
-    order: 2;
-    flex: 0 6%;
+    order: 4;
     display: flex;
-    flex-direction: column;
-    border-left: 1px solid black;
-    padding: 0 1.5rem;
-    margin-bottom: 3rem;
-    justify-content: center;
+    //padding: 0 1.5rem;
+    //margin-bottom: 3rem;
+    //margin-bottom: 0;
+    //align-items: center;
     //width: 100%;
-
-    @include aboveTablet {
-      border: none;
-      margin-bottom: 0;
-      align-items: center;
-      //transition: border align-items 1s ease-in-out;
-    }
   }
 
   &__license {
+    order: 2;
     font-size: 1.4rem;
-    order: 6;
     margin-bottom: 0;
     text-align: center;
     width:-webkit-fill-available;
 
-    @include belowTablet {
-      font-size: 1.2rem;
+    @include belowMobileL {
+      padding: 0 1.6rem;
     }
   }
 }
@@ -770,11 +827,16 @@ body {
     height: 34px;
 
     &:not(:last-child) {
-      margin-bottom: 6rem;
+      margin-bottom: 2rem;
+      margin-right: 6rem;
 
-      @include aboveTablet {
-        margin-bottom: 2rem;
-        margin-right: 6rem;
+      @include belowMobileL {
+        margin-bottom: 1rem;
+        margin-right: 4rem;
+      }
+
+      @include belowMobileM {
+        margin-right: 2.8rem;
       }
     }
 
