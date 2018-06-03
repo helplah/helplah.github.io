@@ -4,15 +4,14 @@
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  width: available; }
+  overflow: auto; }
   html.active {
     overflow: hidden; }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", "Tahoma", "Verdana", "Segoe", sans-serif;
   line-height: 1.5;
-  font-size: 1.6rem;
-  width: available; }
+  font-size: 1.6rem; }
 
 /* z-index: 10 -> menu overlay (black)
    z-index: 11 -> .header__menu (white), .header__nav
@@ -60,10 +59,10 @@ body {
         .header__overlay.active {
           display: none; } }
   .header__links > a {
-    font-size: 2.1rem;
+    font: 2.4rem "Sahitya", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", serif;
     display: inline-block;
     list-style: none;
-    color: #595959; }
+    color: rgba(0, 0, 0, 0.4); }
     .header__links > a:hover {
       text-decoration: none;
       color: black; }
@@ -192,12 +191,17 @@ body {
   background-size: cover; }
 
 .hero__typewriter p {
+  font-size: 1.8rem;
   border-right: .15em solid orange;
   white-space: nowrap;
   overflow: hidden;
   width: 100%; }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    .hero__typewriter p {
+      font-size: 1.7rem; } }
   @media screen and (max-width: 769px) {
     .hero__typewriter p {
+      font-size: 1.6rem;
       white-space: pre-line; } }
 .hero__typewriter p:nth-child(1) {
   /*width: 780px;  manually set width */
@@ -341,13 +345,16 @@ body {
   height: 100%; }
 .projects__hr {
   margin-bottom: 2rem; }
-.projects__links {
+.projects__url {
   text-align: center; }
-.projects__link :first-of-type {
+.projects__links :first-of-type {
   margin-right: 1rem; }
-.projects__link > i {
-  font-size: 2.3rem; }
-.projects__link :hover {
+.projects__links > i {
+  color: black;
+  font-size: 3rem; }
+  .projects__links > i:hover {
+    color: #F0BB6C; }
+.projects__links:hover {
   text-decoration: none; }
 
 #projects {
@@ -359,8 +366,17 @@ body {
     margin-bottom: 4vh;
     padding: 4rem 6rem;
     box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 540px) {
+      #projects__description {
+        padding: 3.4rem 5rem; } }
+    @media screen and (max-width: 460px) {
+      #projects__description {
+        padding: 2.8rem 4.2rem; } }
+    @media screen and (max-width: 380px) {
+      #projects__description {
+        padding: 2.2rem 3.3rem; } }
     #projects__description h3 {
-      font-weight: 700; }
+      font: 700 1.75rem "Sahitya", sans-serif; }
     #projects__description.container {
       width: 50%; }
       @media screen and (min-width: 769px) and (max-width: 1025px) {
@@ -409,7 +425,7 @@ body {
   justify-content: center; }
 
 .skills__heading {
-  font-size: 3rem;
+  font: 3rem "Sahitya", serif;
   margin-top: 0;
   margin-bottom: 3rem;
   padding: 1.5rem 6rem;
@@ -453,33 +469,37 @@ body {
   border-radius: 10px; }
 .about__bio {
   display: inline-block;
+  font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   margin-right: 1rem; }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    .about__bio {
+      font-size: 1.7rem; } }
+  @media screen and (max-width: 769px) {
+    .about__bio {
+      font-size: 1.6rem; } }
 
 .footer__hr {
   order: 3;
-  width: 90%;
-  /*
-  @include belowTablet {
-    display: none;
-  }
-  */ }
+  width: 90%; }
 .footer__flex {
   order: 4;
   display: flex; }
 .footer__license {
   order: 2;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   margin-bottom: 0;
   text-align: center;
   width: -webkit-fill-available; }
+  @media screen and (max-width: 769px) {
+    .footer__license {
+      font-size: 1.5rem; } }
   @media screen and (max-width: 460px) {
     .footer__license {
       padding: 0 1.6rem; } }
 
-/* below 768px - change horizontal projects to vertical placement.
-*/
 .social-media__ul {
-  padding-left: 0; }
+  padding-left: 0;
+  margin-bottom: 5px; }
   .social-media__ul > li {
     display: inline-block;
     list-style: none;

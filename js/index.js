@@ -127,11 +127,11 @@ function changeSection(index, section) {
     <h3>Accomplishments</h3>
     ${li}
     <br>
-    <div class="projects__links">
-      <a href="${projectsLink[index]}" class="projects__link" target="_blank">
+    <div class="projects__url">
+      <a href="${projectsLink[index]}" class="projects__links" target="_blank">
         <i class="fas fa-external-link-alt"></i>
       </a>
-      <a href="${projectsSource[index]}" class="projects__link" target="_blank">
+      <a href="${projectsSource[index]}" class="projects__links" target="_blank">
         <i class="fab fa-github"></i>
       </a>
     </div>

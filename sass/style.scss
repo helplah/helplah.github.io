@@ -1,5 +1,5 @@
 // body
-$header-links-color: #595959;
+$header-links-color: rgba(#000000, 0.4);
 $blue-circle: #4FBCE8;
 $red-circle: #E6807B;
 $yellow-circle: #F0BB6C;
@@ -63,8 +63,7 @@ $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
-  width: available;
-  //overflow: auto;
+  overflow: auto;
 
   &.active {
     overflow: hidden;
@@ -72,12 +71,9 @@ html {
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Roboto", "Tahoma", "Verdana", "Segoe", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
-  width: available;
-  //color: $body-color;
-  //background-color: #151515;
 }
 
 /* z-index: 10 -> menu overlay (black)
@@ -143,7 +139,7 @@ body {
 
   &__links {
     > a {
-      font-size: 2.1rem;
+      font: 2.4rem "Sahitya", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", serif;
       display: inline-block;
       list-style: none;
       color: $header-links-color;
@@ -179,7 +175,6 @@ body {
   &__menu {
     display: none;
     z-index: 11;
-    //transition:
 
     &.active {
       background: #b6b6b6;
@@ -354,14 +349,22 @@ body {
 
 
     p {
+      font-size: 1.8rem;
       border-right: .15em solid orange;
       white-space: nowrap;
       overflow: hidden;
       width: 100%;
 
+      @include belowLaptop {
+        font-size: 1.7rem;
+      }
+
       @include belowTablet {
+        font-size: 1.6rem;
         white-space: pre-line;
       }
+
+
     }
 
     p:nth-child(1) {
@@ -594,21 +597,25 @@ body {
     margin-bottom: 2rem;
   }
 
-  &__link {
+  &__url {
+    text-align: center;
+  }
 
-    &s {
-      text-align: center;
-    }
-
+  &__links {
     :first-of-type {
       margin-right: 1rem;
     }
 
     > i {
-      font-size: 2.3rem;
+      color: black;
+      font-size: 3rem;
+
+      &:hover {
+        color: $yellow-circle;
+      }
     }
 
-    :hover {
+    &:hover {
       text-decoration: none;
     }
   }
@@ -617,7 +624,6 @@ body {
 #projects {
   background-color: $projects-bg-color;
   height: fit-content;
-  //margin: 0 10rem;
 
   &__description {
     background-color: #fff;
@@ -626,8 +632,24 @@ body {
     padding: 4rem 6rem;
     box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
 
+    @include mobileL-Tablet {
+      padding: 3.4rem 5rem;
+    }
+
+    @include belowMobileL {
+      padding: 2.8rem 4.2rem;
+    }
+
+    @include belowMobileM {
+      padding: 2.2rem 3.3rem;
+    }
+
     h3 {
-      font-weight: 700;
+      font: 700 1.75rem "Sahitya", sans-serif;
+    }
+
+    li {
+
     }
 
     &.container {
@@ -706,7 +728,7 @@ body {
 
 .skills {
   &__heading {
-    font-size: 3rem;
+    font: 3rem "Sahitya", serif;
     margin-top: 0;
     margin-bottom: 3rem;
     padding: 1.5rem 6rem;
@@ -772,7 +794,16 @@ body {
 
   &__bio {
     display: inline-block;
+    font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
     margin-right: 1rem;
+
+    @include belowLaptop {
+      font-size: 1.7rem;
+    }
+
+    @include belowTablet {
+      font-size: 1.6rem;
+    }
   }
 }
 
@@ -780,30 +811,23 @@ body {
   &__hr {
     order: 3;
     width: 90%;
-
-    /*
-    @include belowTablet {
-      display: none;
-    }
-    */
   }
 
   &__flex {
     order: 4;
     display: flex;
-    //padding: 0 1.5rem;
-    //margin-bottom: 3rem;
-    //margin-bottom: 0;
-    //align-items: center;
-    //width: 100%;
   }
 
   &__license {
     order: 2;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-bottom: 0;
     text-align: center;
     width:-webkit-fill-available;
+
+    @include belowTablet {
+      font-size: 1.5rem;
+    }
 
     @include belowMobileL {
       padding: 0 1.6rem;
@@ -811,14 +835,9 @@ body {
   }
 }
 
-/* below 768px - change horizontal projects to vertical placement.
-*/
-
-// max-width: 830px -> shift links bar to the rightArrow
-// greater than 830px width, links bar is bottom and container is there to restrict everything to the middle
-// margin-bottom: 8rem;
 .social-media__ul {
   padding-left: 0;
+  margin-bottom: 5px;
 
   > li {
     display: inline-block;
