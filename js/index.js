@@ -1,8 +1,16 @@
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
 console.log("All projects", projects);
-// add event listener to all projects
-projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
+
+// add event listener to all projects:
+// greater than 768px width run desktopClick func else run mobileClick func
+if (window.innerWidth > 768) {
+  projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
+} else {
+  projects.forEach(project => project.addEventListener("click", function() {
+    setTimeout(mobileClick, 150, this);
+  }));
+}
 
 // texts
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
@@ -41,11 +49,14 @@ for (let x = 0; x < 5; x++){
 
 const projectsParent = document.getElementById("projects__parent"); // ul parent node
 const section = document.createElement("section"); // section contains description of project
+section.className = "container"; // add class container and id projects__description to section
+section.id = "projects__description";
 
-function clickOnProject(e) {
+/* when user is using tablet and above width devices */
+function desktopClick(e) {
   // remove event listener from all projects
   // after first click u can only click left, right arrow or exit
-  projects.forEach(project => project.removeEventListener("click", clickOnProject, { once: true }));
+  projects.forEach(project => project.removeEventListener("click", desktopClick, { once: true }));
   console.log("Clicked project event", e);
   console.log("Clicked projects path array", e.path);
 
@@ -66,10 +77,6 @@ function clickOnProject(e) {
  // remove projects__flex class from clicked project
   e.path[1].classList.remove("projects__flex");
   e.path[1].style = "cursor: default;"; // change cursor back to default
-
-  // add section that acts as projects__description
-  section.className = "container";
-  section.id = "projects__description";
 
   // get class names of projects__li
   const clickedClass = e.path[1].className;
@@ -197,7 +204,7 @@ function close() {
   document.getElementById("projects__leftArrow").remove();
   document.getElementById("projects__rightArrow").remove();
   document.getElementById("projects__closeBtn").remove();
-  projects.forEach(project => project.addEventListener("click", clickOnProject, { once: true }));
+  projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
 }
 
 const icon = document.getElementById("header__icon");
@@ -207,13 +214,10 @@ const menu = document.getElementsByClassName('header__menu')[0];
 const html = document.getElementsByTagName("html")[0];
 
 function clickHamburger() {
-  icon.classList.toggle("active");
+  clickMenuLinks();
   for (let x = 0; x < icon.children.length; x++){
     icon.children[x].classList.remove("no-animation");
   }
-  overlay.classList.toggle("active");
-  menu.classList.toggle("active");
-  html.classList.toggle("active");
   overlay.addEventListener("click", clickMenuLinks, { once: true });
 }
 
@@ -222,4 +226,29 @@ function clickMenuLinks() {
   overlay.classList.toggle("active");
   menu.classList.toggle("active");
   html.classList.toggle("active");
+}
+
+/* when user is using tablet and below width devices */
+function mobileClick(target) {
+  target.addEventListener("click", function() {
+    setTimeout(mobileRemove, 150, this);
+  }, { once: true });
+  // get class names of projects__li
+  const clickedClass = target.className;
+  // get the last number of projects__li
+  const clickedNum = clickedClass[clickedClass.length - 1];
+  changeSection(clickedNum, section);
+
+  target.style.height = "45vh";
+  let clicked = document.querySelector(`.projects__li${clickedNum}`);
+  clicked.parentNode.insertBefore(section, clicked.nextSibling);
+}
+
+function mobileRemove(target) {
+  let description = document.querySelector("#projects__description");
+  description.parentNode.removeChild(description, 400);
+  target.style.height = "30vh";
+  target.addEventListener("click", function() {
+    setTimeout(mobileClick, 150, this);
+  }, { once: true });
 }

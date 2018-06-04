@@ -60,6 +60,10 @@ $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -71,6 +75,7 @@ html {
 }
 
 body {
+  position: relative;
   font-family: "Roboto", "Tahoma", "Verdana", "Segoe", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
@@ -92,15 +97,15 @@ body {
   align-items: center;
 
   @include belowTablet {
-    padding: 3rem 5rem;
+    padding: 2.6rem 4rem;
   }
 
   @include belowMobileL {
-    padding: 2rem 4rem;
+    padding: 2rem 3rem;
   }
 
-  @include belowMobileM {
-    padding: 2rem 3rem;
+  @include belowMobileM { // below 425px
+
   }
 
   &__logo {
@@ -180,11 +185,11 @@ body {
       background: #b6b6b6;
       position: fixed;
       height: 100%;
-      width: 55%;
+      width: 60%;
       top: 0;
       right: 0;
       overflow-x: hidden;
-      padding-top: 8rem;
+      padding-top: 10rem;
       display: block;
 
       @include aboveTablet {
@@ -541,15 +546,26 @@ body {
     padding-left: 0;
     margin-bottom: 0;
     position: relative;
+
+    @include belowTablet {
+      display: block;
+      cursor: pointer;
+    }
   }
 
   &__li {
     position: relative;
     display: inline-block;
     list-style: none;
-    height: 70vh; //33vh when width < 720/768px??
+    height: 70vh;
     transition: all .5s ease-in-out .25s;
     cursor: pointer;
+
+    @include belowTablet {
+      display: block;
+      height: 30vh;
+      transition: all .4s cubic-bezier(1, 0, 1, 1.01);
+    }
 
     &0 {
       flex: 11;
@@ -574,14 +590,17 @@ body {
 
   &__flex {
     filter: grayscale(100%);
+    border-right: $projects-bg-color solid 4px;
+
+    @include belowTablet {
+      filter: none;
+      //border-right: none;
+      //border-bottom: $projects-bg-color solid 4px;
+    }
 
     &:hover {
       flex: $flex-grow-no;
       filter: grayscale(0%);
-    }
-
-    &:not(last-of-type) {
-      border-right: $projects-bg-color solid 4px;
     }
   }
 
@@ -646,10 +665,6 @@ body {
 
     h3 {
       font: 700 1.75rem "Sahitya", sans-serif;
-    }
-
-    li {
-
     }
 
     &.container {
@@ -867,6 +882,10 @@ body {
         transition: all 0.2s ease-in-out;
         transform: scale(1.2);
         transform-origin: 50% 50%;
+      }
+
+      >svg:active {
+        fill: black;
       }
     }
   }

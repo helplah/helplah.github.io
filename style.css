@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+html, body {
+  overflow-x: hidden; }
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -9,6 +12,7 @@ html {
     overflow: hidden; }
 
 body {
+  position: relative;
   font-family: "Roboto", "Tahoma", "Verdana", "Segoe", sans-serif;
   line-height: 1.5;
   font-size: 1.6rem; }
@@ -27,11 +31,8 @@ body {
   align-items: center; }
   @media screen and (max-width: 769px) {
     .header {
-      padding: 3rem 5rem; } }
+      padding: 2.6rem 4rem; } }
   @media screen and (max-width: 460px) {
-    .header {
-      padding: 2rem 4rem; } }
-  @media screen and (max-width: 380px) {
     .header {
       padding: 2rem 3rem; } }
   .header__logo {
@@ -87,11 +88,11 @@ body {
       background: #b6b6b6;
       position: fixed;
       height: 100%;
-      width: 55%;
+      width: 60%;
       top: 0;
       right: 0;
       overflow-x: hidden;
-      padding-top: 8rem;
+      padding-top: 10rem;
       display: block; }
       @media screen and (min-width: 769px) {
         .header__menu.active {
@@ -313,6 +314,10 @@ body {
   padding-left: 0;
   margin-bottom: 0;
   position: relative; }
+  @media screen and (max-width: 769px) {
+    .projects__flexbox {
+      display: block;
+      cursor: pointer; } }
 .projects__li {
   position: relative;
   display: inline-block;
@@ -320,6 +325,11 @@ body {
   height: 70vh;
   transition: all .5s ease-in-out .25s;
   cursor: pointer; }
+  @media screen and (max-width: 769px) {
+    .projects__li {
+      display: block;
+      height: 30vh;
+      transition: all 0.4s cubic-bezier(1, 0, 1, 1.01); } }
   .projects__li0 {
     flex: 11; }
   .projects__li1 {
@@ -331,12 +341,14 @@ body {
   .projects__li4 {
     flex: 2; }
 .projects__flex {
-  filter: grayscale(100%); }
+  filter: grayscale(100%);
+  border-right: #d4d4d4 solid 4px; }
+  @media screen and (max-width: 769px) {
+    .projects__flex {
+      filter: none; } }
   .projects__flex:hover {
     flex: 35;
     filter: grayscale(0%); }
-  .projects__flex:not(last-of-type) {
-    border-right: #d4d4d4 solid 4px; }
 .projects__img {
   background-size: cover;
   background-position: center;
@@ -520,5 +532,7 @@ body {
       transition: all 0.2s ease-in-out;
       transform: scale(1.2);
       transform-origin: 50% 50%; }
+    .social-media__ul > li > a > svg:active {
+      fill: black; }
 
 /*# sourceMappingURL=style.css.map */
