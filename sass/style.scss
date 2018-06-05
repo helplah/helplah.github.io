@@ -20,6 +20,12 @@ $menu-width: fit-content;
 $cubic-bezier-in: cubic-bezier(0.30,1,0.70,1);
 $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
 
+@mixin mobileS { // 325px and above
+  @media screen and (max-width: 340px) {
+    @content;
+  }
+}
+
 @mixin belowMobileM { // below 375px
   @media screen and (max-width: 380px) {
     @content;
@@ -60,9 +66,10 @@ $cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
   box-sizing: border-box;
 }
 
+/*
 html, body {
   overflow-x: hidden;
-}
+}*/
 
 html {
   font-size: 62.5%;
@@ -102,10 +109,6 @@ body {
 
   @include belowMobileL {
     padding: 2rem 3rem;
-  }
-
-  @include belowMobileM { // below 425px
-
   }
 
   &__logo {
@@ -178,19 +181,19 @@ body {
   }
 
   &__menu {
-    display: none;
+    //display: none;
+    background: #b6b6b6;
+    position: fixed;
+    height: 100%;
+    width: 65%;
     z-index: 11;
+    right: -800px;
+    top: 0;
 
     &.active {
-      background: #b6b6b6;
-      position: fixed;
-      height: 100%;
-      width: 60%;
-      top: 0;
       right: 0;
-      overflow-x: hidden;
       padding-top: 10rem;
-      display: block;
+      transition: right .5s ease;
 
       @include aboveTablet {
         display: none;
@@ -204,6 +207,10 @@ body {
         font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.3);
+        }
       }
 
     }
@@ -535,9 +542,25 @@ body {
   &__heading {
     color: #fff;
     font: 3rem 'Sahitya', serif;
-    padding: 1.5rem 6rem;
+    padding: 1.5rem 14rem;
     margin: 0;
     background-color: $blue-circle;
+
+    @include belowLaptop {
+      padding: 1.5rem 8rem;
+    }
+
+    @include belowTablet {
+      padding: 1.5rem 5rem;
+    }
+
+    @include mobileL-Tablet {
+      padding: 1.5rem 4rem;
+    }
+
+    @include mobileS {
+      padding: 1.5rem 3rem;
+    }
   }
 
   &__flexbox {
@@ -625,12 +648,13 @@ body {
       margin-right: 1rem;
     }
 
-    > i {
-      color: black;
-      font-size: 3rem;
+    > svg {
+      fill: black;
+      width: 34px;
+      height: 34px;
 
       &:hover {
-        color: $yellow-circle;
+        fill: $yellow-circle;
       }
     }
 
@@ -746,10 +770,26 @@ body {
     font: 3rem "Sahitya", serif;
     margin-top: 0;
     margin-bottom: 3rem;
-    padding: 1.5rem 6rem;
+    padding: 1.5rem 14rem;
     color: #fff;
     background-color: $red-circle;
     flex: 1 100%;
+
+    @include belowLaptop {
+      padding: 1.5rem 8rem;
+    }
+
+    @include belowTablet {
+      padding: 1.5rem 5rem;
+    }
+
+    @include mobileL-Tablet {
+      padding: 1.5rem 4rem;
+    }
+
+    @include mobileS {
+      padding: 1.5rem 3rem;
+    }
   }
 
   &__ul {
@@ -884,7 +924,7 @@ body {
         transform-origin: 50% 50%;
       }
 
-      >svg:active {
+      > svg:active {
         fill: black;
       }
     }

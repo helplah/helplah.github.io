@@ -2,6 +2,9 @@
 
 # hashtag to comment
 
+# don't need ./ to indicate current directory
+
 /.sass-cache
 style.css.map
 CNAME
+/assets/readme.txt

@@ -1,9 +1,10 @@
 * {
   box-sizing: border-box; }
 
+/*
 html, body {
-  overflow-x: hidden; }
-
+  overflow-x: hidden;
+}*/
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -82,18 +83,17 @@ body {
     .header__links {
       display: none; } }
   .header__menu {
-    display: none;
-    z-index: 11; }
+    background: #b6b6b6;
+    position: fixed;
+    height: 100%;
+    width: 65%;
+    z-index: 11;
+    right: -800px;
+    top: 0; }
     .header__menu.active {
-      background: #b6b6b6;
-      position: fixed;
-      height: 100%;
-      width: 60%;
-      top: 0;
       right: 0;
-      overflow-x: hidden;
       padding-top: 10rem;
-      display: block; }
+      transition: right .5s ease; }
       @media screen and (min-width: 769px) {
         .header__menu.active {
           display: none; } }
@@ -105,6 +105,8 @@ body {
         font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff; }
+        .header__menu.active > a:hover {
+          background-color: rgba(0, 0, 0, 0.3); }
 
 #header__icon {
   position: relative;
@@ -305,9 +307,21 @@ body {
 .projects__heading {
   color: #fff;
   font: 3rem 'Sahitya', serif;
-  padding: 1.5rem 6rem;
+  padding: 1.5rem 14rem;
   margin: 0;
   background-color: #4FBCE8; }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    .projects__heading {
+      padding: 1.5rem 8rem; } }
+  @media screen and (max-width: 769px) {
+    .projects__heading {
+      padding: 1.5rem 5rem; } }
+  @media screen and (max-width: 540px) {
+    .projects__heading {
+      padding: 1.5rem 4rem; } }
+  @media screen and (max-width: 340px) {
+    .projects__heading {
+      padding: 1.5rem 3rem; } }
 .projects__flexbox {
   display: flex;
   align-items: center;
@@ -361,11 +375,12 @@ body {
   text-align: center; }
 .projects__links :first-of-type {
   margin-right: 1rem; }
-.projects__links > i {
-  color: black;
-  font-size: 3rem; }
-  .projects__links > i:hover {
-    color: #F0BB6C; }
+.projects__links > svg {
+  fill: black;
+  width: 34px;
+  height: 34px; }
+  .projects__links > svg:hover {
+    fill: #F0BB6C; }
 .projects__links:hover {
   text-decoration: none; }
 
@@ -440,10 +455,22 @@ body {
   font: 3rem "Sahitya", serif;
   margin-top: 0;
   margin-bottom: 3rem;
-  padding: 1.5rem 6rem;
+  padding: 1.5rem 14rem;
   color: #fff;
   background-color: #E6807B;
   flex: 1 100%; }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    .skills__heading {
+      padding: 1.5rem 8rem; } }
+  @media screen and (max-width: 769px) {
+    .skills__heading {
+      padding: 1.5rem 5rem; } }
+  @media screen and (max-width: 540px) {
+    .skills__heading {
+      padding: 1.5rem 4rem; } }
+  @media screen and (max-width: 340px) {
+    .skills__heading {
+      padding: 1.5rem 3rem; } }
 .skills__ul {
   padding: 1rem;
   flex: 1;
