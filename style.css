@@ -88,12 +88,12 @@ body {
     height: 100%;
     width: 65%;
     z-index: 11;
-    right: -800px;
+    right: -1001px;
     top: 0; }
     .header__menu.active {
       right: 0;
       padding-top: 10rem;
-      transition: right .5s ease; }
+      transition: block, right .5s ease; }
       @media screen and (min-width: 769px) {
         .header__menu.active {
           display: none; } }
@@ -192,98 +192,9 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+  #hero__typewriter {
+    padding: 0 1.5rem; }
 
-.hero__typewriter p {
-  font-size: 1.8rem;
-  border-right: .15em solid orange;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%; }
-  @media screen and (min-width: 769px) and (max-width: 1025px) {
-    .hero__typewriter p {
-      font-size: 1.7rem; } }
-  @media screen and (max-width: 769px) {
-    .hero__typewriter p {
-      font-size: 1.6rem;
-      white-space: pre-line; } }
-.hero__typewriter p:nth-child(1) {
-  /*width: 780px;  manually set width */
-  -webkit-animation: type 2s steps(40, end);
-  animation: type 2s steps(40, end);
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
-.hero__typewriter p:nth-child(2) {
-  /*width: 780px;  manually set width */
-  opacity: 0;
-  -webkit-animation: type2 2s steps(40, end);
-  animation: type2 2s steps(40, end);
-  -webkit-animation-delay: 2s;
-  animation-delay: 2s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
-.hero__typewriter p:nth-child(3) {
-  /*width: 520px;  manually set width */
-  opacity: 0;
-  -webkit-animation: type3 5s steps(20, end), blink 0.5s step-end infinite alternate;
-  animation: type3 2s steps(20, end), blink 0.5s step-end infinite alternate;
-  -webkit-animation-delay: 4s;
-  animation-delay: 4s;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards; }
-@keyframes type {
-  0% {
-    width: 0; }
-  99.9% {
-    border-right: .15em solid orange; }
-  100% {
-    border: none; } }
-@-webkit-keyframes type {
-  0% {
-    width: 0; }
-  99.9% {
-    border-right: .15em solid orange; }
-  100% {
-    border: none; } }
-@keyframes type2 {
-  0% {
-    width: 0; }
-  1% {
-    opacity: 1; }
-  99.9% {
-    border-right: .15em solid orange; }
-  100% {
-    opacity: 1;
-    border: none; } }
-@-webkit-keyframes type2 {
-  0% {
-    width: 0; }
-  1% {
-    opacity: 1; }
-  99.9% {
-    border-right: .15em solid orange; }
-  100% {
-    opacity: 1;
-    border: none; } }
-@keyframes type3 {
-  0% {
-    width: 0; }
-  1% {
-    opacity: 1; }
-  100% {
-    opacity: 1; } }
-@-webkit-keyframes type3 {
-  0% {
-    width: 0; }
-  1% {
-    opacity: 1; }
-  100% {
-    opacity: 1; } }
-@keyframes blink {
-  50% {
-    border-color: transparent; } }
-@-webkit-keyframes blink {
-  50% {
-    border-color: tranparent; } }
 .hero__overlay {
   position: absolute;
   top: 0;
