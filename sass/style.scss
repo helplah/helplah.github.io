@@ -186,7 +186,7 @@ body {
     height: 100%;
     width: 65%;
     z-index: 11;
-    right: -1001px;
+    right: -100%;
     top: 0;
 
     &.active {
@@ -376,11 +376,11 @@ body {
 // projects section
 #projects-img {
   &0 {
-    background-image: url(./assets/flashcard-app.png);
+    background-image: url(./assets/flashcard-app.webp);
   }
 
   &1 {
-    background-image: url(./assets/tribute-page.png);
+    background-image: url(./assets/tribute-page.webp);
   }
 
   &2 {

@@ -1,7 +1,7 @@
 new TypeIt('#hero__typewriter', {
-    speed: 40,
-    startDelay: 500,
-    autoStart: true
+  speed: 38,
+  startDelay: 500,
+  autoStart: true
 }).type(`Hi I'm Jenssen Lee! Looking to start my career as a Front-End Developer in Singapore.`)
   .pause(700)
   .break()
@@ -11,10 +11,6 @@ new TypeIt('#hero__typewriter', {
   .break()
   .break()
   .type(`This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank">Github</a>.`);
-
-/*
-strings: ["Hi I'm Jenssen Lee! Looking to start my career as a Front-End Developer in Singapore.", "I have experience with HTML, SASS, Bootstrap, JavaScript, jQuery, React, Node.js, Express.", `This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank">Github</a>.`],
-*/
 
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects

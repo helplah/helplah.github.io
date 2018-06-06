@@ -88,7 +88,7 @@ body {
     height: 100%;
     width: 65%;
     z-index: 11;
-    right: -1001px;
+    right: -100%;
     top: 0; }
     .header__menu.active {
       right: 0;
@@ -205,9 +205,9 @@ body {
   z-index: 1; }
 
 #projects-img0 {
-  background-image: url(./assets/flashcard-app.png); }
+  background-image: url(./assets/flashcard-app.webp); }
 #projects-img1 {
-  background-image: url(./assets/tribute-page.png); }
+  background-image: url(./assets/tribute-page.webp); }
 #projects-img2 {
   background-image: url(./assets/twitch-tv.png); }
 #projects-img3 {
