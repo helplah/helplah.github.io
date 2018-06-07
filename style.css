@@ -1,7 +1,9 @@
+/* first-paint.scss */
+/* style.scss */
 #projects-img0 {
-  background-image: url(./assets/flashcard-app.webp); }
+  background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg); }
 #projects-img1 {
-  background-image: url(./assets/tribute-page.webp); }
+  background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png); }
 #projects-img2 {
   background-image: url(./assets/twitch-tv.png); }
 #projects-img3 {
@@ -91,13 +93,16 @@
 
 #projects {
   background-color: #d4d4d4;
-  height: fit-content; }
+  height: fit-content;
+  height: -moz-fit-content; }
   #projects__description {
     background-color: #fff;
     margin-top: 4vh;
-    margin-bottom: 4vh;
     padding: 4rem 6rem;
     box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3); }
+    @media screen and (max-width: 769px) {
+      #projects__description {
+        margin-bottom: 4vh; } }
     @media screen and (max-width: 540px) {
       #projects__description {
         padding: 3.4rem 5rem; } }
@@ -108,7 +113,7 @@
       #projects__description {
         padding: 2.2rem 3.3rem; } }
     #projects__description h3 {
-      font: 700 1.75rem "Sahitya", sans-serif; }
+      font: 700 2rem "Sahitya", sans-serif; }
     #projects__description.container {
       width: 50%; }
       @media screen and (min-width: 769px) and (max-width: 1025px) {
@@ -178,7 +183,6 @@
       padding: 1.5rem 3rem; } }
 .skills__ul {
   padding: 1rem;
-  flex: 1;
   order: 1;
   text-align: center; }
   .skills__ul > li {
@@ -199,14 +203,23 @@
       height: inherit; }
     .skills__ul > li > img {
       width: 100px; }
-    .skills__ul > li:nth-last-child(1) > img {
+    .skills__ul > li:nth-last-child(1) > object {
       width: 210.5px;
       height: auto; }
       @media screen and (max-width: 769px) {
-        .skills__ul > li:nth-last-child(1) > img {
+        .skills__ul > li:nth-last-child(1) > object {
           width: 187px; } }
       @media screen and (max-width: 380px) {
-        .skills__ul > li:nth-last-child(1) > img {
+        .skills__ul > li:nth-last-child(1) > object {
+          width: 176px; } }
+    .skills__ul > li:nth-last-child(1) > object > img {
+      width: 210.5px;
+      height: auto; }
+      @media screen and (max-width: 769px) {
+        .skills__ul > li:nth-last-child(1) > object > img {
+          width: 187px; } }
+      @media screen and (max-width: 380px) {
+        .skills__ul > li:nth-last-child(1) > object > img {
           width: 176px; } }
 
 .about__img {
@@ -233,7 +246,8 @@
   font-size: 1.6rem;
   margin-bottom: 0;
   text-align: center;
-  width: -webkit-fill-available; }
+  width: -webkit-fill-available;
+  width: -moz-available; }
   @media screen and (max-width: 769px) {
     .footer__license {
       font-size: 1.5rem; } }

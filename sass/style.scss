@@ -1,26 +1,14 @@
 @import "./mixin.scss";
-
-// first page
-$blue-circle: #4FBCE8;
-$red-circle: #E6807B;
-$yellow-circle: #F0BB6C;
-
-// projects section
-$flex-grow-no: 35;
-$projects-heading-bg: #008073; // dark green
-$projects-bg-color: #d4d4d4; // grey outline
-
-// skills section
-$skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
+@import "./variable.scss";
 
 // projects section
 #projects-img {
   &0 {
-    background-image: url(./assets/flashcard-app.webp);
+    background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
   }
 
   &1 {
-    background-image: url(./assets/tribute-page.webp);
+    background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
   }
 
   &2 {
@@ -165,13 +153,17 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
 #projects {
   background-color: $projects-bg-color;
   height: fit-content;
+  height: -moz-fit-content;
 
   &__description {
     background-color: #fff;
     margin-top: 4vh;
-    margin-bottom: 4vh;
     padding: 4rem 6rem;
     box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
+
+    @include belowTablet {
+      margin-bottom: 4vh;
+    }
 
     @include mobileL-Tablet {
       padding: 3.4rem 5rem;
@@ -186,7 +178,7 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
     }
 
     h3 {
-      font: 700 1.75rem "Sahitya", sans-serif;
+      font: 700 2rem "Sahitya", sans-serif;
     }
 
     &.container {
@@ -292,7 +284,6 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
 
   &__ul {
     padding: 1rem;
-    flex: 1;
     order: 1;
     text-align: center;
 
@@ -323,7 +314,7 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
         width: 100px;
       }
 
-      &:nth-last-child(1) > img {
+      &:nth-last-child(1) > object {
         width: 210.5px;
         height: auto;
 
@@ -335,6 +326,21 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
           width: 176px;
         }
       }
+
+      &:nth-last-child(1) > object > img {
+        width: 210.5px;
+        height: auto;
+
+        @include belowTablet {
+          width: 187px;
+        }
+
+        @include belowMobileM {
+          width: 176px;
+        }
+      }
+
+
     }
   }
 }
@@ -376,7 +382,8 @@ $skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
     font-size: 1.6rem;
     margin-bottom: 0;
     text-align: center;
-    width:-webkit-fill-available;
+    width: -webkit-fill-available;
+    width: -moz-available;
 
     @include belowTablet {
       font-size: 1.5rem;

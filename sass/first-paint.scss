@@ -1,18 +1,5 @@
 @import "./mixin.scss";
-
-// first page
-$header-links-color: rgba(#000000, 0.4);
-
-// hamburger menu properties
-$menu-line-height: 4px;
-$menu-line-width: 35px;
-$menu-line-space: 5px;
-$menu-line-offsetY: $menu-line-height + $menu-line-space;
-$menu-height: (3 * $menu-line-height) + (2 * $menu-line-space);
-$menu-width: fit-content;
-
-$cubic-bezier-in: cubic-bezier(0.30,1,0.70,1);
-$cubic-bezier-out: cubic-bezier(1,0.70,1,0.30);
+@import "./variable.scss";
 
 *  {
   box-sizing: border-box;

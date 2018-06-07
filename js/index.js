@@ -26,7 +26,7 @@ if (window.innerWidth > 768) {
   }));
 }
 
-// texts
+// texts and links
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
@@ -74,8 +74,12 @@ function desktopClick(e) {
   console.log("Clicked project event", e);
   console.log("Clicked projects path array", e.path);
 
+  // composedPath for firefox
+  const path = e.path || e.composedPath();
+  console.log(path);
+
   // select all the other projects (or all non-clicked projects)
-  let otherProjects = projects.filter(project => project !== e.path[1]);
+  let otherProjects = projects.filter(project => project !== path[1]);
   console.log(otherProjects);
 
   // remove projects__li*, * being 0-4, and projects__flex to allow clicked project to expand
@@ -89,11 +93,11 @@ function desktopClick(e) {
   }
 
  // remove projects__flex class from clicked project
-  e.path[1].classList.remove("projects__flex");
-  e.path[1].style = "cursor: default;"; // change cursor back to default
+  path[1].classList.remove("projects__flex");
+  path[1].style = "cursor: default;"; // change cursor back to default
 
   // get class names of projects__li
-  const clickedClass = e.path[1].className;
+  const clickedClass = path[1].className;
   // get the last number of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1];
   changeSection(clickedNum, section);
@@ -129,9 +133,10 @@ function desktopClick(e) {
   closeBtn.addEventListener("click", close, { once: true });
 
   projectsParent.appendChild(section);
-  e.path[2].appendChild(leftArrow);
-  e.path[2].appendChild(rightArrow);
-  e.path[2].appendChild(closeBtn);
+  projectsParent.style.paddingBottom = "4vh";
+  path[2].appendChild(leftArrow);
+  path[2].appendChild(rightArrow);
+  path[2].appendChild(closeBtn);
 }
 
 function changeSection(index, section) {
@@ -222,6 +227,7 @@ function close() {
   document.getElementById("projects__leftArrow").remove();
   document.getElementById("projects__rightArrow").remove();
   document.getElementById("projects__closeBtn").remove();
+  projectsParent.style.paddingBottom = "0";
   projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
 }
 
@@ -267,8 +273,10 @@ function mobileClick(click) {
       click.style.height = "30vh";
       description.parentNode.removeChild(description);
     }
+    //description.style.marginBottom = "0";
   // if description is not present, on clicked it'll appear beneath clicked element
   } else {
+    //description.style.marginBottom = "4vh";
     click.style.height = "45vh";
     click.parentNode.insertBefore(section, click.nextSibling);
   }
