@@ -1,13 +1,29 @@
+/* for responsive bg images */
 /* first-paint.scss */
 /* style.scss */
 #projects-img0 {
   background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg); }
+  @media screen and (max-width: 1400px) {
+    #projects-img0 {
+      background-image: url(./assets/flashcard-app-1400.webp); } }
 #projects-img1 {
   background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png); }
+  @media screen and (max-width: 1400px) {
+    #projects-img1 {
+      background-image: url(./assets/tribute-page-1400.webp); } }
+  @media screen and (max-width: 769px) {
+    #projects-img1 {
+      background-image: url(./assets/tribute-page-879.webp); } }
 #projects-img2 {
   background-image: url(./assets/twitch-tv.png); }
+  @media screen and (max-width: 540px) {
+    #projects-img2 {
+      background-image: url(./assets/twitch-tv-573.png); } }
 #projects-img3 {
   background-image: url(./assets/react-wikipedia.png); }
+  @media screen and (max-width: 460px) {
+    #projects-img3 {
+      background-image: url(./assets/react-wikipedia-449.png); } }
 #projects-img4 {
   background-image: url(./assets/react-quote-machine.png); }
 
@@ -148,9 +164,10 @@
     right: 0;
     margin-top: 1.5rem;
     margin-right: 2rem; }
-    #projects__closeBtn button > span {
-      font-size: 3.2rem;
+    #projects__closeBtn > button {
       cursor: pointer; }
+    #projects__closeBtn button > span {
+      font-size: 3.2rem; }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
   color: #202020; }

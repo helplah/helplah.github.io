@@ -5,18 +5,38 @@
 #projects-img {
   &0 {
     background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
+
+    @include belowLaptopL {
+      background-image: url(./assets/flashcard-app-1400.webp);
+    }
   }
 
   &1 {
     background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
+
+    @include belowLaptopL {
+      background-image: url(./assets/tribute-page-1400.webp);
+    }
+
+    @include belowTablet {
+      background-image: url(./assets/tribute-page-879.webp);
+    }
   }
 
   &2 {
     background-image: url(./assets/twitch-tv.png);
+
+    @include mobileL-Tablet { // below 540px
+      background-image: url(./assets/twitch-tv-573.png);
+    }
   }
 
   &3 {
     background-image: url(./assets/react-wikipedia.png);
+
+    @include belowMobileL { // below 460px
+      background-image: url(./assets/react-wikipedia-449.png);
+    }
   }
 
   &4 {
@@ -234,9 +254,12 @@
     margin-top: 1.5rem;
     margin-right: 2rem;
 
+    > button {
+      cursor: pointer;
+    }
+
     button > span {
       font-size: 3.2rem;
-      cursor: pointer;
     }
   }
 }

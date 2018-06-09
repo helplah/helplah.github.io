@@ -39,3 +39,10 @@
     @content;
   }
 }
+
+/* for responsive bg images */
+@mixin belowLaptopL { // below 1400px
+  @media screen and (max-width: 1400px) {
+    @content;
+  }
+}
