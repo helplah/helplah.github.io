@@ -10,7 +10,7 @@
     <title>Jen's Portfolio</title>
     <link rel="icon" type="image/ico" href="./assets/favicon.ico" sizes="16x16 32x32">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Sahitya|Monteserrat" rel="preload stylesheet" as="style">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto|Sahitya|Monteserrat">
     <link href="first-paint.css" rel="stylesheet">
     <style type="text/css">
     </style>
@@ -50,7 +50,8 @@
         <div id="projects__parent">
           <ul class="projects__flexbox">
             <li class="projects__li projects__flex projects__li0">
-              <div class="projects__img" id="projects-img0"></div>
+              <div class="b-lazy projects__img" id="projects-img0"
+              data-src="./assets/flashcard-app-1400.webp"></div>
 
               <!--
               <picture>
@@ -77,14 +78,16 @@
             </li>
 
             <li class="projects__li projects__flex projects__li1">
-              <div class="projects__img" id="projects-img1"></div>
+              <div class="b-lazy projects__img" id="projects-img1"
+              data-src="./assets/tribute-page-1400.webp"></div>
 
               <!-- add picture n source -->
             </li>
 
             <!-- twitch doesn't fetech 1920px pic-->
             <li class="projects__li projects__flex projects__li2">
-              <div class="projects__img" id="projects-img2"></div>
+              <div class="b-lazy projects__img" id="projects-img2"
+              data-src="./assets/twitch-tv-573.png"></div>
 
               <!--
               <img class="projects__img"
@@ -99,7 +102,8 @@
             </li>
 
             <li class="projects__li projects__flex projects__li3">
-              <div class="projects__img" id="projects-img3"></div>
+              <div class="b-lazy projects__img" id="projects-img3"
+              data-src="./assets/react-wikipedia-449.png"></div>
 
               <!--
               <img class="projects__img"
@@ -114,7 +118,8 @@
             </li>
 
             <li class="projects__li projects__flex projects__li4">
-              <div class="projects__img" id="projects-img4"></div>  
+              <div class="b-lazy projects__img" id="projects-img4"
+              data-src="./assets/react-quote-machine.png"></div>
 
               <!--
               <img class="projects__img"
@@ -136,19 +141,48 @@
       <section id="skills">
         <h2 class="skills__heading">Skills</h2>
         <ul class="skills__ul container">
-          <li><img alt="" src="./assets/stack/html5.png"><div>HTML5</div></li>
-          <li><img alt="" src="./assets/stack/css3.png"><div>CSS3</div></li>
-          <li><img alt="" src="./assets/stack/sass.png"><div>SASS</div></li>
-          <li><img alt="" src="./assets/stack/bootstrap.png"><div>Bootstrap</div></li>
-          <li><img alt="" src="./assets/stack/javascript.png"><div>JavaScript</div></li>
-          <li><img alt="" src="./assets/stack/jquery.png"><div>jQuery</div></li>
-          <li><img alt="" src="./assets/stack/react.png"><div>React</div></li>
-          <li><img alt="" src="./assets/stack/nodejs.png"><div>Node.js</div></li>
-          <li><img alt="" src="./assets/stack/git.png"><div>git</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/html5.png"><div>HTML5</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/css3.png"><div>CSS3</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/sass.png"><div>SASS</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/bootstrap.png"><div>Bootstrap</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/javascript.png"><div>JavaScript</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/jquery.png"><div>jQuery</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/react.png"><div>React</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/nodejs.png"><div>Node.js</div></li>
+          <li>
+            <img class="b-lazy"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/stack/git.png"><div>git</div></li>
           <li>
             <p class="about__bio">Looking to hire? Send me a message!</p>
             <object class="about__img" src="./assets/display-photo.webp" alt="Profile picture">
-              <img class="about__img" src="./assets/display-photo.jpg" alt="Profile picture">
+              <img class="about__img b-lazy"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="./assets/display-photo.jpg" alt="Profile picture">
             </object>
           </li>
         </ul>
@@ -210,7 +244,8 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typeit@5.10.1/dist/typeit.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/blazy.min.js"></script>
+    <script src="js/index.js"></script>
     <link rel="stylesheet" href="style.css">
 	</body>
 </html>

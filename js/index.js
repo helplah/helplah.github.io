@@ -12,6 +12,10 @@ new TypeIt('#hero__typewriter', {
   .break()
   .type(`This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank" rel="noopener">Github</a>.`);
 
+const bLazy = new Blazy({
+  error: (err, msg) => console.log(err, msg)
+});
+
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
 console.log("All projects", projects);

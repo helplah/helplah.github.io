@@ -3,8 +3,9 @@
 
 // projects section
 #projects-img {
+  /*
   &0 {
-    background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
+    //background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
 
     @include belowLaptopL {
       background-image: url(./assets/flashcard-app-1400.webp);
@@ -12,7 +13,7 @@
   }
 
   &1 {
-    background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
+    //background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
 
     @include belowLaptopL {
       background-image: url(./assets/tribute-page-1400.webp);
@@ -42,6 +43,7 @@
   &4 {
     background-image: url(./assets/react-quote-machine.png);
   }
+  */
 }
 
 .projects {
