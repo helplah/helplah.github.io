@@ -50,60 +50,64 @@
         <div id="projects__parent">
           <ul class="projects__flexbox">
             <li class="projects__li projects__flex projects__li0">
-              <div class="b-lazy projects__img" id="projects-img0"
-              data-src="./assets/flashcard-app-1400.webp"></div>
-
               <!--
-              <picture>
-                <source class="projects__img" type="image/webp"
-                  srcset=""
-                  sizes="(max-width: 1200px) 418px,
-                        674px">
-
-                <img class="projects__img"
-                  srcset="./assets/flashcard-app-1400.webp 1400w"
-                  sizes="(max-width: 1200px) 418px,
-                        674px"
-                  src="./assets/flashcard-app.webp" alt="Flashcard app">
-              </picture>
+              <div class="lazy projects__img" id="projects-img0"
+              data-src="./assets/flashcard-app-1400.webp"></div>
               -->
 
-              <!--
-              <img class="projects__img"
-                src="./assets/flashcard-app.webp" alt="Flashcard app"
-                srcset="./assets/flashcard-app-1400.webp 1400w"
-                sizes="(max-width: 1200px) 418px,
-                      674px">
-                -->
+              <picture id="projects-img0">
+                <source type="image/webp"
+                  data-srcset="./assets/flashcard-app.webp 1920w, ./assets/flashcard-app-1400.webp 1400w">
+
+                <img class="lazy projects__img"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="./assets/flashcard-app.jpg" alt="Flashcard app"
+                  data-srcset="./assets/flashcard-app-531.jpg 531w,
+                              ./assets/flashcard-app-694.jpg 694w,
+                              ./assets/flashcard-app.jpg 1920w">
+              </picture>
             </li>
 
             <li class="projects__li projects__flex projects__li1">
+              <!--
               <div class="b-lazy projects__img" id="projects-img1"
-              data-src="./assets/tribute-page-1400.webp"></div>
+              data-src="./assets/tribute-page-879.webp"></div>
+              -->
 
-              <!-- add picture n source -->
+              <picture id="projects-img1">
+                <source type="image/webp"
+                  data-srcset="./assets/tribute-page.webp 1920w, ./assets/tribute-page-1400.webp 1400w, ./assets/tribute-page-879.webp 879w">
+
+                <img class="lazy projects__img"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="./assets/tribute-page.png" alt="Tribute page"
+                  data-srcset="./assets/tribute-page-486.png 486w,
+                              ./assets/tribute-page-557.png 557w,
+                              ./assets/tribute-page.png 1920w">
+              </picture>
             </li>
 
-            <!-- twitch doesn't fetech 1920px pic-->
             <li class="projects__li projects__flex projects__li2">
+              <!--
               <div class="b-lazy projects__img" id="projects-img2"
               data-src="./assets/twitch-tv-573.png"></div>
-
-              <!--
-              <img class="projects__img"
-                src="./assets/twitch-tv.png" alt="Twitch TV"
-                srcset="./assets/twitch-tv-small.png 320w,
-                        ./assets/twitch-tv-med.png 573w,
-                        ./assets/twitch-tv.png 1920x"
-                sizes="(max-width: 320px) 320px,
-                      (max-width: 768px) 768px,
-                      1600px">
               -->
+
+              <pictureid="projects-img2">
+                <img class="lazy projects__img"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="./assets/twitch-tv.png" alt="Twitch tv"
+                  data-srcset="./assets/twitch-tv-573.png 573w,
+                              ./assets/twitch-tv.png 1920w"
+                  sizes="(max-width: 575px) 573px, 1920px">
+              </picture>
             </li>
 
             <li class="projects__li projects__flex projects__li3">
+              <!--
               <div class="b-lazy projects__img" id="projects-img3"
               data-src="./assets/react-wikipedia-449.png"></div>
+              -->
 
               <!--
               <img class="projects__img"
@@ -114,22 +118,29 @@
                 sizes="(max-width: 350px) 100vw,
                       (max-width: 500px) 100vw,
                       1920px">
-                    -->
+              -->
+
+              <picture id="projects-img3">
+                <img class="lazy projects__img"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="./assets/react-wikipedia.png" alt="React Wikipedia"
+                  data-srcset="./assets/react-wikipedia-449.png 449w,
+                              ./assets/react-wikipedia.png 1920w"
+                  sizes="(max-width: 455px) 449px, 1920px">
+              </picture>
             </li>
 
             <li class="projects__li projects__flex projects__li4">
+              <!--
               <div class="b-lazy projects__img" id="projects-img4"
               data-src="./assets/react-quote-machine.png"></div>
-
-              <!--
-              <img class="projects__img"
-                src="./assets/react-quote-machine.png" alt="React Quote Machine"
-                srcset="./assets/react-quote-machine-small.png 320w,
-                        ./assets/react-quote-machine.png 1920w"
-                sizes="(max-width: 350px) 350px,
-                        1920px">
-
               -->
+
+              <picture id="projects-img4">
+                <img class="lazy projects__img"
+                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                  data-src="./assets/react-quote-machine.png" alt="React Quote Machine">
+              </picture>
             </li>
 
           </ul>
@@ -142,48 +153,46 @@
         <h2 class="skills__heading">Skills</h2>
         <ul class="skills__ul container">
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/html5.png"><div>HTML5</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/css3.png"><div>CSS3</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/sass.png"><div>SASS</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/bootstrap.png"><div>Bootstrap</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/javascript.png"><div>JavaScript</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/jquery.png"><div>jQuery</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/react.png"><div>React</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/nodejs.png"><div>Node.js</div></li>
           <li>
-            <img class="b-lazy"
+            <img class="lazy" alt=""
               src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
               data-src="./assets/stack/git.png"><div>git</div></li>
           <li>
             <p class="about__bio">Looking to hire? Send me a message!</p>
-            <object class="about__img" src="./assets/display-photo.webp" alt="Profile picture">
-              <img class="about__img b-lazy"
-                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                data-src="./assets/display-photo.jpg" alt="Profile picture">
-            </object>
+            <img class="about__img lazy" alt="Profile picture"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              data-src="./assets/display-photo-320.jpg">
           </li>
         </ul>
         <p class="footer__license">Banner, icons and logos provided by
@@ -244,7 +253,7 @@
 
     </main>
     <script src="https://cdn.jsdelivr.net/npm/typeit@5.10.1/dist/typeit.min.js"></script>
-    <script src="js/blazy.min.js"></script>
+    <script src="js/yall.min.js"></script>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="style.css">
 	</body>

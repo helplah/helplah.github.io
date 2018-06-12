@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", yall);
+
 new TypeIt('#hero__typewriter', {
   speed: 38,
   startDelay: 500,
@@ -11,10 +13,6 @@ new TypeIt('#hero__typewriter', {
   .break()
   .break()
   .type(`This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank" rel="noopener">Github</a>.`);
-
-const bLazy = new Blazy({
-  error: (err, msg) => console.log(err, msg)
-});
 
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
@@ -83,25 +81,21 @@ function desktopClick(e) {
   console.log(path);
 
   // select all the other projects (or all non-clicked projects)
-  let otherProjects = projects.filter(project => project !== path[1]);
+  let otherProjects = projects.filter(project => project !== path[2]);
   console.log(otherProjects);
 
   // remove projects__li*, * being 0-4, and projects__flex to allow clicked project to expand
-  for (let x = 0; x < otherProjects.length; x++) {
-    let projectsFlex = otherProjects[x].classList[2];
-    let projectsListNo = otherProjects[x].classList[1];
-    otherProjects.forEach(project => {
-      project.style = "cursor: default;";
-      project.classList.remove(projectsFlex, projectsListNo);
-    });
-  }
+  otherProjects.forEach(project => {
+    project.classList.remove("projects__flex");
+    Object.assign(project.style,{cursor:"default", display:"none"});
+  });
 
- // remove projects__flex class from clicked project
-  path[1].classList.remove("projects__flex");
-  path[1].style = "cursor: default;"; // change cursor back to default
+  // remove projects__flex class from clicked project
+  path[2].classList.remove("projects__flex");
+  path[2].style = "cursor: default;"; // change cursor back to default
 
   // get class names of projects__li
-  const clickedClass = path[1].className;
+  const clickedClass = path[2].className;
   // get the last number of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1];
   changeSection(clickedNum, section);
@@ -138,9 +132,9 @@ function desktopClick(e) {
 
   projectsParent.appendChild(section);
   projectsParent.style.paddingBottom = "4vh";
-  path[2].appendChild(leftArrow);
-  path[2].appendChild(rightArrow);
-  path[2].appendChild(closeBtn);
+  path[3].appendChild(leftArrow);
+  path[3].appendChild(rightArrow);
+  path[3].appendChild(closeBtn);
 }
 
 function changeSection(index, section) {
@@ -181,7 +175,8 @@ function prevClick(clickedNum) {
 
   let curProject = projects[index];
   // disable flex value for this project
-  curProject.classList.remove(`projects__li${index}`);
+  //curProject.classList.remove(`projects__li${index}`);
+  Object.assign(curProject.style, {display:"none"});
 
   // enable flex value for previous project
   if (index > 0) {
@@ -190,7 +185,8 @@ function prevClick(clickedNum) {
     index = 4;
   }
   let prevProject = projects[index];
-  prevProject.classList.add(`projects__li${index}`);
+  //prevProject.classList.add(`projects__li${index}`);
+  Object.assign(prevProject.style, {display:"inline-block"});
   changeSection(index, section);
 }
 
@@ -202,7 +198,8 @@ function nextClick(clickedNum) {
 
   let curProject = projects[index];
   // disable flex value for this project
-  curProject.classList.remove(`projects__li${index}`);
+  //curProject.classList.remove(`projects__li${index}`);
+  Object.assign(curProject.style, {display:"none"});
 
   // enable flex value for next project
   if (index < 4) {
@@ -211,7 +208,8 @@ function nextClick(clickedNum) {
     index = 0;
   }
   let nextProject = projects[index];
-  nextProject.classList.add(`projects__li${index}`);
+  //nextProject.classList.add(`projects__li${index}`);
+  Object.assign(nextProject.style, {display:"inline-block"});
   changeSection(index, section);
 }
 
@@ -219,12 +217,8 @@ function nextClick(clickedNum) {
 function close() {
   // add projects__li*, * being 0-4, and projects__flex to allow all projects to occupy space
   for (let x = 0; x < projects.length; x++) {
-    if (projects[x].classList.length === 1) {
-      projects[x].classList.add(projectsList[x], "projects__flex");
-    } else {
-      projects[x].classList.add("projects__flex");
-    }
-    projects[x].style = "";
+    projects[x].classList.add("projects__flex");
+    projects[x].removeAttribute("style");
   }
 
   document.getElementById("projects__description").remove();

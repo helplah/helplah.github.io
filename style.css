@@ -1,25 +1,22 @@
 /* for responsive bg images */
+/* for responsive bg images */
 /* first-paint.scss */
 /* style.scss */
 #projects-img {
   /*
   &0 {
-    //background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
-
-    @include belowLaptopL {
-      background-image: url(./assets/flashcard-app-1400.webp);
+    @include aboveLaptopL {
+      background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
     }
   }
 
   &1 {
-    //background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
-
     @include belowLaptopL {
       background-image: url(./assets/tribute-page-1400.webp);
     }
 
-    @include belowTablet {
-      background-image: url(./assets/tribute-page-879.webp);
+    @include aboveLaptopL {
+      background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
     }
   }
 
@@ -95,14 +92,12 @@
   .projects__li4 {
     flex: 2; }
 .projects__flex {
-  filter: grayscale(100%);
   border-right: #d4d4d4 solid 4px; }
   @media screen and (max-width: 769px) {
     .projects__flex {
       filter: none; } }
   .projects__flex:hover {
-    flex: 35;
-    filter: grayscale(0%); }
+    flex: 35; }
 .projects__img {
   background-size: cover;
   background-position: center;
@@ -246,14 +241,14 @@
       @media screen and (max-width: 380px) {
         .skills__ul > li:nth-last-child(1) > object {
           width: 176px; } }
-    .skills__ul > li:nth-last-child(1) > object > img {
+    .skills__ul > li:nth-last-child(1) > img {
       width: 210.5px;
       height: auto; }
       @media screen and (max-width: 769px) {
-        .skills__ul > li:nth-last-child(1) > object > img {
+        .skills__ul > li:nth-last-child(1) > img {
           width: 187px; } }
       @media screen and (max-width: 380px) {
-        .skills__ul > li:nth-last-child(1) > object > img {
+        .skills__ul > li:nth-last-child(1) > img {
           width: 176px; } }
 
 .about__img {

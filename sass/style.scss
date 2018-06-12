@@ -5,22 +5,18 @@
 #projects-img {
   /*
   &0 {
-    //background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
-
-    @include belowLaptopL {
-      background-image: url(./assets/flashcard-app-1400.webp);
+    @include aboveLaptopL {
+      background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
     }
   }
 
   &1 {
-    //background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
-
     @include belowLaptopL {
       background-image: url(./assets/tribute-page-1400.webp);
     }
 
-    @include belowTablet {
-      background-image: url(./assets/tribute-page-879.webp);
+    @include aboveLaptopL {
+      background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
     }
   }
 
@@ -120,7 +116,7 @@
   }
 
   &__flex {
-    filter: grayscale(100%);
+    //filter: grayscale(100%);
     border-right: $projects-bg-color solid 4px;
 
     @include belowTablet {
@@ -131,7 +127,7 @@
 
     &:hover {
       flex: $flex-grow-no;
-      filter: grayscale(0%);
+      //filter: grayscale(0%);
     }
   }
 
@@ -352,7 +348,7 @@
         }
       }
 
-      &:nth-last-child(1) > object > img {
+      &:nth-last-child(1) > img {
         width: 210.5px;
         height: auto;
 
