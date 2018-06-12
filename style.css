@@ -82,15 +82,15 @@
       height: 30vh;
       transition: all 0.4s cubic-bezier(1, 0, 1, 1.01); } }
   .projects__li0 {
-    flex: 11; }
+    flex: 4; }
   .projects__li1 {
-    flex: 8; }
+    flex: 4; }
   .projects__li2 {
-    flex: 6; }
+    flex: 4; }
   .projects__li3 {
     flex: 4; }
   .projects__li4 {
-    flex: 2; }
+    flex: 4; }
 .projects__flex {
   border-right: #d4d4d4 solid 4px; }
   @media screen and (max-width: 769px) {
