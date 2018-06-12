@@ -38,7 +38,7 @@ const intro = [
   "Created using React, generates a new design quote when it's clicked."
 ];
 const whatILearnt = [
-  ["Learnt Node.js and Express", "Learnt React and Redux", "Added if user isAuthenticated function", "Made it responsive", "Refactored and used table and grid"],
+  ["Learnt Node.js and Express", "Learnt React and Redux", "Learnt and used git", "Added if user isAuthenticated function", "Made it responsive", "Refactored and used table and grid"],
   ["Responsive image", "Refactored CSS to SCSS"],
   ["Used Twitch API", "Used jQuery, Bootstrap"],
   ["Used Create React App", "Used Wikipedia OpenSearch"],
