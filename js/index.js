@@ -32,17 +32,17 @@ if (window.innerWidth > 768) {
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
-  "This was the second website that I created. I chose Elon Musk because I respect his tenacity, work ethics and his reasons for what he's doing.",
-  "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
-  "Created using React, search the typed word at Wikipedia and return the top 10 results",
-  "Created using React, generates a new design quote when it's clicked"
+  "Second website that I created. I chose Elon Musk because I respect his tenacity, work ethics and the reasons for doing what he's doing.",
+  "Third website that I created. Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
+  "Created using React, search the typed word at Wikipedia and return the top 10 results.",
+  "Created using React, generates a new design quote when it's clicked."
 ];
 const whatILearnt = [
-  ["Learnt Node.js and Express", "Learnt React and Redux", "Added if user isAuthenticated", "Made it responsive", "Refactored and used table and grid"],
-  ["Second website I built", "Responsive image", "Refactored CSS to SCSS"],
-  ["Third website I built", "Used Twitch API", "Used jQuery, Bootstrap"],
-  ["Created with React and Babel", "Used Wikipedia OpenSearch"],
-  ["Created with React and Babel", "Used Quotes on Design API", "Used jQuery"]
+  ["Learnt Node.js and Express", "Learnt React and Redux", "Added if user isAuthenticated function", "Made it responsive", "Refactored and used table and grid"],
+  ["Responsive image", "Refactored CSS to SCSS"],
+  ["Used Twitch API", "Used jQuery, Bootstrap"],
+  ["Used Create React App", "Used Wikipedia OpenSearch"],
+  ["Used Create React App", "Used Quotes on Design API", "Used jQuery"]
 ];
 const projectsLink = [
   "https://shrouded-taiga-52624.herokuapp.com/",
@@ -175,7 +175,6 @@ function prevClick(clickedNum) {
 
   let curProject = projects[index];
   // disable flex value for this project
-  //curProject.classList.remove(`projects__li${index}`);
   Object.assign(curProject.style, {display:"none"});
 
   // enable flex value for previous project
@@ -185,7 +184,6 @@ function prevClick(clickedNum) {
     index = 4;
   }
   let prevProject = projects[index];
-  //prevProject.classList.add(`projects__li${index}`);
   Object.assign(prevProject.style, {display:"inline-block"});
   changeSection(index, section);
 }
@@ -198,7 +196,6 @@ function nextClick(clickedNum) {
 
   let curProject = projects[index];
   // disable flex value for this project
-  //curProject.classList.remove(`projects__li${index}`);
   Object.assign(curProject.style, {display:"none"});
 
   // enable flex value for next project
@@ -208,7 +205,6 @@ function nextClick(clickedNum) {
     index = 0;
   }
   let nextProject = projects[index];
-  //nextProject.classList.add(`projects__li${index}`);
   Object.assign(nextProject.style, {display:"inline-block"});
   changeSection(index, section);
 }
@@ -271,10 +267,8 @@ function mobileClick(click) {
       click.style.height = "30vh";
       description.parentNode.removeChild(description);
     }
-    //description.style.marginBottom = "0";
   // if description is not present, on clicked it'll appear beneath clicked element
   } else {
-    //description.style.marginBottom = "4vh";
     click.style.height = "45vh";
     click.parentNode.insertBefore(section, click.nextSibling);
   }
