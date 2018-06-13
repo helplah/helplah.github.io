@@ -57,8 +57,9 @@
   @media screen and (max-width: 769px) {
     .projects__flex {
       filter: none; } }
-  .projects__flex:hover {
-    flex: 50; }
+  @media screen and (min-width: 769px) {
+    .projects__flex:hover {
+      flex: 50; } }
 .projects__img {
   width: 100%;
   height: 100%; }
