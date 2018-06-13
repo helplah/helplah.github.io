@@ -251,6 +251,7 @@ let lastClicked;
 function mobileClick(click) {
   console.log("Click", click);
 
+  const flexbox = document.querySelector(".projects__flexbox");
   const clickedClass = click.className; // get class names of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1]; // get the last number of projects__li
   changeSection(clickedNum, section);
@@ -272,6 +273,26 @@ function mobileClick(click) {
     click.style.height = "45vh";
     click.parentNode.insertBefore(section, click.nextSibling);
   }
+
+  description = document.querySelector("#projects__description");
+
+  // if last project was clicked
+  if (clickedNum == 4) {
+    // if description is not present below project
+    if (click.nextSibling !== description) {
+      flexbox.style.paddingBottom = "0";
+      // if description is present below project
+    } else {
+      description.style.marginBottom = "0";
+      flexbox.style.paddingBottom = "4vh";
+    }
+  } else {
+    if (click.nextSibling === description) {
+      description.style.marginBottom = "4vh";
+      flexbox.style.paddingBottom = "0";
+    }
+  }
+
   lastClicked = click;
   console.log("Last Clicked", lastClicked);
 }

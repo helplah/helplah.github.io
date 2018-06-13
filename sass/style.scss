@@ -2,46 +2,6 @@
 @import "./variable.scss";
 
 // projects section
-#projects-img {
-  /*
-  &0 {
-    @include aboveLaptopL {
-      background-image: url(./assets/flashcard-app.webp), url(./assets/flashcard-app.jpg);
-    }
-  }
-
-  &1 {
-    @include belowLaptopL {
-      background-image: url(./assets/tribute-page-1400.webp);
-    }
-
-    @include aboveLaptopL {
-      background-image: url(./assets/tribute-page.webp), url(./assets/tribute-page.png);
-    }
-  }
-
-  &2 {
-    background-image: url(./assets/twitch-tv.png);
-
-    @include mobileL-Tablet { // below 540px
-      background-image: url(./assets/twitch-tv-573.png);
-    }
-  }
-
-  &3 {
-    background-image: url(./assets/react-wikipedia.png);
-
-    @include belowMobileL { // below 460px
-      background-image: url(./assets/react-wikipedia-449.png);
-    }
-  }
-
-  &4 {
-    background-image: url(./assets/react-quote-machine.png);
-  }
-  */
-}
-
 .projects {
   &__heading {
     color: #fff;
