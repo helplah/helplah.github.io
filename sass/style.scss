@@ -81,13 +81,13 @@
 
     @include belowTablet {
       filter: none;
-      //border-right: none;
-      //border-bottom: $projects-bg-color solid 4px;
     }
 
     &:hover {
-      flex: $flex-grow-no;
       //filter: grayscale(0%);
+      @include aboveTablet {
+        flex: $flex-grow-no;
+      }
     }
   }
 
