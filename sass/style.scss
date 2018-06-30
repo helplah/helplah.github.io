@@ -28,66 +28,36 @@
   }
 
   &__flexbox {
-    display: flex;
+    //display: flex;
+    display: block;
     align-items: center;
     padding-left: 0;
     margin-bottom: 0;
     position: relative;
 
-    @include belowTablet {
-      display: block;
-      cursor: pointer;
+    @include belowTablet { 
+      //cursor: pointer;
     }
   }
 
   &__li {
     position: relative;
-    display: inline-block;
-    list-style: none;
-    height: 70vh;
-    transition: all .5s ease-in-out .25s;
-    cursor: pointer;
+    //list-style: none;
+    height: 30vh;
+    transition: all .4s cubic-bezier(1, 0, 1, 1.01);
 
-    @include belowTablet {
-      display: block;
-      height: 30vh;
-      transition: all .4s cubic-bezier(1, 0, 1, 1.01);
-    }
-
-    &0 {
-      flex: 11;
-    }
-
-    &1 {
-      flex: 8;
-    }
-
-    &2 {
-      flex: 6;
-    }
-
-    &3 {
-      flex: 4;
-    }
-
-    &4 {
-      flex: 2;
+    @include aboveTablet {
+      //display: block;
+      height: 70vh;
+      //transition: all .5s ease-in-out .25s;
     }
   }
 
   &__flex {
-    //filter: grayscale(100%);
     border-right: $projects-bg-color solid 4px;
 
-    @include belowTablet {
-      filter: none;
-    }
-
-    &:hover {
-      //filter: grayscale(0%);
-      @include aboveTablet {
-        flex: $flex-grow-no;
-      }
+    @include aboveTablet {
+      border-right: none;
     }
   }
 
@@ -126,7 +96,7 @@
 }
 
 #projects {
-  background-color: $projects-bg-color;
+  background-color: $skills-bg-color;
   height: fit-content;
   height: -moz-fit-content;
 
@@ -216,6 +186,19 @@
       font-size: 3.2rem;
     }
   }
+
+  &__parent {
+    position: relative;
+  }
+}
+
+.carousel .carousel-inner .item,.carousel .carousel-inner .active {
+  height: 100%;
+  /* position:relative */
+}
+
+.active {
+  display: inline-block !important;
 }
 
 .carousel-control {
@@ -409,4 +392,66 @@
       }
     }
   }
+}
+
+.carousel-inner {
+  > .carousel-item {
+   opacity: 0;
+   top: 0;
+   left: 0;
+   width: 100%;
+   display: block !important;
+   position: absolute;
+   z-index:0;
+   transition: none;
+   transform: translate3d(0,0,0) !important;
+
+    &:first-of-type {
+      position:relative;
+    }
+  }
+
+  > .active {
+    opacity: 1;
+    z-index:3;
+  }
+ 
+  /* Don't think need
+  > .next.left,
+  > .prev.right {
+    transition: opacity 0.6s ease-in-out;
+    opacity: 1;
+    left: 0;
+    z-index:2;
+  }        
+
+  > .active.left,
+  > .active.right {
+    z-index:1;
+  }
+  */
+}
+
+.carousel-control-prev, .carousel-control-next {
+  z-index: 4;
+}
+
+.carousel-control-next:after, .carousel-control-prev:after {
+  position: absolute;
+  content:"";
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  opacity:0;
+  background-color: black;
+}
+
+.carouselCenter {
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.container {
+  padding: 0;
 }

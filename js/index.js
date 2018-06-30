@@ -21,11 +21,12 @@ console.log("All projects", projects);
 // add event listener to all projects:
 // greater than 768px width run desktopClick func else run mobileClick func
 if (window.innerWidth > 768) {
-  projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
+  //projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
 } else {
   projects.forEach(project => project.addEventListener("click", function() {
-    setTimeout(mobileClick, 150, this);
+    setTimeout(mobileClick, 150, this); 
   }));
+  
 }
 
 // texts and links
@@ -59,7 +60,7 @@ const projectsSource = [
   "https://github.com/helplah/react-quote-machine"
 ];
 const projectsList = [];
-for (let x = 0; x < 5; x++){
+for (let x = 0; x < 5; x++) {
   projectsList.push([`${"projects__li" + x}`]);
 }
 
@@ -67,75 +68,6 @@ const projectsParent = document.getElementById("projects__parent"); // ul parent
 const section = document.createElement("section"); // section contains description of project
 section.className = "container"; // add class container and id projects__description to section
 section.id = "projects__description";
-
-/* when user is using tablet and above width devices */
-function desktopClick(e) {
-  // remove event listener from all projects
-  // after first click u can only click left, right arrow or exit
-  projects.forEach(project => project.removeEventListener("click", desktopClick, { once: true }));
-  console.log("Clicked project event", e);
-  console.log("Clicked projects path array", e.path);
-
-  // composedPath for firefox
-  const path = e.path || e.composedPath();
-  console.log(path);
-
-  // select all the other projects (or all non-clicked projects)
-  let otherProjects = projects.filter(project => project !== path[2]);
-  console.log(otherProjects);
-
-  // remove projects__li*, * being 0-4, and projects__flex to allow clicked project to expand
-  otherProjects.forEach(project => {
-    project.classList.remove("projects__flex");
-    Object.assign(project.style,{cursor:"default", display:"none"});
-  });
-
-  // remove projects__flex class from clicked project
-  path[2].classList.remove("projects__flex");
-  path[2].style = "cursor: default;"; // change cursor back to default
-
-  // get class names of projects__li
-  const clickedClass = path[2].className;
-  // get the last number of projects__li
-  const clickedNum = clickedClass[clickedClass.length - 1];
-  changeSection(clickedNum, section);
-
-  // Add leftArrow on clicked
-  const leftArrow = document.createElement("div");
-  leftArrow.id = "projects__leftArrow";
-  leftArrow.innerHTML = `<div role="button">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </div>`;
-  leftArrow.addEventListener("click", function() {
-    prevClick(clickedNum);
-  });
-
-  // Add rightArrow on clicked
-  const rightArrow = document.createElement("div");
-  rightArrow.id = "projects__rightArrow";
-  rightArrow.innerHTML = `<div role="button">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </div>`;
-  rightArrow.addEventListener("click", function() {
-    nextClick(clickedNum);
-  });
-
-  // Add closeBtn on clicked
-  const closeBtn = document.createElement("div");
-  closeBtn.id = "projects__closeBtn";
-  closeBtn.innerHTML = `<button type="button" class="close" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>`;
-  closeBtn.addEventListener("click", close, { once: true });
-
-  projectsParent.appendChild(section);
-  projectsParent.style.paddingBottom = "4vh";
-  path[3].appendChild(leftArrow);
-  path[3].appendChild(rightArrow);
-  path[3].appendChild(closeBtn);
-}
 
 function changeSection(index, section) {
   // multidimensional array that contains a list of accomplishments
@@ -252,8 +184,8 @@ function mobileClick(click) {
   console.log("Click", click);
 
   const flexbox = document.querySelector(".projects__flexbox");
-  const clickedClass = click.className; // get class names of projects__li
-  const clickedNum = clickedClass[clickedClass.length - 1]; // get the last number of projects__li
+  const clickedClass = click.id; // get id of projects__li
+  const clickedNum = clickedClass[clickedClass.length - 1]; // get last number of projects__li
   changeSection(clickedNum, section);
 
   let description = document.querySelector("#projects__description");

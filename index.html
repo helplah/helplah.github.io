@@ -10,6 +10,7 @@
     <title>Jen's Portfolio</title>
     <link rel="icon" type="image/ico" href="./assets/favicon.ico" sizes="16x16 32x32">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto|Sahitya|Monteserrat">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style type="text/css">
       /* Bootstrap Reboot v4.1.1
       *  Forked from Normalize.css, licensed MIT
@@ -512,37 +513,40 @@
       <!-- projects section -->
       <section id="projects">
         <h2 class="projects__heading container-fluid">Projects</h2>
-        <div id="projects__parent">
-          <ul class="projects__flexbox">
-            <li class="projects__li projects__flex projects__li0">
-              <picture id="projects-img0">
-                <source type="image/webp"
-                  data-srcset="./assets/flashcard-app.webp 1920w, ./assets/flashcard-app-1400.webp 1400w">
+        <div id="carousel" class="carousel container carouselCenter" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
+            <li data-target="#carousel" data-slide-to="4"></li>
+          </ol>
+          <ul class="projects__flexbox carousel-inner">
+            <li class="projects__li projects__flex carousel-item active" id="projects__li0">
+              <source type="image/webp"
+                data-srcset="./assets/flashcard-app.webp 1920w, ./assets/flashcard-app-1400.webp 1400w">
 
-                <img class="lazy projects__img"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                  data-src="./assets/flashcard-app.jpg" alt="Flashcard app"
-                  data-srcset="./assets/flashcard-app-531.jpg 531w,
-                              ./assets/flashcard-app-694.jpg 694w,
-                              ./assets/flashcard-app.jpg 1920w">
-              </picture>
+              <img class="lazy projects__img"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="./assets/flashcard-app.jpg" alt="Flashcard app"
+                data-srcset="./assets/flashcard-app-531.jpg 531w,
+                            ./assets/flashcard-app-694.jpg 694w,
+                            ./assets/flashcard-app.jpg 1920w">
             </li>
 
-            <li class="projects__li projects__flex projects__li1">
-              <picture>
-                <source type="image/webp"
-                  data-srcset="./assets/tribute-page.webp 1920w, ./assets/tribute-page-1400.webp 1400w, ./assets/tribute-page-879.webp 879w">
+            <li class="projects__li projects__flex carousel-item" id="projects__li1">
+              <source type="image/webp"
+                data-srcset="./assets/tribute-page.webp 1920w, ./assets/tribute-page-1400.webp 1400w, ./assets/tribute-page-879.webp 879w">
 
-                <img class="lazy projects__img"
-                  src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                  data-src="./assets/tribute-page.png" alt="Tribute page"
-                  data-srcset="./assets/tribute-page-486.png 486w,
-                              ./assets/tribute-page-557.png 557w,
-                              ./assets/tribute-page.png 1920w">
-              </picture>
+              <img class="lazy projects__img"
+                src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                data-src="./assets/tribute-page.png" alt="Tribute page"
+                data-srcset="./assets/tribute-page-486.png 486w,
+                            ./assets/tribute-page-557.png 557w,
+                            ./assets/tribute-page.png 1920w">
             </li>
 
-            <li class="projects__li projects__flex projects__li2">
+            <li class="projects__li projects__flex carousel-item" id="projects__li2">
               <picture>
                 <img class="lazy projects__img"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -553,7 +557,7 @@
               </picture>
             </li>
 
-            <li class="projects__li projects__flex projects__li3">
+            <li class="projects__li projects__flex carousel-item" id="projects__li3">
               <picture>
                 <img class="lazy projects__img"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
@@ -564,15 +568,22 @@
               </picture>
             </li>
 
-            <li class="projects__li projects__flex projects__li4">
+            <li class="projects__li projects__flex carousel-item" id="projects__li4">
               <picture>
                 <img class="lazy projects__img"
                   src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
                   data-src="./assets/react-quote-machine.png" alt="React Quote Machine">
               </picture>
             </li>
-
           </ul>
+          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
         </div>
       </section>
       <!-- end of projects section -->
@@ -685,5 +696,8 @@
     <script src="js/yall.min.js"></script>
     <script src="js/index.js"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
 </html>
