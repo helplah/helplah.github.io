@@ -4,7 +4,7 @@ new TypeIt('#hero__typewriter', {
   speed: 38,
   startDelay: 500,
   autoStart: true
-}).type(`Hi I'm Jenssen Lee! Looking to start my career as a Front-End Developer in Singapore.`)
+}).type(`Hi I'm Jenssen Lee! Looking to start my career as a Developer in Singapore.`)
   .pause(700)
   .break()
   .break()
@@ -68,6 +68,13 @@ const projectsParent = document.getElementById("projects__parent"); // ul parent
 const section = document.createElement("section"); // section contains description of project
 section.className = "container"; // add class container and id projects__description to section
 section.id = "projects__description";
+
+const carousel = document.getElementById("carousel");
+carousel.addEventListener("slide.bs.carousel", function(e) {
+  let currIndex = carousel.Carousel.getActiveIndex();
+  console.log(currIndex);
+  //changeSection()
+});
 
 function changeSection(index, section) {
   // multidimensional array that contains a list of accomplishments
@@ -139,22 +146,6 @@ function nextClick(clickedNum) {
   let nextProject = projects[index];
   Object.assign(nextProject.style, {display:"inline-block"});
   changeSection(index, section);
-}
-
-// exit carousel
-function close() {
-  // add projects__li*, * being 0-4, and projects__flex to allow all projects to occupy space
-  for (let x = 0; x < projects.length; x++) {
-    projects[x].classList.add("projects__flex");
-    projects[x].removeAttribute("style");
-  }
-
-  document.getElementById("projects__description").remove();
-  document.getElementById("projects__leftArrow").remove();
-  document.getElementById("projects__rightArrow").remove();
-  document.getElementById("projects__closeBtn").remove();
-  projectsParent.style.paddingBottom = "0";
-  projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
 }
 
 const icon = document.getElementById("header__icon");
