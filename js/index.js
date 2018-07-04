@@ -18,17 +18,6 @@ const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
 console.log("All projects", projects);
 
-// add event listener to all projects:
-// greater than 768px width run desktopClick func else run mobileClick func
-if (window.innerWidth > 768) {
-  //projects.forEach(project => project.addEventListener("click", desktopClick, { once: true }));
-} else {
-  projects.forEach(project => project.addEventListener("click", function() {
-    setTimeout(mobileClick, 150, this); 
-  }));
-  
-}
-
 // texts and links
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
@@ -129,6 +118,7 @@ function changeSection(index, section) {
   </div>`;
 }
 
+/* might remove prevClick and nextClick if they were not needed */
 let index = -1;
 // show previous project
 function prevClick(clickedNum) {
@@ -191,54 +181,4 @@ function clickMenuLinks() {
   overlay.classList.toggle("active");
   menu.classList.toggle("active");
   html.classList.toggle("active");
-}
-
-let lastClicked;
-/* when user is using tablet and below width devices */
-function mobileClick(click) {
-  console.log("Click", click);
-
-  const clickedClass = click.id; // get id of projects__li
-  const clickedNum = clickedClass[clickedClass.length - 1]; // get last number of projects__li
-  changeSection(clickedNum, section);
-
-  let description = document.querySelector("#projects__description");
-  // if description is present, clicks on itself or other projects will close it
-  // if other projects are clicked, it will cause description to appear below it
-  if (description !== null) { // if description exists
-    if (click.nextElementSibling !== description) { // if u click other projects
-      lastClicked.style.height = "30vh";
-      click.style.height = "45vh";
-      click.parentNode.insertBefore(section, click.nextSibling);
-    } else {
-      click.style.height = "30vh";
-      description.parentNode.removeChild(description);
-    }
-  // if description is not present, on clicked it'll appear beneath clicked element
-  } else {
-    click.style.height = "45vh";
-    click.parentNode.insertBefore(section, click.nextSibling);
-  }
-
-  description = document.querySelector("#projects__description");
-
-  // if last project was clicked
-  if (clickedNum == 4) {
-    // if description is not present below project
-    if (click.nextSibling !== description) {
-      flexbox.style.paddingBottom = "0";
-      // if description is present below project
-    } else {
-      description.style.marginBottom = "0";
-      flexbox.style.paddingBottom = "4vh";
-    }
-  } else {
-    if (click.nextSibling === description) {
-      description.style.marginBottom = "4vh";
-      flexbox.style.paddingBottom = "0";
-    }
-  }
-
-  lastClicked = click;
-  console.log("Last Clicked", lastClicked);
 }
