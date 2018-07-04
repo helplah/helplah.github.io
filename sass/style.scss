@@ -6,7 +6,7 @@
   &__heading {
     color: #fff;
     font: 3rem 'Sahitya', serif;
-    padding: 1.5rem 14rem;
+    padding: 1.5rem $horizontal-heading;
     margin: 0;
     background-color: $blue-circle;
 
@@ -53,13 +53,14 @@
     }
   }
 
+  /*
   &__flex {
     border-right: $projects-bg-color solid 4px;
 
     @include aboveTablet {
       border-right: none;
     }
-  }
+  }*/
 
   &__img {
     width: 100%;
@@ -102,11 +103,9 @@
 
   &__description {
     background-color: #fff;
-    margin-top: 4vh;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 4rem 6rem;
-    box-shadow: 1px 1px 10px 5px rgba(0, 0, 0, 0.3);
+    margin: 4vh auto;
+    padding: 4rem 6rem; 
+    box-shadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.4);
 
     @include belowTablet {
       margin-bottom: 4vh;
@@ -192,21 +191,6 @@
   }
 }
 
-.carousel .carousel-inner .item,.carousel .carousel-inner .active {
-  height: 100%;
-  /* position:relative */
-}
-
-.active {
-  display: inline-block !important;
-}
-
-.carousel-control {
-  &-prev-icon, &-next-icon {
-    color: #202020;
-  }
-}
-
 // skills sections
 #skills {
   background-color: $skills-bg-color;
@@ -220,7 +204,7 @@
     font: 3rem "Sahitya", serif;
     margin-top: 0;
     margin-bottom: 3rem;
-    padding: 1.5rem 14rem;
+    padding: 1.5rem $horizontal-heading;
     color: #fff;
     background-color: $red-circle;
     flex: 1 100%;
@@ -394,21 +378,32 @@
   }
 }
 
+.carousel .carousel-inner .item,.carousel .carousel-inner .active {
+  height: 100%;
+  position: relative;
+}
+
+.active {
+  display: inline-block !important;
+}
+
+.carousel-control {
+  &-prev-icon, &-next-icon {
+    color: #202020;
+  }
+}
+
 .carousel-inner {
   > .carousel-item {
    opacity: 0;
    top: 0;
    left: 0;
    width: 100%;
-   display: block !important;
+   display: block;
    position: absolute;
    z-index:0;
    transition: none;
    transform: translate3d(0,0,0) !important;
-
-    &:first-of-type {
-      position:relative;
-    }
   }
 
   > .active {
@@ -448,8 +443,7 @@
 }
 
 .carouselCenter {
-  border-left: 1px solid black;
-  border-right: 1px solid black;
+  box-shadow: 0px 1px 10px 3px rgba(0, 0, 0, 0.3);
 }
 
 .container {

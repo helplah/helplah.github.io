@@ -64,19 +64,43 @@ for (let x = 0; x < 5; x++) {
   projectsList.push([`${"projects__li" + x}`]);
 }
 
-const projectsParent = document.getElementById("projects__parent"); // ul parent node
+const sectionProjects = document.getElementById("projects"); 
+const flexbox = document.querySelector(".projects__flexbox");
 const section = document.createElement("section"); // section contains description of project
 section.className = "container"; // add class container and id projects__description to section
 section.id = "projects__description";
 
-const carousel = document.getElementById("carousel");
+const carousel = document.getElementById("carouselMain");
+changeSection(0, section);
+sectionProjects.append(section);
+
+/*
 carousel.addEventListener("slide.bs.carousel", function(e) {
-  let currIndex = carousel.Carousel.getActiveIndex();
-  console.log(currIndex);
-  //changeSection()
+  let curClass = e.relatedTarget.id;
+  let curIndex = curClass[curClass.length-1];
+  console.log("Index", curIndex);
+
+  //section.parentNode.removeChild(section);
+  changeSection(curIndex, section);
+  sectionProjects.append(section);
+});
+*/
+
+$("#carouselMain").on('slide.bs.carousel', function(e) {
+  let curClass = e.relatedTarget.id;
+  let curIndex = curClass[curClass.length-1];
+  console.log("Index", curIndex);
+
+  //section.parentNode.removeChild(section);
+  changeSection(curIndex, section);
+  sectionProjects.append(section);
 });
 
-function changeSection(index, section) {
+if (window.innerWidth < 992) {
+  carousel.classList.remove("container");
+}
+
+function changeSection(index, section) {  
   // multidimensional array that contains a list of accomplishments
   let li = "";
   for (let x = 0; x < whatILearnt[index].length; x++) {
@@ -174,7 +198,6 @@ let lastClicked;
 function mobileClick(click) {
   console.log("Click", click);
 
-  const flexbox = document.querySelector(".projects__flexbox");
   const clickedClass = click.id; // get id of projects__li
   const clickedNum = clickedClass[clickedClass.length - 1]; // get last number of projects__li
   changeSection(clickedNum, section);
