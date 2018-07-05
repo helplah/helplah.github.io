@@ -78,10 +78,13 @@
   background-color: $skills-bg-color;
   height: fit-content;
   height: -moz-fit-content;
+  padding-bottom: 4vh;
 
   &__description {
     background-color: #fff;
-    margin: 4vh auto;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
     padding: 4rem 6rem; 
     box-shadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.4);
 
@@ -121,7 +124,7 @@
       }
 
       @include belowMobileL {
-        width: 90%;
+        width: 95%;
       }
     }
   }

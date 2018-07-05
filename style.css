@@ -47,10 +47,13 @@
 #projects {
   background-color: #eaeaea;
   height: fit-content;
-  height: -moz-fit-content; }
+  height: -moz-fit-content;
+  padding-bottom: 4vh; }
   #projects__description {
     background-color: #fff;
-    margin: 4vh auto;
+    margin-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
     padding: 4rem 6rem;
     box-shadow: 0px 15px 35px 0px rgba(0, 0, 0, 0.4); }
     @media screen and (max-width: 769px) {
@@ -80,7 +83,7 @@
           width: 85%; } }
       @media screen and (max-width: 460px) {
         #projects__description.container {
-          width: 90%; } }
+          width: 95%; } }
 
 #skills {
   background-color: #eaeaea;
