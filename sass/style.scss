@@ -3,7 +3,7 @@
 
 // projects section
 .projects {
-  &__heading {
+  &__heading { // 11rem
     color: #fff;
     font: 3rem 'Sahitya', serif;
     padding: 1.5rem $horizontal-heading;
@@ -39,28 +39,6 @@
       //cursor: pointer;
     }
   }
-
-  &__li {
-    position: relative;
-    //list-style: none;
-    height: 30vh;
-    transition: all .4s cubic-bezier(1, 0, 1, 1.01);
-
-    @include aboveTablet {
-      //display: block;
-      height: 70vh;
-      //transition: all .5s ease-in-out .25s;
-    }
-  }
-
-  /*
-  &__flex {
-    border-right: $projects-bg-color solid 4px;
-
-    @include aboveTablet {
-      border-right: none;
-    }
-  }*/
 
   &__img {
     width: 100%;
@@ -143,51 +121,9 @@
       }
 
       @include belowMobileL {
-        width: 95%;
+        width: 90%;
       }
     }
-  }
-
-  &__leftArrow, &__rightArrow {
-    position: absolute;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    width: 40px;
-    height: 60%;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.4);
-    }
-  }
-
-  &__leftArrow {
-    left: 0;
-    justify-content: flex-end;
-  }
-
-  &__rightArrow {
-    right: 0;
-  }
-
-  &__closeBtn {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 1.5rem;
-    margin-right: 2rem;
-
-    > button {
-      cursor: pointer;
-    }
-
-    button > span {
-      font-size: 3.2rem;
-    }
-  }
-
-  &__parent {
-    position: relative;
   }
 }
 
@@ -410,21 +346,6 @@
     opacity: 1;
     z-index:3;
   }
- 
-  /* Don't think need
-  > .next.left,
-  > .prev.right {
-    transition: opacity 0.6s ease-in-out;
-    opacity: 1;
-    left: 0;
-    z-index:2;
-  }        
-
-  > .active.left,
-  > .active.right {
-    z-index:1;
-  }
-  */
 }
 
 .carousel-control-prev, .carousel-control-next {
