@@ -22,17 +22,17 @@ console.log("All projects", projects);
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
-  "Second website that I created. I chose Elon Musk because I respect his tenacity, work ethics and the reasons for doing what he's doing.",
-  "Third website that I created. Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
-  "Created using React, search the typed word at Wikipedia and return the top 10 results.",
+  "I chose Elon Musk because I respect his tenacity, work ethics and the reasons for his serial entrepreneurship.",
+  "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
+  "Created using React, search the typed word at Wikipedia and return the top 10 results.", 
   "Created using React, generates a new design quote when it's clicked."
 ];
 const whatILearnt = [
-  ["Learnt Node.js and Express", "Learnt React and Redux", "Learnt and used git", "Added if user isAuthenticated function", "Made it responsive", "Refactored and used table and grid"],
+  ["Node.js and Express", "React and Redux", "Git", "Responsive", "Used table and grid"],
   ["Responsive image", "Refactored CSS to SCSS"],
-  ["Used Twitch API", "Used jQuery, Bootstrap"],
-  ["Used Create React App", "Used Wikipedia OpenSearch"],
-  ["Used Create React App", "Used Quotes on Design API", "Used jQuery"]
+  ["Twitch API", "jQuery", "Bootstrap"],
+  ["Create React App", "Wikipedia OpenSearch"],
+  ["Create React App", "Quotes on Design API", "jQuery"]
 ];
 const projectsLink = [
   "https://shrouded-taiga-52624.herokuapp.com/",
@@ -63,8 +63,8 @@ const carousel = document.getElementById("carouselMain");
 changeSection(0, section);
 sectionProjects.append(section);
 
-/*
-carousel.addEventListener("slide.bs.carousel", function(e) {
+// it only works for the first slide
+/* carousel.addEventListener("slide.bs.carousel", function(e) {
   let curClass = e.relatedTarget.id;
   let curIndex = curClass[curClass.length-1];
   console.log("Index", curIndex);
@@ -116,50 +116,6 @@ function changeSection(index, section) {
       </a>
     </div>
   </div>`;
-}
-
-/* might remove prevClick and nextClick if they were not needed */
-let index = -1;
-// show previous project
-function prevClick(clickedNum) {
-  if (index === -1) {
-    index = clickedNum;
-  }
-
-  let curProject = projects[index];
-  // disable flex value for this project
-  Object.assign(curProject.style, {display:"none"});
-
-  // enable flex value for previous project
-  if (index > 0) {
-    index--;
-  } else {
-    index = 4;
-  }
-  let prevProject = projects[index];
-  Object.assign(prevProject.style, {display:"inline-block"});
-  changeSection(index, section);
-}
-
-// show next project
-function nextClick(clickedNum) {
-  if (index === -1) {
-    index = clickedNum;
-  }
-
-  let curProject = projects[index];
-  // disable flex value for this project
-  Object.assign(curProject.style, {display:"none"});
-
-  // enable flex value for next project
-  if (index < 4) {
-    index++;
-  } else {
-    index = 0;
-  }
-  let nextProject = projects[index];
-  Object.assign(nextProject.style, {display:"inline-block"});
-  changeSection(index, section);
 }
 
 const icon = document.getElementById("header__icon");
