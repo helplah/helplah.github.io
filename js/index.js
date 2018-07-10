@@ -22,7 +22,7 @@ console.log("All projects", projects);
 const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
-  "Tribute to Elon Musk whom I respect for his tenacity, work ethics and inspiring reasons for his serial entrepreneurship.",
+  "Biography of Elon Musk whom I respect for his tenacity, work ethics and inspiring reasons for his serial entrepreneurship.",
   "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
   "Created using React, search the typed word at Wikipedia and return the top 10 results.", 
   "Created using React, generates a new design quote when it's clicked."
