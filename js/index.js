@@ -4,7 +4,7 @@ new TypeIt('#hero__typewriter', {
   speed: 38,
   startDelay: 500,
   autoStart: true
-}).type(`Hi I'm Jenssen Lee! Looking to start my career as a Developer in Singapore.`)
+}).type(`Hi I'm Jenssen Lee, a Web Developer in Singapore!`)
   .pause(700)
   .break()
   .break()
