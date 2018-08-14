@@ -19,8 +19,9 @@ const projects = Array.from(arrayLike); // all projects
 console.log("All projects", projects);
 
 // texts and links
-const header = ["Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
+const header = ["Shopping Cart", "Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
+  "Created for a full stack coding test. It retrieves product details from Express API and allows user to add or remove products from the cart. Displays and tallies the total quantity and price.",
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
   "Biography of Elon Musk whom I respect for his tenacity, work ethics and inspiring reasons for his serial entrepreneurship.",
   "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
@@ -28,13 +29,16 @@ const intro = [
   "Created using React, generates a new design quote when it's clicked."
 ];
 const whatILearnt = [
-  ["Node.js and Express", "React and Redux", "Git", "Responsive", "Used table and grid"],
+  ["Created REST API endpoint", "Tested /GET route and whether each object have the necessary properties", "Proxy client package.json", 
+    "Built using six React components", "Utilised grid to replicate the mockup look given to me", "First time deploying to heroku"],
+  ["Node.js and Express", "React and Redux", "Practised Git and did my first PR", "Made it responsive using media queries and refactoring CSS", "Used table and grid"],
   ["Responsive image", "Refactored CSS to SCSS"],
   ["Twitch API", "jQuery", "Bootstrap"],
   ["Create React App", "Wikipedia OpenSearch"],
   ["Create React App", "Quotes on Design API", "jQuery"]
 ];
 const projectsLink = [
+  "https://jenlky-shopping-cart.herokuapp.com/",
   "https://shrouded-taiga-52624.herokuapp.com/",
   "/tribute-page",
   "/twitch-tv",
@@ -42,6 +46,7 @@ const projectsLink = [
   "/react-quote-machine"
 ];
 const projectsSource = [
+  "https://github.com/helplah/shopping-cart",
   "https://github.com/chingu-voyage4/Bears-Team-9",
   "https://github.com/helplah/tribute-page",
   "https://github.com/helplah/twitch-tv",
@@ -49,7 +54,7 @@ const projectsSource = [
   "https://github.com/helplah/react-quote-machine"
 ];
 const projectsList = [];
-for (let x = 0; x < 5; x++) {
+for (let x = 0; x < 6; x++) {
   projectsList.push([`${"projects__li" + x}`]);
 }
 
