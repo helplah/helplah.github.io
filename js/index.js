@@ -21,21 +21,22 @@ console.log("All projects", projects);
 // texts and links
 const header = ["Shopping Cart", "Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
-  "Created for a full stack coding test. It retrieves product details from Express API and allows user to add or remove products from the cart. Displays and tallies the total quantity and price.",
+  "Created for a coding test. It retrieves product details from Express API and allows user to add or remove products from the cart. Displays and tallies the total quantity and price.",
   "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
   "Biography of Elon Musk whom I respect for his tenacity, work ethics and inspiring reasons for his serial entrepreneurship.",
   "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
-  "Created using React, search the typed word at Wikipedia and return the top 10 results.", 
-  "Created using React, generates a new design quote when it's clicked."
+  "Searches the typed word at Wikipedia and returns the top 10 results. Directs user to the searched result on click.", 
+  "Generates a new design quote when it's clicked. Allows user to tweet said quote."
 ];
 const whatILearnt = [
   ["Created REST API endpoint", "Tested /GET route and whether each object have the necessary properties", "Proxy client package.json", 
-    "Built using six React components", "Utilised grid to replicate the mockup look given to me", "First time deploying to heroku"],
-  ["Node.js and Express", "React and Redux", "Practised Git and did my first PR", "Made it responsive using media queries and refactoring CSS", "Used table and grid"],
-  ["Responsive image", "Refactored CSS to SCSS"],
-  ["Twitch API", "jQuery", "Bootstrap"],
-  ["Create React App", "Wikipedia OpenSearch"],
-  ["Create React App", "Quotes on Design API", "jQuery"]
+    "Built using React components", "Utilised grid to replicate the mockup given to me", "Responsive and mobile friendly", "First time deploying to heroku"],
+  ["Node.js and Express", "React and Redux", "Practised Git and did my first PR", "Made it responsive using media queries and refactoring CSS", 
+    "Used table and grid for layout"],
+  ["Responsive and mobile friendly", "Responsive image", "Refactored CSS to SCSS"],
+  ["Responsive and mobile friendly", "Consumed Twitch API", "jQuery for event handling", "Bootstrap"],
+  ["Create React App boilerplate", "Responsive and mobile friendly", "Wikipedia OpenSearch", "Used CSS grid for layout"],
+  ["Create React App boilerplate", "Responsive and mobile friendly", "Consumed Quotes on Design API", "Used ES6 JavaScript and fetch"]
 ];
 const projectsLink = [
   "https://jenlky-shopping-cart.herokuapp.com/",
