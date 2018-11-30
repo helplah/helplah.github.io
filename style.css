@@ -5,7 +5,8 @@
 .projects__heading {
   color: #fff;
   font: 3rem 'Sahitya', serif;
-  padding: 1.5rem 11rem;
+  padding: 1.5rem 0;
+  text-align: center;
   margin: 0;
   background-color: #4FBCE8; }
   @media screen and (min-width: 769px) and (max-width: 1025px) {
@@ -45,7 +46,7 @@
   text-decoration: none; }
 
 #projects {
-  background-color: #eaeaea;
+  background-color: #ffffff;
   height: fit-content;
   height: -moz-fit-content;
   padding-bottom: 4vh; }
@@ -86,7 +87,7 @@
           width: 95%; } }
 
 #skills {
-  background-color: #eaeaea;
+  background-color: #ffffff;
   display: flex;
   flex-flow: row wrap;
   justify-content: center; }
@@ -95,7 +96,8 @@
   font: 3rem "Sahitya", serif;
   margin-top: 0;
   margin-bottom: 3rem;
-  padding: 1.5rem 11rem;
+  padding: 1.5rem 0;
+  text-align: center;
   color: #fff;
   background-color: #E6807B;
   flex: 1 100%; }
@@ -173,6 +175,7 @@
   display: flex; }
 .footer__license {
   order: 2;
+  color: #afafaf;
   font-size: 1.6rem;
   margin-bottom: 0;
   text-align: center;

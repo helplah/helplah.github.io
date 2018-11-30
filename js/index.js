@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", yall);
 
 new TypeIt('#hero__typewriter', {
-  speed: 38,
-  startDelay: 500,
+  speed: 41,
+  startDelay: 300,
   autoStart: true
-}).type(`Hi I'm Jenssen Lee, a Web Developer in Singapore!`)
+})/*.type(`Hi I'm Jenssen Lee, a Web Developer in Singapore!`)
   .pause(700)
   .break()
-  .break()
+  .break()*/
   .type(`I have experience with HTML, SASS, Bootstrap, JavaScript, jQuery, React, Node.js, Express.`)
-  .pause(700)
+  /*.pause(700)
   .break()
   .break()
   .type(`This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank" rel="noopener">Github</a>.`);
+  */
 
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects

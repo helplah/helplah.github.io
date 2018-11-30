@@ -60,7 +60,7 @@ body {
     font: 2.4rem "Sahitya", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", serif;
     display: inline-block;
     list-style: none;
-    color: rgba(0, 0, 0, 0.4); }
+    color: #656565; }
     .header__links > a:hover {
       text-decoration: none;
       color: black; }
@@ -179,16 +179,14 @@ body {
 #hero {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: 100vh;
-  background-image: url("./assets/triple-Os.png");
+  flex-wrap: wrap;
+  background-image: url("./assets/background.jpg");
   background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
-  #hero__typewriter {
-    padding-left: 2rem;
-    padding-right: 1.5rem; }
 
 .hero__overlay {
   position: absolute;
@@ -198,5 +196,13 @@ body {
   left: 0;
   background-color: rgba(0, 0, 0, 0.15);
   z-index: 1; }
+.hero__container {
+  position: absolute;
+  top: 31rem;
+  right: 22rem; }
+.hero__footer {
+  color: #afafaf; }
+.hero__h1 {
+  color: #4c4c4c; }
 
 /*# sourceMappingURL=first-paint.css.map */

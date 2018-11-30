@@ -131,7 +131,7 @@ body {
         display: block;
         text-decoration: none;
         text-align: center;
-        color: #fff; //$projects-heading-bg
+        color: #fff;
         font-size: 2.4rem;
         padding: 1.1rem 0;
         border-bottom: 1px solid #fff;
@@ -267,17 +267,18 @@ body {
 #hero {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   height: 100vh;
-  background-image: url("./assets/triple-Os.png");
+  flex-wrap: wrap;
+  background-image: url("./assets/background.jpg");
   background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   &__typewriter {
-    padding-left: 2rem;
-    padding-right: 1.5rem;
+    //padding-left: 2rem;
+    //padding-right: 1.5rem;
   }
 }
 
@@ -290,5 +291,19 @@ body {
     left: 0;
     background-color: rgba(0,0,0,.15);
     z-index: 1;
+  }
+
+  &__container {
+    position: absolute;
+    top: 31rem;
+    right: 22rem;
+  }
+
+  &__footer {
+    color: $bottom-text; 
+  }
+
+  &__h1 {
+    color: $hero-h1;
   }
 }

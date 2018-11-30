@@ -11,6 +11,7 @@
     <link rel="icon" type="image/ico" href="./assets/favicon.ico" sizes="16x16 32x32">
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Roboto|Sahitya|Monteserrat">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="first-paint.css">
     <link rel="stylesheet" href="style.css">
     <style type="text/css">
       .carousel-control-prev-icon {
@@ -38,202 +39,7 @@
         background-color: rgb(29, 29, 29);
       }
 
-      html {
-        font-size: 62.5%;
-        scroll-behavior: smooth;
-        overflow: auto; }
-        html.active {
-          overflow: hidden; }
-
-      body {
-        position: relative;
-        font-family: "Roboto", "Tahoma", "Verdana", "Segoe", sans-serif;
-        line-height: 1.5;
-        font-size: 1.6rem; }
-
-      /* z-index: 10 -> menu overlay (black)
-         z-index: 11 -> .header__menu (white), .header__nav
-         z-index: 12 -> #header__icon
-      */
-      .header {
-        position: absolute;
-        display: flex;
-        padding: 4rem 7rem;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center; }
-        @media screen and (max-width: 769px) {
-          .header {
-            padding: 2.6rem 4rem; } }
-        @media screen and (max-width: 460px) {
-          .header {
-            padding: 2rem 3rem; } }
-        .header__logo {
-          width: 60px;
-          height: 60px; }
-          @media screen and (max-width: 460px) {
-            .header__logo {
-              width: 50px;
-              height: 50px; } }
-        .header__nav {
-          z-index: 11; }
-        .header__overlay {
-          z-index: -10;
-          position: fixed;
-          top: 0;
-          right: 0;
-          height: 100%;
-          width: 100%;
-          background-color: black;
-          opacity: 0; }
-          .header__overlay.active {
-            opacity: 0.8;
-            z-index: 10; }
-            @media screen and (min-width: 769px) {
-              .header__overlay.active {
-                display: none; } }
-        .header__links > a {
-          font: 2.4rem "Sahitya", "Palatino", "Palatino Linotype", "Palatino LT STD", "Book Antiqua", "Georgia", serif;
-          display: inline-block;
-          list-style: none;
-          color: rgba(0, 0, 0, 0.4); }
-          .header__links > a:hover {
-            text-decoration: none;
-            color: black; }
-            .header__links > a:hover::after {
-              width: 100%; }
-          .header__links > a::after {
-            content: '';
-            display: block;
-            width: 0;
-            height: 2px;
-            background: #000;
-            transition: width .3s; }
-          .header__links > a:not(:last-child) {
-            margin-right: 5rem; }
-        @media screen and (max-width: 769px) {
-          .header__links {
-            display: none; } }
-        .header__menu {
-          background: #b6b6b6;
-          position: fixed;
-          height: 100%;
-          width: 65%;
-          z-index: 11;
-          right: -100%;
-          top: 0; }
-          .header__menu.active {
-            right: 0;
-            padding-top: 10rem;
-            transition: block, right .5s ease; }
-            @media screen and (min-width: 769px) {
-              .header__menu.active {
-                display: none; } }
-            .header__menu.active > a {
-              display: block;
-              text-decoration: none;
-              text-align: center;
-              color: #fff;
-              font-size: 2.4rem;
-              padding: 1.1rem 0;
-              border-bottom: 1px solid #fff; }
-              .header__menu.active > a:hover {
-                background-color: rgba(0, 0, 0, 0.3); }
-
-      #header__icon {
-        position: relative;
-        cursor: pointer;
-        display: none;
-        z-index: 12; }
-        #header__icon .line-one, #header__icon .line-two, #header__icon .line-three {
-          height: 4.5px;
-          width: 40px;
-          background: #fff;
-          border-radius: 5px;
-          box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, 0.4); }
-        #header__icon .line-one {
-          animation: animate-line-1-rev .7s forwards; }
-        #header__icon .line-two {
-          margin: 5px 0;
-          animation: animate-line-2-rev .7s forwards; }
-        #header__icon .line-three {
-          animation: animate-line-3-rev .7s forwards; }
-        #header__icon .no-animation {
-          animation: none !important; }
-        #header__icon.active .line-one {
-          animation: animate-line-1 0.7s cubic-bezier(0.3, 1, 0.7, 1) forwards; }
-        #header__icon.active .line-two {
-          animation: animate-line-2 0.7s cubic-bezier(0.3, 1, 0.7, 1) forwards; }
-        #header__icon.active .line-three {
-          animation: animate-line-3 0.7s cubic-bezier(0.3, 1, 0.7, 1) forwards; }
-      @keyframes animate-line-1 {
-        0% {
-          transform: translate3d(0, 0, 0) rotate(0); }
-        50% {
-          transform: translate3d(0, 9.5px, 0) rotate(0); }
-        100% {
-          transform: translate3d(0, 9.5px, 0) rotate(45deg); } }
-      @keyframes animate-line-2 {
-        0% {
-          transform: scale(1);
-          opacity: 1; }
-        100% {
-          transform: scale(0);
-          opacity: 0; } }
-      @keyframes animate-line-3 {
-        0% {
-          transform: translate3d(0, 0, 0) rotate(0deg); }
-        50% {
-          transform: translate3d(0, -9.5px, 0) rotate(0); }
-        100% {
-          transform: translate3d(0, -9.5px, 0) rotate(135deg); } }
-      @keyframes animate-line-1-rev {
-        0% {
-          transform: translate3d(0, 9.5px, 0) rotate(45deg); }
-        50% {
-          transform: translate3d(0, 9.5px, 0) rotate(0); }
-        100% {
-          transform: translate3d(0, 0, 0) rotate(0); } }
-      @keyframes animate-line-2-rev {
-        0% {
-          transform: scale(0);
-          opacity: 0; }
-        100% {
-          transform: scale(1);
-          opacity: 1; } }
-      @keyframes animate-line-3-rev {
-        0% {
-          transform: translate3d(0, -9.5px, 0) rotate(135deg); }
-        50% {
-          transform: translate3d(0, -9.5px, 0) rotate(0); }
-        100% {
-          transform: translate3d(0, 0, 0) rotate(0deg); } }
-        @media screen and (max-width: 769px) {
-          #header__icon {
-            display: block; } }
-
-      #hero {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-image: url("./assets/triple-Os.png");
-        background-origin: border-box;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover; }
-        #hero__typewriter {
-          padding-left: 2rem;
-          padding-right: 1.5rem; }
-
-      .hero__overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.15);
-        z-index: 1; }
+      /* insert first-paint.css when I'm done updating */
     </style>
   </head>
   <body>
@@ -261,8 +67,11 @@
     <main>
       <section id="hero">
         <div class="hero__container">
+          <h1 class="hero__h1">Hi I'm Jenssen Lee, a Web Developer in Singapore!</h1>
           <p id="hero__typewriter"></p>
         </div>
+        <p class="hero__footer">This site was designed and built by me - the code is available on 
+          <a href="https://github.com/helplah/helplah.github.io" target="_blank" rel="noopener">Github</a>.</p>
       </section>
 
       <!-- projects section -->
@@ -403,8 +212,8 @@
           </li>
         </ul>
         <p class="footer__license">Banner, icons and logos provided by
-          <a href="http://simpledesktops.com/browse/desktops/2015/may/27/000/" target="_blank" rel="noopener">
-            Ann Chan</a>
+          <a href="https://aishahhazin.com/" target="_blank" rel="noopener">
+            Aishah</a>
           and
           <a href="https://fontawesome.com/license" target="_blank" rel="noopener">
             Font Awesome</a>

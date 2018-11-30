@@ -1,6 +1,6 @@
 /* first-paint.scss */
 // first page
-$header-links-color: rgba(#000000, 0.4);
+$header-links-color: #656565; //rgba(#000000, 0.4)
 
 // hamburger menu properties
 $menu-line-height: 4.5px;
@@ -19,14 +19,17 @@ $blue-circle: #4FBCE8;
 $red-circle: #E6807B;
 $yellow-circle: #F0BB6C;
 
+// first and last page
+$hero-h1: #4c4c4c;
+$bottom-text: #afafaf;
+
 // projects section
 $flex-grow-no: 50;
-$projects-heading-bg: #008073; // dark green
-$projects-bg-color: #d4d4d4; // grey outline
+$projects-bg-color: #ffffff; // grey outline #d4d4d4
 
 // skills section
-$skills-bg-color: #eaeaea; // #eaeaea, rgb(234, 234, 234) white
+$skills-bg-color: #ffffff; // #eaeaea, rgb(234, 234, 234) white
 
 
 // projects n skills heading
-$horizontal-heading: 11rem;
+$horizontal-heading: 0;
