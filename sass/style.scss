@@ -142,7 +142,6 @@
 .skills {
   &__heading {
     font: 3rem "Sahitya", serif;
-    margin-top: 0;
     margin-bottom: 3rem;
     padding: 1.5rem $horizontal-heading;
     text-align: center;
@@ -175,7 +174,7 @@
     > li {
       display: inline-block;
       list-style: none;
-      text-align: center;
+      //text-align: center;
       margin-bottom: 3rem;
 
       &:not(:last-child) {
@@ -190,41 +189,45 @@
         }
       }
 
-      &:last-child {
-        width: inherit;
-        height: inherit;
-      }
-
       > img {
         width: 100px;
       }
+    } 
+  }
 
-      &:nth-last-child(1) > object {
-        width: 210.5px;
-        height: auto;
-
-        @include belowTablet {
-          width: 187px;
-        }
-
-        @include belowMobileM {
-          width: 176px;
-        }
+  &__bio {
+    order: 2; 
+    margin-bottom: 2rem;
+ 
+    > img {
+      width: 210.5px;
+      height: auto;
+  
+      @include belowTablet {
+        width: 187px;
       }
-
-      &:nth-last-child(1) > img {
-        width: 210.5px;
-        height: auto;
-
-        @include belowTablet {
-          width: 187px;
-        }
-
-        @include belowMobileM {
-          width: 176px;
-        }
+  
+      @include belowMobileM {
+        width: 176px;
       }
     }
+
+    > object {
+      width: 210.5px;
+      height: auto;
+  
+      @include belowTablet {
+        width: 187px;
+      }
+  
+      @include belowMobileM {
+        width: 176px;
+      }
+    }
+  }
+
+  &__links {
+    display: inline-block;
   }
 }
 
@@ -235,7 +238,7 @@
   }
 
   &__bio {
-    display: inline-block;
+    //display: inline-block;
     font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
     margin-right: 1rem;
 
@@ -250,21 +253,10 @@
 }
 
 .footer {
-  &__hr {
-    order: 3;
-    width: 90%;
-  }
-
-  &__flex {
-    order: 4;
-    display: flex;
-  }
-
   &__license {
-    order: 2;
+    order: 3;
     color: $bottom-text;
     font-size: 1.6rem;
-    margin-bottom: 0;
     text-align: center;
     width: -webkit-fill-available;
     width: -moz-available;
@@ -286,12 +278,12 @@
   > li {
     display: inline-block;
     list-style: none;
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
 
     &:not(:last-child) {
       margin-bottom: 2rem;
-      margin-right: 6rem;
+      margin-right: 4rem;
 
       @include belowMobileL {
         margin-bottom: 1rem;

@@ -94,7 +94,6 @@
 
 .skills__heading {
   font: 3rem "Sahitya", serif;
-  margin-top: 0;
   margin-bottom: 3rem;
   padding: 1.5rem 0;
   text-align: center;
@@ -120,7 +119,6 @@
   .skills__ul > li {
     display: inline-block;
     list-style: none;
-    text-align: center;
     margin-bottom: 3rem; }
     .skills__ul > li:not(:last-child) {
       margin-right: 10rem; }
@@ -130,34 +128,35 @@
       @media screen and (max-width: 540px) {
         .skills__ul > li:not(:last-child) {
           margin-right: 3rem; } }
-    .skills__ul > li:last-child {
-      width: inherit;
-      height: inherit; }
     .skills__ul > li > img {
       width: 100px; }
-    .skills__ul > li:nth-last-child(1) > object {
-      width: 210.5px;
-      height: auto; }
-      @media screen and (max-width: 769px) {
-        .skills__ul > li:nth-last-child(1) > object {
-          width: 187px; } }
-      @media screen and (max-width: 380px) {
-        .skills__ul > li:nth-last-child(1) > object {
-          width: 176px; } }
-    .skills__ul > li:nth-last-child(1) > img {
-      width: 210.5px;
-      height: auto; }
-      @media screen and (max-width: 769px) {
-        .skills__ul > li:nth-last-child(1) > img {
-          width: 187px; } }
-      @media screen and (max-width: 380px) {
-        .skills__ul > li:nth-last-child(1) > img {
-          width: 176px; } }
+.skills__bio {
+  order: 2;
+  margin-bottom: 2rem; }
+  .skills__bio > img {
+    width: 210.5px;
+    height: auto; }
+    @media screen and (max-width: 769px) {
+      .skills__bio > img {
+        width: 187px; } }
+    @media screen and (max-width: 380px) {
+      .skills__bio > img {
+        width: 176px; } }
+  .skills__bio > object {
+    width: 210.5px;
+    height: auto; }
+    @media screen and (max-width: 769px) {
+      .skills__bio > object {
+        width: 187px; } }
+    @media screen and (max-width: 380px) {
+      .skills__bio > object {
+        width: 176px; } }
+.skills__links {
+  display: inline-block; }
 
 .about__img {
   border-radius: 10px; }
 .about__bio {
-  display: inline-block;
   font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
   margin-right: 1rem; }
   @media screen and (min-width: 769px) and (max-width: 1025px) {
@@ -167,17 +166,10 @@
     .about__bio {
       font-size: 1.6rem; } }
 
-.footer__hr {
-  order: 3;
-  width: 90%; }
-.footer__flex {
-  order: 4;
-  display: flex; }
 .footer__license {
-  order: 2;
+  order: 3;
   color: #afafaf;
   font-size: 1.6rem;
-  margin-bottom: 0;
   text-align: center;
   width: -webkit-fill-available;
   width: -moz-available; }
@@ -194,11 +186,11 @@
   .social-media__ul > li {
     display: inline-block;
     list-style: none;
-    width: 34px;
-    height: 34px; }
+    width: 30px;
+    height: 30px; }
     .social-media__ul > li:not(:last-child) {
       margin-bottom: 2rem;
-      margin-right: 6rem; }
+      margin-right: 4rem; }
       @media screen and (max-width: 460px) {
         .social-media__ul > li:not(:last-child) {
           margin-bottom: 1rem;
