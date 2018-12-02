@@ -174,21 +174,17 @@
     > li {
       display: inline-block;
       list-style: none;
-      //text-align: center;
       margin-bottom: 3rem;
+      margin-right: 10rem;
 
-      &:not(:last-child) {
-        margin-right: 10rem;
-
-        @include belowTablet {
-          margin-right: 5rem;
-        }
-
-        @include mobileL-Tablet {
-          margin-right: 3rem;
-        }
+      @include belowTablet {
+        margin-right: 5rem;
       }
 
+      @include mobileL-Tablet {
+        margin-right: 3rem;
+      }
+      
       > img {
         width: 100px;
       }
@@ -198,10 +194,12 @@
   &__bio {
     order: 2; 
     margin-bottom: 2rem;
+    text-align: center;
  
     > img {
       width: 210.5px;
       height: auto;
+      margin-right: 1rem;
   
       @include belowTablet {
         width: 187px;
@@ -228,19 +226,15 @@
 
   &__links {
     display: inline-block;
+    vertical-align: middle;
   }
 }
 
 // about section
 .about {
-  &__img {
-    border-radius: 10px;
-  }
-
   &__bio {
     //display: inline-block;
     font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-    margin-right: 1rem;
 
     @include belowLaptop {
       font-size: 1.7rem;
@@ -275,15 +269,15 @@
   padding-left: 0;
   margin-bottom: 5px;
 
-  > li {
+  li {
     display: inline-block;
     list-style: none;
     width: 30px;
     height: 30px;
 
-    &:not(:last-child) {
+    &:not(:last-child):not(:last-of-type) {
       margin-bottom: 2rem;
-      margin-right: 4rem;
+      margin-right: 3.5rem;
 
       @include belowMobileL {
         margin-bottom: 1rem;

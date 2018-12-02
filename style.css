@@ -119,23 +119,24 @@
   .skills__ul > li {
     display: inline-block;
     list-style: none;
-    margin-bottom: 3rem; }
-    .skills__ul > li:not(:last-child) {
-      margin-right: 10rem; }
-      @media screen and (max-width: 769px) {
-        .skills__ul > li:not(:last-child) {
-          margin-right: 5rem; } }
-      @media screen and (max-width: 540px) {
-        .skills__ul > li:not(:last-child) {
-          margin-right: 3rem; } }
+    margin-bottom: 3rem;
+    margin-right: 10rem; }
+    @media screen and (max-width: 769px) {
+      .skills__ul > li {
+        margin-right: 5rem; } }
+    @media screen and (max-width: 540px) {
+      .skills__ul > li {
+        margin-right: 3rem; } }
     .skills__ul > li > img {
       width: 100px; }
 .skills__bio {
   order: 2;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  text-align: center; }
   .skills__bio > img {
     width: 210.5px;
-    height: auto; }
+    height: auto;
+    margin-right: 1rem; }
     @media screen and (max-width: 769px) {
       .skills__bio > img {
         width: 187px; } }
@@ -152,13 +153,11 @@
       .skills__bio > object {
         width: 176px; } }
 .skills__links {
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: middle; }
 
-.about__img {
-  border-radius: 10px; }
 .about__bio {
-  font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-  margin-right: 1rem; }
+  font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif; }
   @media screen and (min-width: 769px) and (max-width: 1025px) {
     .about__bio {
       font-size: 1.7rem; } }
@@ -183,27 +182,27 @@
 .social-media__ul {
   padding-left: 0;
   margin-bottom: 5px; }
-  .social-media__ul > li {
+  .social-media__ul li {
     display: inline-block;
     list-style: none;
     width: 30px;
     height: 30px; }
-    .social-media__ul > li:not(:last-child) {
+    .social-media__ul li:not(:last-child):not(:last-of-type) {
       margin-bottom: 2rem;
-      margin-right: 4rem; }
+      margin-right: 3.5rem; }
       @media screen and (max-width: 460px) {
-        .social-media__ul > li:not(:last-child) {
+        .social-media__ul li:not(:last-child):not(:last-of-type) {
           margin-bottom: 1rem;
           margin-right: 4rem; } }
       @media screen and (max-width: 380px) {
-        .social-media__ul > li:not(:last-child) {
+        .social-media__ul li:not(:last-child):not(:last-of-type) {
           margin-right: 2.8rem; } }
-    .social-media__ul > li > a > svg:hover {
+    .social-media__ul li > a > svg:hover {
       fill: #F0BB6C;
       transition: all 0.2s ease-in-out;
       transform: scale(1.2);
       transform-origin: 50% 50%; }
-    .social-media__ul > li > a > svg:active {
+    .social-media__ul li > a > svg:active {
       fill: black; }
 
 .carousel .carousel-inner .item, .carousel .carousel-inner .active {
