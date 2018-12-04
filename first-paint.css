@@ -22,7 +22,7 @@ body {
 .header {
   position: absolute;
   display: flex;
-  padding: 4rem 7rem;
+  padding: 3% 6%;
   width: 100%;
   justify-content: space-between;
   align-items: center; }
@@ -179,11 +179,9 @@ body {
 #hero {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100vh;
-  flex-wrap: wrap;
   background-image: url("./assets/background.jpg");
-  background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
@@ -198,11 +196,34 @@ body {
   z-index: 1; }
 .hero__container {
   position: absolute;
-  top: 31rem;
-  right: 22rem; }
-.hero__footer {
-  color: #afafaf; }
+  right: 16%; }
+  @media screen and (max-width: 769px) {
+    .hero__container p span {
+      font-size: 14px !important; } }
+  @media screen and (min-width: 1025px) and (max-width: 1400px) {
+    .hero__container {
+      right: 11%; } }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    .hero__container {
+      right: 4%; } }
+  @media screen and (max-width: 769px) {
+    .hero__container {
+      right: 1%;
+      margin: 0 1rem; } }
 .hero__h1 {
   color: #4c4c4c; }
+  @media screen and (max-width: 769px) {
+    .hero__h1 {
+      font-size: 2rem; } }
+.hero__footer {
+  color: #afafaf;
+  align-self: flex-end; }
+  @media screen and (max-width: 540px) {
+    .hero__footer {
+      font-size: 14px; } }
+  @media screen and (max-width: 460px) {
+    .hero__footer {
+      margin-left: 10px;
+      margin-right: 10px; } }
 
 /*# sourceMappingURL=first-paint.css.map */

@@ -27,7 +27,7 @@ body {
 .header {
   position: absolute;
   display: flex;
-  padding: 4rem 7rem;
+  padding: 3% 6%; // 4rem 7rem
   width: 100%;
   justify-content: space-between;
   align-items: center;
@@ -267,11 +267,10 @@ body {
 #hero {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   height: 100vh;
-  flex-wrap: wrap;
   background-image: url("./assets/background.jpg");
-  background-origin: border-box;
+  //background-origin: border-box;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -290,15 +289,47 @@ body {
 
   &__container {
     position: absolute;
-    top: 31rem;
-    right: 22rem;
-  }
+    right: 16%;
 
-  &__footer {
-    color: $bottom-text; 
+    p span {
+      @include belowTablet {
+        font-size: 14px !important;
+      }
+    }
+    
+    @include belowLaptopL {
+      right: 11%;
+    }
+
+    @include belowLaptop {
+      right: 4%;
+    }
+
+    @include belowTablet {
+      right: 1%;
+      margin: 0 1rem;
+    }
   }
 
   &__h1 {
     color: $hero-h1;
+
+    @include belowTablet {
+      font-size: 2rem;
+    }
+  }
+
+  &__footer {
+    color: $bottom-text; 
+    align-self: flex-end;
+
+    @include mobileL-tablet {
+      font-size: 14px;
+    }
+
+    @include belowMobileL {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
   }
 }
