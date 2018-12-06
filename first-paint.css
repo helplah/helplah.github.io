@@ -185,6 +185,12 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover; }
+  @media screen and (min-width: 769px) and (max-width: 1025px) {
+    #hero {
+      background-image: url("./assets/background-left.jpg"); } }
+  @media screen and (max-width: 769px) {
+    #hero {
+      background-image: url("./assets/background-left.jpg"); } }
 
 .hero__overlay {
   position: absolute;
@@ -196,16 +202,13 @@ body {
   z-index: 1; }
 .hero__container {
   position: absolute;
-  right: 16%; }
+  right: 10%; }
   @media screen and (max-width: 769px) {
     .hero__container p span {
       font-size: 14px !important; } }
   @media screen and (min-width: 1025px) and (max-width: 1400px) {
     .hero__container {
-      right: 11%; } }
-  @media screen and (min-width: 769px) and (max-width: 1025px) {
-    .hero__container {
-      right: 4%; } }
+      right: 3%; } }
   @media screen and (max-width: 769px) {
     .hero__container {
       right: 1%;

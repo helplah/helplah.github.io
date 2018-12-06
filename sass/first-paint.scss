@@ -274,6 +274,14 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+
+  @include belowLaptop {
+    background-image: url("./assets/background-left.jpg");
+  }
+  
+  @include belowTablet {
+    background-image: url("./assets/background-left.jpg");
+  }
 }
 
 .hero {
@@ -289,7 +297,7 @@ body {
 
   &__container {
     position: absolute;
-    right: 16%;
+    right: 10%;
 
     p span {
       @include belowTablet {
@@ -298,11 +306,11 @@ body {
     }
     
     @include belowLaptopL {
-      right: 11%;
+      right: 3%;
     }
 
     @include belowLaptop {
-      right: 4%;
+      
     }
 
     @include belowTablet {
