@@ -21,9 +21,12 @@ const intro = [
   `Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. 
     It allows users to create a topic, insert questions and answers. 
     Users can only add card or delete from the topic they created, but they can study all the existing topics (even if they didn't create it).`,
-  `Biography of Elon Musk whom I respect for his tenacity, work ethics and his serial entrepreneurship.`,
+  `Built as a tribute to Elon Musk with a short timeline of his life. 
+    I chose Elon Musk because I admire and respect his tenacity, work ethics and drive towards serial entrepreneurship. 
+    Most importantly, I'm impressed and inspired by his motivation for doing all these things - he truly believes in building a better world.`,
   `Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.`,
-  `Searches the typed word at Wikipedia and returns the top 10 results. Directs user to the searched result on click.`, 
+  `Searches the typed word at Wikipedia and returns the top 10 results. 
+    When you click on any of the results, it directs you to the said result.`, 
   `Generates a new design quote when it's clicked. Allows user to tweet said quote.`
 ];
 const accomplishments = [
