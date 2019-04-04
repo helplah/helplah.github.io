@@ -227,6 +227,11 @@
   &__links {
     display: inline-block;
     vertical-align: middle;
+
+    p:last-of-type {
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
   }
 }
 
@@ -235,6 +240,8 @@
   &__bio {
     //display: inline-block;
     font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+    margin-bottom: 0.5rem;
+    margin-top: 4rem;
 
     @include belowLaptop {
       font-size: 1.7rem;
@@ -267,7 +274,6 @@
 
 .social-media__ul {
   padding-left: 0;
-  margin-bottom: 5px;
 
   li {
     display: inline-block;

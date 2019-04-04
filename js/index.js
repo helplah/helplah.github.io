@@ -1,38 +1,36 @@
 document.addEventListener("DOMContentLoaded", yall);
 
 new TypeIt('#hero__typewriter', {
+  strings: ([`I have experience with HTML, SASS, Bootstrap, JavaScript, jQuery, React, Redux,`, 
+    `Material-UI, Node.js, Express and MongoDB.`]),
   speed: 41,
   startDelay: 300,
-  autoStart: true
-})/*.type(`Hi I'm Jenssen Lee, a Web Developer in Singapore!`)
-  .pause(700)
-  .break()
-  .break()*/
-  .type(`I have experience with HTML, SASS, Bootstrap, JavaScript, jQuery, React, Node.js, Express.`)
-  /*.pause(700)
-  .break()
-  .break()
-  .type(`This site was designed and built by me - the code is available on <a href="https://github.com/helplah/helplah.github.io" target="_blank" rel="noopener">Github</a>.`);
-  */
+  autoStart: true,
+});
 
 const arrayLike = document.getElementsByClassName("projects__li");
 const projects = Array.from(arrayLike); // all projects
-console.log("All projects", projects);
+// console.log("All projects", projects);
 
 // texts and links
-const header = ["Shopping Cart", "Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
+const title = ["ShopLah (Shopping Cart)", "Flashcard App", "Tribute Page", "Twitch TV", "React Wikipedia", "React Quote Machine"];
 const intro = [
-  "Created for a coding test. It retrieves product details from Express API and allows user to add or remove products from the cart. Displays and tallies the total quantity and price.",
-  "Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. It allows users to create a topic, insert questions and answers.",
-  "Biography of Elon Musk whom I respect for his tenacity, work ethics and inspiring reasons for his serial entrepreneurship.",
-  "Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.",
-  "Searches the typed word at Wikipedia and returns the top 10 results. Directs user to the searched result on click.", 
-  "Generates a new design quote when it's clicked. Allows user to tweet said quote."
+  `Retrieves and displays products from Express API. Users must log in to add, remove products and change item quantity. 
+    When user logins, retrieve added products from database. Limits access to cart, profile and checkout page to logged in users. 
+    Displays and tallies the total quantity and price.`,
+  `Created during Chingu Voyage, a collaborative environment where hundreds of people build projects together to learn. 
+    It allows users to create a topic, insert questions and answers. 
+    Users can only add card or delete from the topic they created, but they can study all the existing topics (even if they didn't create it).`,
+  `Biography of Elon Musk whom I respect for his tenacity, work ethics and his serial entrepreneurship.`,
+  `Tracks twitch streamers and shows what they're streaming if they're online. Allows user to filter based on status.`,
+  `Searches the typed word at Wikipedia and returns the top 10 results. Directs user to the searched result on click.`, 
+  `Generates a new design quote when it's clicked. Allows user to tweet said quote.`
 ];
-const whatILearnt = [
-  ["Created REST API endpoint", "Tested /GET route and whether each object have the necessary properties", "Proxy client package.json", 
-    "Built using React components", "Utilised grid to replicate the mockup given to me", "Responsive and mobile friendly", "First time deploying to heroku"],
-  ["Node.js and Express", "React and Redux", "Practised Git and did my first PR", "Made it responsive using media queries and refactoring CSS", 
+const accomplishments = [
+  ["Created REST API endpoint", "Tested /GET routes", "React, Redux and Material-UI front-end", 
+    "Node.js and MongoDB back-end", "User authentication with passport.js, passport-auth0 and express-session", "Responsive and mobile friendly", 
+    "Deployed to Heroku successfully"],
+  ["React and Redux front-end", "Node.js and Express back-end", "Practised Git and did my first PR", "Made it responsive using media queries and refactoring CSS", 
     "Used table and grid for layout"],
   ["Responsive and mobile friendly", "Responsive image", "Refactored CSS to SCSS"],
   ["Responsive and mobile friendly", "Consumed Twitch API", "jQuery for event handling", "Bootstrap"],
@@ -85,7 +83,7 @@ sectionProjects.append(section);
 $("#carouselMain").on('slide.bs.carousel', function(e) {
   let curClass = e.relatedTarget.id;
   let curIndex = curClass[curClass.length-1];
-  console.log("Index", curIndex);
+  // console.log("Index", curIndex);
 
   //section.parentNode.removeChild(section);
   changeSection(curIndex, section);
@@ -99,12 +97,12 @@ if (window.innerWidth < 992) {
 function changeSection(index, section) {  
   // multidimensional array that contains a list of accomplishments
   let li = "";
-  for (let x = 0; x < whatILearnt[index].length; x++) {
-    li += `<li>${whatILearnt[index][x]}</li>`;
+  for (let x = 0; x < accomplishments[index].length; x++) {
+    li += `<li>${accomplishments[index][x]}</li>`;
   }
 
   section.innerHTML = `<div>
-    <h3>${header[index]}</h3>
+    <h3>${title[index]}</h3>
     <p>${intro[index]}</p>
     <hr class="projects__hr">
     <h3>Accomplishments</h3>

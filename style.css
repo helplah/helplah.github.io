@@ -155,9 +155,14 @@
 .skills__links {
   display: inline-block;
   vertical-align: middle; }
+  .skills__links p:last-of-type {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem; }
 
 .about__bio {
-  font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif; }
+  font: 1.8rem "Monteserrat", "Arial", "Helvetica Neue", "Helvetica", sans-serif;
+  margin-bottom: 0.5rem;
+  margin-top: 4rem; }
   @media screen and (min-width: 769px) and (max-width: 1025px) {
     .about__bio {
       font-size: 1.7rem; } }
@@ -180,8 +185,7 @@
       padding: 0 1.6rem; } }
 
 .social-media__ul {
-  padding-left: 0;
-  margin-bottom: 5px; }
+  padding-left: 0; }
   .social-media__ul li {
     display: inline-block;
     list-style: none;
